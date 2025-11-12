@@ -6,5 +6,10 @@
   "projects": { "title":"Projects" },
   "xp": { "title":"Experience & Certifications" },
   "services": { "title":"Services" },
-  "contact": { "title":"Contact" }
+  "contact": { "title":"Contact" },
+  "about": {
+  "title": "About me",
+  "body": "I’m a developer trained in DAM with hands-on specialization in Salesforce (APEX 2025). I build clean, fast solutions—from WordPress sites to time-saving automations. I’m seeking my first junior role to deliver real impact while learning fast."
+}
+
 }

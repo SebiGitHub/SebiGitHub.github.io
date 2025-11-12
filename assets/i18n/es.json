@@ -6,5 +6,10 @@
   "projects": { "title":"Proyectos" },
   "xp": { "title":"Experiencia & Certificaciones" },
   "services": { "title":"Servicios" },
-  "contact": { "title":"Contacto" }
+  "contact": { "title":"Contacto" },
+  "about": {
+  "title": "Sobre mí",
+  "body": "Soy desarrollador con formación DAM y especialización práctica en Salesforce (APEX 2025). Me gusta construir soluciones claras y rápidas: desde webs con WordPress hasta automatizaciones que ahorran tiempo. Busco mi primera oportunidad como junior para aportar impacto real mientras sigo aprendiendo."
+}
+
 }
