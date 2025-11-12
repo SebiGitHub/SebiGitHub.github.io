@@ -1,0 +1,10 @@
+{
+  "nav": { "about":"Sobre mí", "skills":"Skills", "projects":"Proyectos", "xp":"Experiencia & Certs", "services":"Servicios", "contact":"Contacto" },
+  "hero": { "title":"Desarrollo, automatizo y diseño experiencias web.", "subtitle":"DAM · Salesforce APEX · WordPress · Frontend", "cta":"Ver proyectos" },
+  "about": { "title":"Sobre mí", "body":"Resumen breve aquí." },
+  "skills": { "title":"Skills" },
+  "projects": { "title":"Proyectos" },
+  "xp": { "title":"Experiencia & Certificaciones" },
+  "services": { "title":"Servicios" },
+  "contact": { "title":"Contacto" }
+}
