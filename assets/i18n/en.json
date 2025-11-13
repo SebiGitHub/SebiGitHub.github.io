@@ -3,7 +3,20 @@
   "hero": { "title":"I build, automate and design web experiences.", "subtitle":"DAM · Salesforce APEX · WordPress · Frontend", "cta":"See projects" },
   "about": { "title":"About me", "body":"Short summary here." },
   "skills": { "title":"Skills" },
-  "projects": { "title":"Projects" },
+  "projects": {
+  "title": "Projects",
+  "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
+  "p1_desc": "PowerApps + SharePoint app that allows each employee to access only the protocols assigned to their role and department.",
+  "p1_why": "This project was one of my first experiences with a real-world environment. I had to understand user needs, internal workflows and platform limitations. The most valuable part was learning to integrate different tools into a coherent flow that automates tasks and reduces manual errors. It was my first real step into the idea of a 'complete solution'.",
+
+  "p2_title": "AvaloniaCatalogoWinForms",
+  "p2_desc": "Fictional product catalog with full CRUD: add, update, delete, filter and sort products across multiple screens.",
+  "p2_why": "This project helped me understand how to structure, manage and manipulate data within a desktop application. It was an exercise that taught me to plan screens, maintain data consistency and apply basic architecture principles.",
+
+  "p3_title": "PokedexBuscador",
+  "p3_desc": "Kotlin Android app that consumes the Pokémon API to display relevant Pokémon information.",
+  "p3_why": "Here I learned to work with real APIs and JSON trees. Beyond the playful theme, I learned how client-server communication works and how to present dynamic data efficiently in Android."
+},
   "xp": { "title":"Experience & Certifications" },
   "services": { "title":"Services" },
   "contact": { "title":"Contact" },

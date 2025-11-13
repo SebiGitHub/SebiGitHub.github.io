@@ -41,3 +41,39 @@ p{color:var(--muted); line-height:1.7}
 }
 .card:hover{transform:translateY(-3px); box-shadow:0 12px 40px rgba(0,0,0,.35)}
 .footer{border-top:1px solid rgba(255,255,255,.06); padding:24px 20px; text-align:center; color:var(--muted)}
+
+.project-card h3 {
+  margin-top: 0;
+}
+
+.project-card .tech {
+  margin: 12px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.project-card .tech span {
+  background: rgba(255,255,255,.08);
+  padding: 6px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--cyan);
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.project-card details {
+  margin: 10px 0;
+  color: var(--muted);
+}
+
+.project-card details summary {
+  cursor: pointer;
+  color: var(--violet);
+}
+
+.project-card .btn {
+  display: inline-block;
+  margin-top: 14px;
+}
+

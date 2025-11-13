@@ -3,7 +3,20 @@
   "hero": { "title":"Desarrollo, automatizo y diseño experiencias web.", "subtitle":"DAM · Salesforce APEX · WordPress · Frontend", "cta":"Ver proyectos" },
   "about": { "title":"Sobre mí", "body":"Resumen breve aquí." },
   "skills": { "title":"Skills" },
-  "projects": { "title":"Proyectos" },
+  "projects": {
+  "title": "Proyectos",
+  "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
+  "p1_desc": "Aplicación desarrollada con PowerApps y SharePoint para que cada empleado acceda solo a los protocolos que le corresponden según su categoría y servicio.",
+  "p1_why": "Este proyecto marca uno de mis primeros acercamientos a un entorno profesional real, donde tenía que entender necesidades de usuarios, flujos internos de un equipo sanitario y limitaciones técnicas de distintas plataformas. La parte más valiosa fue aprender a integrar herramientas heterogéneas en un flujo coherente que automatiza tareas y reduce errores manuales. Fue mi primer contacto con la idea de 'solución completa'.",
+
+  "p2_title": "AvaloniaCatalogoWinForms",
+  "p2_desc": "Catálogo ficticio con CRUD completo: agregar, actualizar, eliminar, filtrar y ordenar productos en varias pantallas.",
+  "p2_why": "Este proyecto me permitió comprender cómo estructurar, gestionar y manipular datos dentro de una aplicación de escritorio. Fue un ejercicio donde aprendí a planificar pantallas y asegurar la consistencia de los datos, habilidades que luego pude trasladar a proyectos más complejos.",
+
+  "p3_title": "PokedexBuscador",
+  "p3_desc": "Aplicación en Kotlin que consulta la API de Pokémon para mostrar información útil de cada Pokémon al usuario.",
+  "p3_why": "Con este desarrollo pude experimentar con APIs reales y manejo de datos JSON. Más allá del contenido lúdico, interioricé cómo funciona la comunicación cliente-servidor y cómo presentar información de forma ligera y eficiente en Android."
+},
   "xp": { "title":"Experiencia & Certificaciones" },
   "services": { "title":"Servicios" },
   "contact": { "title":"Contacto" },
