@@ -193,7 +193,6 @@ function setupSectionObserver(){
 
 document.addEventListener("DOMContentLoaded", ()=>{
   applyI18n();
-  renderProjects();
   setupSectionObserver();
 });
 
