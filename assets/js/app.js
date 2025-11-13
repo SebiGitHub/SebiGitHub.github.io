@@ -20,6 +20,7 @@ function applyI18n(){
   renderSkills();
   renderProjects();
   renderXP();
+  renderServices();
   document.documentElement.lang = STATE.lang;
 }
 
@@ -140,6 +141,34 @@ function renderXP(){
 
   const certs = document.getElementById("services-list");
 }
+
+function renderServices(){
+  const container = document.getElementById("services-list");
+  if (!container || !STATE.dict.services) return;
+
+  const items = [
+    {
+      title: STATE.dict.services.s1_title,
+      body: STATE.dict.services.s1_body
+    },
+    {
+      title: STATE.dict.services.s2_title,
+      body: STATE.dict.services.s2_body
+    },
+    {
+      title: STATE.dict.services.s3_title,
+      body: STATE.dict.services.s3_body
+    }
+  ];
+
+  container.innerHTML = items.map(i => `
+    <div class="card service-card">
+      <h3>${i.title}</h3>
+      <p>${i.body}</p>
+    </div>
+  `).join("");
+}
+
 
 
 

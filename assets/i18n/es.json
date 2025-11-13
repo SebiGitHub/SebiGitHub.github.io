@@ -62,8 +62,20 @@
   "cert2": "DAM Multiplataforma (2023–2025)",
   "cert3": "B1 Cambridge"
   },
+
+  "services": {
+  "title": "Servicios",
   
-  "services": { "title":"Servicios" },
+  "s1_title": "Desarrollo y automatización",
+  "s1_body": "Creo pequeñas aplicaciones internas, automatizo procesos repetitivos y conecto datos entre herramientas. Experiencia con PowerApps, SharePoint, Access, VBScript y APIs REST.",
+
+  "s2_title": "Desarrollo web",
+  "s2_body": "Construyo webs claras y funcionales en WordPress, con diseño moderno y mantenimiento básico. También trabajo con HTML y CSS para ajustes personalizados.",
+
+  "s3_title": "Soporte técnico y mejora de sistemas",
+  "s3_body": "Diagnóstico, resolución de incidencias, documentación y comunicación con usuarios. Capacidad para detectar problemas y proponer soluciones prácticas."
+  },
+  
   "contact": { "title":"Contacto" },
   "about": {
   "title": "Sobre mí",

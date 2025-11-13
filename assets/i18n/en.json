@@ -44,7 +44,7 @@
   "p3_desc": "Kotlin Android app that consumes the Pokémon API to display relevant Pokémon information.",
   "p3_why": "Here I learned to work with real APIs and JSON trees. Beyond the playful theme, I learned how client-server communication works and how to present dynamic data efficiently in Android."
   },
-  
+
   "xp": {
   "title": "Experience & Certifications",
 
@@ -63,7 +63,19 @@
   "cert3": "Cambridge B1"
   },
 
-  "services": { "title":"Services" },
+  "services": {
+  "title": "Services",
+  
+  "s1_title": "Development & automation",
+  "s1_body": "I build small internal applications, automate repetitive workflows and connect data across tools. Experience with PowerApps, SharePoint, Access, VBScript and REST APIs.",
+
+  "s2_title": "Web development",
+  "s2_body": "I create clean, functional websites using WordPress, with modern design and basic maintenance. Also comfortable with HTML and CSS for custom adjustments.",
+
+  "s3_title": "Technical support & system improvement",
+  "s3_body": "Incident resolution, diagnostics, documentation and user guidance. Strong ability to detect issues and propose practical, efficient solutions."
+  },
+  
   "contact": { "title":"Contact" },
   "about": {
   "title": "About me",

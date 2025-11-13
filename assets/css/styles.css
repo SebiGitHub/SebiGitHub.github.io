@@ -117,3 +117,13 @@ p{color:var(--muted); line-height:1.7}
   font-size: 14px;
 }
 
+.service-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
