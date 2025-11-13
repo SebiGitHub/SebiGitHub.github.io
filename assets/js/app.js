@@ -12,6 +12,8 @@ async function loadDict(lang){
 }
 
 function applyI18n(){
+  if (!STATE.dict || !STATE.dict.nav) return; // aún no se ha cargado el JSON
+
   document.querySelectorAll('[data-i18n]').forEach(el=>{
     const key = el.getAttribute('data-i18n');
     const val = key.split('.').reduce((o,k)=>o?.[k], STATE.dict);
@@ -24,11 +26,11 @@ function applyI18n(){
   document.documentElement.lang = STATE.lang;
 }
 
+
 document.getElementById('lang-toggle')?.addEventListener('click', ()=>{
   loadDict(STATE.lang === 'es' ? 'en' : 'es');
 });
 
-loadDict(STATE.lang);
 
 function renderProjects(){
   const grid = document.getElementById("projects-grid");
@@ -180,7 +182,6 @@ function setupSectionObserver(){
     entries.forEach(entry => {
       if (entry.isIntersecting){
         entry.target.classList.add('visible');
-        // opcional: dejar de observar para no animar mil veces
         observer.unobserve(entry.target);
       }
     });
@@ -192,7 +193,7 @@ function setupSectionObserver(){
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
-  applyI18n();
+  loadDict(STATE.lang);
   setupSectionObserver();
 });
 
