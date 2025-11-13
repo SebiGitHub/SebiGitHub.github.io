@@ -173,12 +173,24 @@ function renderServices(){
   `).join("");
 }
 
+function setupSectionObserver(){
+  const sections = document.querySelectorAll('.section');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('visible');
+        // opcional: dejar de observar para no animar mil veces
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.18
+  });
 
-
-
+  sections.forEach(sec => observer.observe(sec));
+}
 
 document.addEventListener("DOMContentLoaded", ()=>{
   applyI18n();
-  renderProjects();
+  setupSectionObserver();
 });
-

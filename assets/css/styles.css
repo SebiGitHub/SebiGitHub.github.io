@@ -5,6 +5,12 @@
   --radius:16px; --max:1120px;
 }
 *{box-sizing:border-box} html,body{margin:0}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
 body{
   background:linear-gradient(180deg,#0b0f14 0%,#0b0f14 60%,#0d1218 100%);
   color:var(--text); font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
@@ -215,3 +221,13 @@ p{color:var(--muted); line-height:1.7}
     radial-gradient(circle at 20% 80%, rgba(56,189,248,0.5), transparent 55%);
 }
 
+.section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
