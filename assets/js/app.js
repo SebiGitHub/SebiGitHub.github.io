@@ -17,6 +17,7 @@ function applyI18n(){
     const val = key.split('.').reduce((o,k)=>o?.[k], STATE.dict);
     if (typeof val === 'string') el.textContent = val;
   });
+  renderSkills();
   renderProjects();
   document.documentElement.lang = STATE.lang;
 }
@@ -76,6 +77,40 @@ function renderProjects(){
   `).join("");
 
 }
+
+function renderSkills(){
+  const grid = document.getElementById("skills-grid");
+  if (!grid || !STATE.dict.skills) return;
+
+  const blocks = [
+    {
+      title: STATE.dict.skills.dev_title,
+      items: STATE.dict.skills.dev_items
+    },
+    {
+      title: STATE.dict.skills.web_title,
+      items: STATE.dict.skills.web_items
+    },
+    {
+      title: STATE.dict.skills.data_title,
+      items: STATE.dict.skills.data_items
+    },
+    {
+      title: STATE.dict.skills.soft_title,
+      items: STATE.dict.skills.soft_items
+    }
+  ];
+
+  grid.innerHTML = blocks.map(b => `
+    <div class="card skill-card">
+      <h3>${b.title}</h3>
+      <ul>
+        ${b.items.map(i => `<li>${i}</li>`).join("")}
+      </ul>
+    </div>
+  `).join("");
+}
+
 
 document.addEventListener("DOMContentLoaded", ()=>{
   applyI18n();

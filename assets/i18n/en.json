@@ -1,7 +1,35 @@
 {
   "nav": { "about":"About", "skills":"Skills", "projects":"Projects", "xp":"Experience & Certs", "services":"Services", "contact":"Contact" },
   "hero": { "title":"I build, automate and design web experiences.", "subtitle":"DAM · Salesforce APEX · WordPress · Frontend", "cta":"See projects" },
-  "skills": { "title":"Skills" },
+  "skills": {
+  "title": "Skills",
+  "dev_title": "Development & automation",
+  "dev_items": [
+    "Java · C# · Kotlin (basic Android)",
+    "Apex in Salesforce (APEX 2025 training)",
+    "VBScript for process automation",
+    "REST APIs and JSON handling"
+  ],
+  "web_title": "Web & UI",
+  "web_items": [
+    "WordPress: site creation and customization",
+    "HTML · CSS · basic responsive design",
+    "Interest in clean, dark and minimal UI"
+  ],
+  "data_title": "Data & tools",
+  "data_items": [
+    "Advanced Excel (formulas, structured data)",
+    "Access: small databases and prototypes",
+    "PowerApps + SharePoint integration"
+  ],
+  "soft_title": "Soft skills",
+  "soft_items": [
+    "Fast learning and constant curiosity",
+    "Clear communication with non-technical people",
+    "Ability to work with changing requirements"
+  ]
+  },
+  
   "projects": {
   "title": "Projects",
   "p1_title": "WEB-DE-PROTOCOLOS-HSJD",

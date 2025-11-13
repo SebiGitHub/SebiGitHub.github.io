@@ -1,7 +1,35 @@
 {
   "nav": { "about":"Sobre mí", "skills":"Skills", "projects":"Proyectos", "xp":"Experiencia & Certs", "services":"Servicios", "contact":"Contacto" },
   "hero": { "title":"Desarrollo, automatizo y diseño experiencias web.", "subtitle":"DAM · Salesforce APEX · WordPress · Frontend", "cta":"Ver proyectos" },
-  "skills": { "title":"Skills" },
+  "skills": {
+  "title": "Skills",
+  "dev_title": "Desarrollo y automatización",
+  "dev_items": [
+    "Java · C# · Kotlin (Android básico)",
+    "Apex en Salesforce (formación APEX 2025)",
+    "VBScript para automatización de procesos",
+    "Consumo de APIs REST y JSON"
+  ],
+  "web_title": "Web & UI",
+  "web_items": [
+    "WordPress: creación y personalización de sitios",
+    "HTML · CSS · conceptos básicos de diseño responsive",
+    "Interés por UI limpia, oscura y minimalista"
+  ],
+  "data_title": "Datos & herramientas",
+  "data_items": [
+    "Excel avanzado (fórmulas, estructuras de datos)",
+    "Access: bases de datos pequeñas y prototipos",
+    "Integración PowerApps + SharePoint"
+  ],
+  "soft_title": "Soft skills",
+  "soft_items": [
+    "Aprendizaje rápido y curiosidad constante",
+    "Comunicación clara con personas no técnicas",
+    "Capacidad de trabajar con requisitos cambiantes"
+  ]
+  },
+
   "projects": {
   "title": "Proyectos",
   "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
@@ -15,7 +43,8 @@
   "p3_title": "PokedexBuscador",
   "p3_desc": "Aplicación en Kotlin que consulta la API de Pokémon para mostrar información útil de cada Pokémon al usuario.",
   "p3_why": "Con este desarrollo pude experimentar con APIs reales y manejo de datos JSON. Más allá del contenido lúdico, interioricé cómo funciona la comunicación cliente-servidor y cómo presentar información de forma ligera y eficiente en Android."
-},
+  },
+  
   "xp": { "title":"Experiencia & Certificaciones" },
   "services": { "title":"Servicios" },
   "contact": { "title":"Contacto" },

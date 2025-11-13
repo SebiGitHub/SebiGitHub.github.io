@@ -95,3 +95,25 @@ p{color:var(--muted); line-height:1.7}
   filter: drop-shadow(0 8px 24px rgba(0,0,0,.6));
 }
 
+.skill-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.skill-card ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.skill-card li::before {
+  content: "• ";
+  color: var(--cyan);
+}
+
+.skill-card li {
+  color: var(--muted);
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+
