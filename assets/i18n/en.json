@@ -43,8 +43,26 @@
   "p3_title": "PokedexBuscador",
   "p3_desc": "Kotlin Android app that consumes the Pokémon API to display relevant Pokémon information.",
   "p3_why": "Here I learned to work with real APIs and JSON trees. Beyond the playful theme, I learned how client-server communication works and how to present dynamic data efficiently in Android."
-},
-  "xp": { "title":"Experience & Certifications" },
+  },
+  
+  "xp": {
+  "title": "Experience & Certifications",
+
+  "xp1_title": "DAM Internship — Hospital San Juan de Dios (2025)",
+  "xp1_body": "Hybrid role between technical support and internal development. I managed incidents, configured equipment, documented procedures and improved internal applications. I learned data integration, task automation and how to translate user needs into functional solutions.",
+
+  "xp2_title": "Final Project — PowerApps + SharePoint + Access + Excel (2025)",
+  "xp2_body": "I built a full application connecting PowerApps, SharePoint, Access, Excel and a VBScript automation script. This was my first end-to-end project, covering logic design, data integration, automation and deployment.",
+
+  "xp3_title": "Customer Service Agent — Konecta (2023)",
+  "xp3_body": "A role that strengthened communication, incident management and structured documentation in a CRM. This helps me translate user needs into clear and actionable technical tasks.",
+
+  "certs_title": "Certifications",
+  "cert1": "Salesforce: Developing Apps in Apex (2025)",
+  "cert2": "Multiplatform Application Development (2023–2025)",
+  "cert3": "Cambridge B1"
+  },
+
   "services": { "title":"Services" },
   "contact": { "title":"Contact" },
   "about": {

@@ -19,6 +19,7 @@ function applyI18n(){
   });
   renderSkills();
   renderProjects();
+  renderXP();
   document.documentElement.lang = STATE.lang;
 }
 
@@ -110,6 +111,36 @@ function renderSkills(){
     </div>
   `).join("");
 }
+
+function renderXP(){
+  const container = document.getElementById("xp-list");
+  if (!container || !STATE.dict.xp) return;
+
+  const items = [
+    {
+      title: STATE.dict.xp.xp1_title,
+      body: STATE.dict.xp.xp1_body
+    },
+    {
+      title: STATE.dict.xp.xp2_title,
+      body: STATE.dict.xp.xp2_body
+    },
+    {
+      title: STATE.dict.xp.xp3_title,
+      body: STATE.dict.xp.xp3_body
+    }
+  ];
+
+  container.innerHTML = items.map(i => `
+    <div class="card xp-card">
+      <h3>${i.title}</h3>
+      <p>${i.body}</p>
+    </div>
+  `).join("");
+
+  const certs = document.getElementById("services-list");
+}
+
 
 
 document.addEventListener("DOMContentLoaded", ()=>{

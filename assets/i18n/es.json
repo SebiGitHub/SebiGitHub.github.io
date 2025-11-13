@@ -44,8 +44,25 @@
   "p3_desc": "Aplicación en Kotlin que consulta la API de Pokémon para mostrar información útil de cada Pokémon al usuario.",
   "p3_why": "Con este desarrollo pude experimentar con APIs reales y manejo de datos JSON. Más allá del contenido lúdico, interioricé cómo funciona la comunicación cliente-servidor y cómo presentar información de forma ligera y eficiente en Android."
   },
+
+  "xp": {
+  "title": "Experiencia y Certificaciones",
+
+  "xp1_title": "Prácticas DAM — Hospital San Juan de Dios (2025)",
+  "xp1_body": "Rol híbrido entre soporte técnico y desarrollo interno. Gestioné incidencias, configuré equipos, documenté procesos y contribuí a mejorar aplicaciones internas. Aprendí a integrar datos, automatizar tareas y comunicarme con usuarios para transformar necesidades reales en soluciones funcionales.",
+
+  "xp2_title": "TFG — PowerApps + SharePoint + Access + Excel (2025)",
+  "xp2_body": "Desarrollé una aplicación completa conectando PowerApps, SharePoint, Access, Excel y un script VBScript para automatizar sincronizaciones. Fue mi primer proyecto 'end-to-end', desde la lógica interna hasta el despliegue y control de accesos.",
+
+  "xp3_title": "Teleoperador — Konecta (2023)",
+  "xp3_body": "Puesto centrado en comunicación clara, gestión de incidencias y documentación en CRM. Experiencia clave para tratar con usuarios finales y traducir sus necesidades en tareas técnicas concretas.",
+
+  "certs_title": "Certificaciones",
+  "cert1": "Salesforce: Developing Apps in Apex (2025)",
+  "cert2": "DAM Multiplataforma (2023–2025)",
+  "cert3": "B1 Cambridge"
+  },
   
-  "xp": { "title":"Experiencia & Certificaciones" },
   "services": { "title":"Servicios" },
   "contact": { "title":"Contacto" },
   "about": {
