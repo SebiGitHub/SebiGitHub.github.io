@@ -75,8 +75,14 @@
   "s3_title": "Technical support & system improvement",
   "s3_body": "Incident resolution, diagnostics, documentation and user guidance. Strong ability to detect issues and propose practical, efficient solutions."
   },
+
+  "contact": {
+  "title": "Contact",
+  "subtitle": "Interested in working together or knowing more about what I can bring to your team?",
+  "cta_button": "Send email",
+  "linkedin_button": "View LinkedIn"
+  },
   
-  "contact": { "title":"Contact" },
   "about": {
   "title": "About me",
   "body": "I’m a developer trained in DAM with hands-on specialization in Salesforce (APEX 2025). I build clean, fast solutions—from WordPress sites to time-saving automations. I’m seeking my first junior role to deliver real impact while learning fast."

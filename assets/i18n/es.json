@@ -75,8 +75,14 @@
   "s3_title": "Soporte técnico y mejora de sistemas",
   "s3_body": "Diagnóstico, resolución de incidencias, documentación y comunicación con usuarios. Capacidad para detectar problemas y proponer soluciones prácticas."
   },
+
+  "contact": {
+  "title": "Contacto",
+  "subtitle": "¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?",
+  "cta_button": "Enviar correo",
+  "linkedin_button": "Ver LinkedIn"
+  },
   
-  "contact": { "title":"Contacto" },
   "about": {
   "title": "Sobre mí",
   "body": "Soy desarrollador con formación DAM y especialización práctica en Salesforce (APEX 2025). Me gusta construir soluciones claras y rápidas: desde webs con WordPress hasta automatizaciones que ahorran tiempo. Busco mi primera oportunidad como junior para aportar impacto real mientras sigo aprendiendo."

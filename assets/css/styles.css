@@ -140,3 +140,43 @@ p{color:var(--muted); line-height:1.7}
   text-align: center;
 }
 
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.btn-outline {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.3);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  border-color: var(--cyan);
+}
+
+.social {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.social a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.social a:hover {
+  color: var(--text);
+}
+
