@@ -1,6 +1,12 @@
 {
   "nav": { "about":"About", "skills":"Skills", "projects":"Projects", "xp":"Experience & Certs", "services":"Services", "contact":"Contact" },
-  "hero": { "title":"I build, automate and design web experiences.", "subtitle":"DAM · Salesforce APEX · WordPress · Frontend", "cta":"See projects" },
+
+  "hero": {
+  "title": "Junior developer focused on building complete solutions, not just code.",
+  "subtitle": "DAM · Salesforce APEX · PowerApps · WordPress · Automation",
+  "cta": "See projects"
+  },
+
   "skills": {
   "title": "Skills",
   "dev_title": "Development & automation",
@@ -82,10 +88,10 @@
   "cta_button": "Send email",
   "linkedin_button": "View LinkedIn"
   },
-  
+
   "about": {
-  "title": "About me",
-  "body": "I’m a developer trained in DAM with hands-on specialization in Salesforce (APEX 2025). I build clean, fast solutions—from WordPress sites to time-saving automations. I’m seeking my first junior role to deliver real impact while learning fast."
-}
+    "title": "About me",
+    "body": "I’m a junior developer with a bilingual DAM background and experience building internal tools that connect data, automate workflows and make users’ lives easier. I’ve worked with PowerApps, SharePoint, Access, Excel, Kotlin, C#, Python and SQL. I’m looking for a team where I can keep learning while delivering real value from day one."
+  }
 
 }

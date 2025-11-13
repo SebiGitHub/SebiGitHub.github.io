@@ -1,6 +1,12 @@
 {
   "nav": { "about":"Sobre mí", "skills":"Skills", "projects":"Proyectos", "xp":"Experiencia & Certs", "services":"Servicios", "contact":"Contacto" },
-  "hero": { "title":"Desarrollo, automatizo y diseño experiencias web.", "subtitle":"DAM · Salesforce APEX · WordPress · Frontend", "cta":"Ver proyectos" },
+
+  "hero": {
+  "title": "Desarrollador junior que construye soluciones completas, no solo código.",
+  "subtitle": "DAM · Salesforce APEX · PowerApps · WordPress · Automatización",
+  "cta": "Ver proyectos"
+  },
+
   "skills": {
   "title": "Skills",
   "dev_title": "Desarrollo y automatización",
@@ -82,10 +88,10 @@
   "cta_button": "Enviar correo",
   "linkedin_button": "Ver LinkedIn"
   },
-  
+
   "about": {
-  "title": "Sobre mí",
-  "body": "Soy desarrollador con formación DAM y especialización práctica en Salesforce (APEX 2025). Me gusta construir soluciones claras y rápidas: desde webs con WordPress hasta automatizaciones que ahorran tiempo. Busco mi primera oportunidad como junior para aportar impacto real mientras sigo aprendiendo."
-}
+    "title": "Sobre mí",
+    "body": "Soy desarrollador junior con formación DAM bilingüe y experiencia creando soluciones internas que conectan datos, automatizan tareas y facilitan la vida a los usuarios. He trabajado con PowerApps, SharePoint, Access, Excel, Kotlin, C#, Python y SQL. Busco un equipo donde pueda seguir aprendiendo mientras aporto valor real desde el primer día."
+  }
 
 }
