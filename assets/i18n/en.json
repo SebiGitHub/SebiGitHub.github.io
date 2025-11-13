@@ -1,7 +1,6 @@
 {
   "nav": { "about":"About", "skills":"Skills", "projects":"Projects", "xp":"Experience & Certs", "services":"Services", "contact":"Contact" },
   "hero": { "title":"I build, automate and design web experiences.", "subtitle":"DAM · Salesforce APEX · WordPress · Frontend", "cta":"See projects" },
-  "about": { "title":"About me", "body":"Short summary here." },
   "skills": { "title":"Skills" },
   "projects": {
   "title": "Projects",

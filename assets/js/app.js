@@ -37,26 +37,33 @@ function renderProjects(){
       desc: STATE.dict.projects.p1_desc,
       why: STATE.dict.projects.p1_why,
       link: "https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD.git",
-      tech: ["PowerApps", "SharePoint", "VBScript", "Access", "Excel"]
+      tech: ["PowerApps", "SharePoint", "VBScript", "Access", "Excel"],
+      emoji: "🧩"
     },
     {
       title: STATE.dict.projects.p2_title,
       desc: STATE.dict.projects.p2_desc,
       why: STATE.dict.projects.p2_why,
       link: "https://github.com/SebiGitHub/AvaloniaCatalogoWinForms.git",
-      tech: ["Avalonia", "WinForms", "Visual Studio"]
+      tech: ["Avalonia", "WinForms", "Visual Studio"],
+      emoji: "🪄"
     },
     {
       title: STATE.dict.projects.p3_title,
       desc: STATE.dict.projects.p3_desc,
       why: STATE.dict.projects.p3_why,
       link: "https://github.com/SebiGitHub/PokedexBuscador.git",
-      tech: ["Android Studio", "Kotlin", "PokeAPI"]
+      tech: ["Android Studio", "Kotlin", "PokeAPI"],
+      emoji: "🔍"
     }
   ];
 
+
   grid.innerHTML = items.map(p => `
     <div class="card project-card">
+      <div class="project-thumb">
+        <span>${p.emoji}</span>
+      </div>
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
       <div class="tech">${p.tech.map(t => `<span>${t}</span>`).join("")}</div>
@@ -67,6 +74,7 @@ function renderProjects(){
       <a href="${p.link}" class="btn" target="_blank">GitHub</a>
     </div>
   `).join("");
+
 }
 
 document.addEventListener("DOMContentLoaded", ()=>{
