@@ -32,35 +32,36 @@ loadDict(STATE.lang);
 
 function renderProjects(){
   const grid = document.getElementById("projects-grid");
-  if (!grid) return;
+  if (!grid || !STATE.dict || !STATE.dict.projects) return;
+
+  const proj = STATE.dict.projects;
 
   const items = [
     {
-      title: STATE.dict.projects.p1_title,
-      desc: STATE.dict.projects.p1_desc,
-      why: STATE.dict.projects.p1_why,
+      title: proj.p1_title,
+      desc: proj.p1_desc,
+      why: proj.p1_why,
       link: "https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD.git",
       tech: ["PowerApps", "SharePoint", "VBScript", "Access", "Excel"],
       emoji: "🧩"
     },
     {
-      title: STATE.dict.projects.p2_title,
-      desc: STATE.dict.projects.p2_desc,
-      why: STATE.dict.projects.p2_why,
+      title: proj.p2_title,
+      desc: proj.p2_desc,
+      why: proj.p2_why,
       link: "https://github.com/SebiGitHub/AvaloniaCatalogoWinForms.git",
       tech: ["Avalonia", "WinForms", "Visual Studio"],
       emoji: "🪄"
     },
     {
-      title: STATE.dict.projects.p3_title,
-      desc: STATE.dict.projects.p3_desc,
-      why: STATE.dict.projects.p3_why,
+      title: proj.p3_title,
+      desc: proj.p3_desc,
+      why: proj.p3_why,
       link: "https://github.com/SebiGitHub/PokedexBuscador.git",
       tech: ["Android Studio", "Kotlin", "PokeAPI"],
       emoji: "🔍"
     }
   ];
-
 
   grid.innerHTML = items.map(p => `
     <div class="card project-card">
@@ -77,8 +78,8 @@ function renderProjects(){
       <a href="${p.link}" class="btn" target="_blank">GitHub</a>
     </div>
   `).join("");
-
 }
+
 
 function renderSkills(){
   const grid = document.getElementById("skills-grid");
