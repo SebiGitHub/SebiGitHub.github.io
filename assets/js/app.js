@@ -148,14 +148,17 @@ function renderServices(){
 
   const items = [
     {
+      icon: "⚙️",
       title: STATE.dict.services.s1_title,
       body: STATE.dict.services.s1_body
     },
     {
+      icon: "🖥️",
       title: STATE.dict.services.s2_title,
       body: STATE.dict.services.s2_body
     },
     {
+      icon: "🛠️",
       title: STATE.dict.services.s3_title,
       body: STATE.dict.services.s3_body
     }
@@ -163,11 +166,13 @@ function renderServices(){
 
   container.innerHTML = items.map(i => `
     <div class="card service-card">
+      <div class="service-icon">${i.icon}</div>
       <h3>${i.title}</h3>
       <p>${i.body}</p>
     </div>
   `).join("");
 }
+
 
 
 

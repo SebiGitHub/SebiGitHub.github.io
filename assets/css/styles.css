@@ -127,3 +127,16 @@ p{color:var(--muted); line-height:1.7}
   line-height: 1.6;
 }
 
+.service-icon {
+  font-size: 42px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+  filter: drop-shadow(0 5px 14px rgba(0,0,0,.35));
+  opacity: .95;
+}
+
+.service-card {
+  text-align: center;
+}
+
