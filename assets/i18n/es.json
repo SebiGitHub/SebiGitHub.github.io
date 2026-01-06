@@ -86,7 +86,8 @@
   "title": "Contacto",
   "subtitle": "¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?",
   "cta_button": "Enviar correo",
-  "linkedin_button": "Ver LinkedIn"
+  "linkedin_button": "Ver LinkedIn",
+  "github_button": "Ver GitHub"
   },
 
   "about": {

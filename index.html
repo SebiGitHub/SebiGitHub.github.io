@@ -49,13 +49,16 @@
       <a href="#xp" data-i18n="nav.xp">Experiencia & Certs</a>
       <a href="#services" data-i18n="nav.services">Servicios</a>
       <a href="#contact" class="btn" data-i18n="nav.contact">Contacto</a>
-      <button id="lang-toggle" aria-label="Cambiar idioma">ES/EN</button>
+      <button id="lang-toggle" class="lang-toggle" aria-label="Cambiar idioma">
+        <span class="lang-pill" data-lang="es">ES</span>
+        <span class="lang-pill" data-lang="en">EN</span>
+      </button>
     </nav>
   </header>
 
   <main>
     <section id="hero" class="section hero">
-      <img src="assets/img/logo-s.png" alt="" class="hero-logo" /><head>
+      <img src="assets/img/logo-s.png" alt="" class="hero-logo" />
       <h1 data-i18n="hero.title">Desarrollo, automatizo y diseño experiencias web.</h1>
       <p data-i18n="hero.subtitle">DAM · Salesforce APEX · WordPress · Frontend</p>
       <a href="#projects" class="btn" data-i18n="hero.cta">Ver proyectos</a>
@@ -88,9 +91,16 @@
 
     <section id="contact" class="section">
       <h2 data-i18n="contact.title">Contacto</h2>
+
       <p data-i18n="contact.subtitle">
         ¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?
       </p>
+
+      <!-- Flechas -->
+      <div class="contact-arrows" aria-hidden="true">
+        <span>↙</span>
+        <span>↘</span>
+      </div>
 
       <div class="contact-actions">
         <a id="contact-email" class="btn"
@@ -98,27 +108,30 @@
           data-i18n="contact.cta_button">
           Enviar correo
         </a>
-        <a class="btn-outline"
+
+        <a class="btn"
           href="https://www.linkedin.com/in/sebastián-expósito-ruiz-a8a24a34a"
           target="_blank"
-          rel="noopener noreferrer"
-          data-i18n="contact.linkedin_button">
-          Ver LinkedIn
+          rel="noopener noreferrer">
+          <img class="btn-icon" src="assets/img/LinkedIn.png" alt="LinkedIn">
+          <span data-i18n="contact.linkedin_button">Ver LinkedIn</span>
+        </a>
+
+        <a class="btn"
+          href="https://github.com/SebiGitHub"
+          target="_blank"
+          rel="noopener noreferrer">
+          <span data-i18n="contact.github_button">Ver GitHub</span>
         </a>
       </div>
 
-      <div class="social">
-        <a href="https://github.com/SebiGitHub" aria-label="GitHub">GitHub</a>
-        <a href="https://www.linkedin.com/in/sebastián-expósito-ruiz-a8a24a34a" aria-label="LinkedIn">LinkedIn</a>
+      <div class="contact-footer">
+        <small>© <span id="year"></span> Sebi — All rights reserved.</small>
       </div>
     </section>
-
   </main>
 
-  <footer class="footer">
-    <small>© <span id="year"></span> Sebi — All rights reserved.</small>
-  </footer>
-
   <script src="assets/js/app.js?v=2"></script>
+  
 </body>
 </html>

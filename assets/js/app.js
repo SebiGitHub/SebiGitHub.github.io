@@ -14,6 +14,7 @@ async function loadDict(lang){
     STATE.lang = lang;
     localStorage.setItem('lang', lang);
     applyI18n();
+    updateLangToggle();
   } catch (e) {
     console.error('Error cargando diccionario', e);
   }
@@ -191,3 +192,9 @@ window.addEventListener("mousemove", (e) => {
   document.documentElement.style.setProperty("--mx", `${x}%`);
   document.documentElement.style.setProperty("--my", `${y}%`);
 });
+
+function updateLangToggle(){
+  const pills = document.querySelectorAll('.lang-pill');
+  pills.forEach(p => p.classList.toggle('active', p.dataset.lang === STATE.lang));
+}
+
