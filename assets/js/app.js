@@ -183,3 +183,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
   setupSectionObserver();
   loadDict(STATE.lang);
 });
+
+// Spotlight: mueve variables CSS con el ratón
+window.addEventListener("mousemove", (e) => {
+  const x = (e.clientX / window.innerWidth) * 100;
+  const y = (e.clientY / window.innerHeight) * 100;
+  document.documentElement.style.setProperty("--mx", `${x}%`);
+  document.documentElement.style.setProperty("--my", `${y}%`);
+});
