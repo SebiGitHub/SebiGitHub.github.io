@@ -84,21 +84,30 @@ body::after{
   overflow: hidden;
 
   background:
-    radial-gradient(circle at 30% 30%, rgba(124,58,237,.25), transparent 55%),
-    radial-gradient(circle at 70% 60%, rgba(34,211,238,.18), transparent 55%),
+    radial-gradient(circle at 30% 30%, rgba(124,58,237,.22), transparent 55%),
+    radial-gradient(circle at 70% 60%, rgba(34,211,238,.16), transparent 55%),
     url("../img/bg-hero.png");
 
-  background-size: cover;
-  background-position: center;
+  /* 🔑 AQUÍ ESTÁ LA CLAVE */
+  background-repeat: no-repeat;
+  background-size: 1200px auto;     /* no ocupa toda la pantalla */
+  background-position: 60% 35%;     /* desplazada, no centrada */
 }
+
 
 .hero::before{
   content:"";
   position:absolute;
   inset:0;
-  background: rgba(11,15,20,.65);
+  background: rgba(11,15,20,.55); /* antes .65 */
   z-index:0;
 }
+
+.hero-logo{
+  width: 90px; /* antes 110px */
+  margin-bottom: 18px;
+}
+
 
 .hero > *{
   position: relative;
@@ -357,6 +366,8 @@ p{color:var(--muted); line-height:1.7}
   .hero {
     min-height: 68vh;
     padding-top: 80px;
+    background-size: 700px auto;
+    background-position: 50% 20%;
   }
 
   #projects-grid,
