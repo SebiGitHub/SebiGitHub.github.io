@@ -22,7 +22,7 @@ html,body{ margin:0; }
 html{ scroll-behavior:smooth; }
 
 body{
-  background: var(--bg);
+  background: url("../img/bg-hero.png") center/cover fixed no-repeat;
   color: var(--text);
   font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
 }
@@ -38,13 +38,9 @@ body::before{
   inset: 0;
   pointer-events: none;
   z-index: 0;
-
-  background:
-    radial-gradient(900px 700px at 20% 15%, rgba(124,58,237,.32), transparent 60%),
-    radial-gradient(900px 700px at 80% 25%, rgba(236,72,153,.20), transparent 60%),
-    radial-gradient(900px 700px at 60% 85%, rgba(34,211,238,.18), transparent 65%),
-    linear-gradient(180deg, #050615 0%, #07081a 55%, #050615 100%);
+  background: rgba(5,6,21,.72); /* oscurece para legibilidad */
 }
+
 
 /* Spotlight reducido (≈ 1/4 del tamaño original) */
 body::after{
@@ -78,17 +74,6 @@ h1{ font-size: clamp(32px,6vw,52px); margin:0 0 12px; }
 h2{ font-size: clamp(22px,3.5vw,32px); margin:0 0 16px; text-align:center; }
 p{ color: var(--muted); line-height:1.7; }
 
-/* Watermark sutil en secciones */
-.section::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background: url("../img/logo-s.png") no-repeat 90% 20%;
-  background-size: 120px;
-  opacity: .03;
-  pointer-events: none;
-}
-
 /* Grids */
 #projects-grid,#skills-grid,#xp-list,#services-list{
   display:grid;
@@ -120,6 +105,11 @@ p{ color: var(--muted); line-height:1.7; }
   align-items:center;
 }
 
+.nav .nav-btn{
+  padding: 8px 12px;
+  font-size: 14px;
+}
+
 .brand{
   display:flex;
   align-items:center;
@@ -141,6 +131,13 @@ p{ color: var(--muted); line-height:1.7; }
   text-decoration:none;
 }
 .nav a:hover{ color: var(--text); }
+
+.nav a.btn{
+  color: #0b0f14;
+}
+.nav a.btn:hover{
+  color: #ffffff;
+}
 
 /* =========================
    5) Botones (CTA)
@@ -224,10 +221,10 @@ p{ color: var(--muted); line-height:1.7; }
 }
 
 .hero-logo{
-  width: 90px;
+  width: 140px;
   margin-bottom: 18px;
   filter: drop-shadow(0 20px 60px rgba(124,58,237,.6));
-  opacity:.9;
+  opacity: .95;
   animation: floatLogo 6s ease-in-out infinite;
 }
 
@@ -411,14 +408,21 @@ p{ color: var(--muted); line-height:1.7; }
 .contact-arrows{
   display:flex;
   justify-content:center;
-  gap:140px;
-  margin: 6px 0 14px;
-
-  font-size:26px;
-  font-weight:900;
-  color: rgba(196,181,253,.9);
-  text-shadow: 0 10px 40px rgba(124,58,237,.35);
+  gap: 120px;
+  margin: 6px 0 12px;
 }
+
+.contact-arrows .arrow{
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1;
+  background: linear-gradient(90deg, var(--violet), var(--cyan));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 14px 40px rgba(124,58,237,.35));
+}
+
 
 .contact-actions{
   display:flex;
@@ -429,16 +433,18 @@ p{ color: var(--muted); line-height:1.7; }
 }
 
 .btn-icon{
-  width:18px;
-  height:18px;
-  object-fit:contain;
+  width: 1.1em;
+  height: 1.1em;
+  object-fit: contain;
+  transform: translateY(1px);
   filter: drop-shadow(0 6px 18px rgba(0,0,0,.35));
 }
 
 .contact-footer{
   text-align:center;
   color: var(--muted);
-  padding-top: 6px;
+  padding-top: 2px;
+  padding-bottom: 6px; /* 👈 pegadito al final */
 }
 
 /* =========================
@@ -478,8 +484,57 @@ p{ color: var(--muted); line-height:1.7; }
     grid-template-columns: 1fr;
   }
 
+  #services-list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
   h1{ font-size: clamp(26px, 8vw, 34px); }
   h2{ font-size: clamp(20px, 6vw, 26px); }
 
   .contact-arrows{ gap: 90px; }
+}
+
+.nav-left{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+}
+
+.brand img{
+  height: 44px; /* 👈 más grande */
+}
+
+.search-wrap{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+.search{
+  width: 220px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+  outline: none;
+}
+
+.search::placeholder{
+  color: rgba(229,231,235,.55);
+}
+
+.btn.btn-icononly{
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+mark.hit{
+  background: rgba(34,211,238,.22);
+  color: #ffffff;
+  padding: 0 .18em;
+  border-radius: 6px;
+  border: 1px solid rgba(34,211,238,.25);
 }

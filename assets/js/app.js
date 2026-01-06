@@ -198,3 +198,61 @@ function updateLangToggle(){
   pills.forEach(p => p.classList.toggle('active', p.dataset.lang === STATE.lang));
 }
 
+function clearMarks(){
+  document.querySelectorAll("mark.hit").forEach(m=>{
+    const text = document.createTextNode(m.textContent);
+    m.replaceWith(text);
+  });
+}
+
+function markQuery(q){
+  clearMarks();
+  if (!q || q.trim().length < 2) return;
+
+  const query = q.trim();
+  const root = document.querySelector("main");
+  if (!root) return;
+
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+    acceptNode(node){
+      const p = node.parentElement;
+      if (!p) return NodeFilter.FILTER_REJECT;
+      if (["SCRIPT","STYLE"].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
+      if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      return NodeFilter.FILTER_ACCEPT;
+    }
+  });
+
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+
+  const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
+  nodes.forEach(n=>{
+    const txt = n.nodeValue;
+    if (!re.test(txt)) return;
+
+    const frag = document.createDocumentFragment();
+    let last = 0;
+    txt.replace(re, (match, offset)=>{
+      frag.appendChild(document.createTextNode(txt.slice(last, offset)));
+      const mark = document.createElement("mark");
+      mark.className = "hit";
+      mark.textContent = match;
+      frag.appendChild(mark);
+      last = offset + match.length;
+    });
+    frag.appendChild(document.createTextNode(txt.slice(last)));
+    n.parentNode.replaceChild(frag, n);
+  });
+
+  const first = document.querySelector("mark.hit");
+  if (first) first.scrollIntoView({ behavior:"smooth", block:"center" });
+}
+
+const searchInput = document.getElementById("site-search");
+const searchBtn = document.getElementById("search-btn");
+
+searchBtn?.addEventListener("click", ()=> markQuery(searchInput?.value || ""));
+searchInput?.addEventListener("keydown", (e)=>{
+  if (e.key === "Enter") markQuery(searchInput.value);
+});

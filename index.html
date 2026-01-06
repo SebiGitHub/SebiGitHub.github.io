@@ -37,18 +37,30 @@
 
 <body>
   <header class="nav">
-    <a class="brand" href="#hero">
-      <img src="assets/img/logo-s.png" alt="Logo Sebi" />
-      <span>Sebi</span>
-    </a>
+    <div class="nav-left">
+      <a class="brand" href="#hero">
+        <img src="assets/img/logo-s-trasparente.png" alt="Logo Sebi" />
+        <span>Sebi</span>
+      </a>
+
+      <div class="search-wrap">
+        <button id="search-btn" class="btn btn-icononly" aria-label="Buscar">
+          🔍
+        </button>
+
+        <input id="site-search" class="search" type="search"
+          placeholder="Buscar…" autocomplete="off">
+      </div>
+    </div>
 
     <nav>
-      <a href="#about" data-i18n="nav.about">Sobre mí</a>
-      <a href="#skills" data-i18n="nav.skills">Skills</a>
-      <a href="#projects" data-i18n="nav.projects">Proyectos</a>
-      <a href="#xp" data-i18n="nav.xp">Experiencia & Certs</a>
-      <a href="#services" data-i18n="nav.services">Servicios</a>
+      <a href="#about" class="btn nav-btn" data-i18n="nav.about">Sobre mí</a>
+      <a href="#skills" class="btn nav-btn" data-i18n="nav.skills">Skills</a>
+      <a href="#projects" class="btn nav-btn" data-i18n="nav.projects">Proyectos</a>
+      <a href="#xp" class="btn nav-btn" data-i18n="nav.xp">Experiencia & Certs</a>
+      <a href="#services" class="btn nav-btn" data-i18n="nav.services">Servicios</a>
       <a href="#contact" class="btn" data-i18n="nav.contact">Contacto</a>
+
       <button id="lang-toggle" class="lang-toggle" aria-label="Cambiar idioma">
         <span class="lang-pill" data-lang="es">ES</span>
         <span class="lang-pill" data-lang="en">EN</span>
@@ -58,7 +70,7 @@
 
   <main>
     <section id="hero" class="section hero">
-      <img src="assets/img/logo-s.png" alt="" class="hero-logo" />
+      <img src="assets/img/logo-s-trasparente.png" alt="" class="hero-logo" />
       <h1 data-i18n="hero.title">Desarrollo, automatizo y diseño experiencias web.</h1>
       <p data-i18n="hero.subtitle">DAM · Salesforce APEX · WordPress · Frontend</p>
       <a href="#projects" class="btn" data-i18n="hero.cta">Ver proyectos</a>
@@ -98,9 +110,11 @@
 
       <!-- Flechas -->
       <div class="contact-arrows" aria-hidden="true">
-        <span>↙</span>
-        <span>↘</span>
+        <span class="arrow">↙</span>
+        <span class="arrow">↓</span>
+        <span class="arrow">↘</span>
       </div>
+
 
       <div class="contact-actions">
         <a id="contact-email" class="btn"
@@ -132,6 +146,6 @@
   </main>
 
   <script src="assets/js/app.js?v=2"></script>
-  
+
 </body>
 </html>
