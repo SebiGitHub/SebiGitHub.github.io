@@ -15,7 +15,6 @@ Mi portfolio personal alojado en GitHub Pages, donde muestro mis proyectos, tecn
 - Versión ES/EN
 
 ## Capturas/GIF
-> Añade 3–5 capturas: Home, Proyectos, Project detail, Contacto.
 <img width="1875" height="852" alt="image" src="https://github.com/user-attachments/assets/50183a53-62d6-4a8c-a1b0-793e6fe9313f" />
 <img width="1259" height="828" alt="image" src="https://github.com/user-attachments/assets/54ab6eae-40e3-4cbb-bc02-3adcd10ff046" />
 
