@@ -191,7 +191,8 @@ function getProjectItems() {
       why: proj.p1_why,
       link: "https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD",
       tech: ["PowerApps", "SharePoint", "VBScript", "Access", "Excel"],
-      emoji: "🧩",
+      icon: "fa-solid fa-diagram-project",
+      thumbClass: "thumb-powerapps"
     },
     {
       title: proj.p2_title,
@@ -199,7 +200,8 @@ function getProjectItems() {
       why: proj.p2_why,
       link: "https://github.com/SebiGitHub/AvaloniaCatalogoWinForms",
       tech: ["Avalonia", "WinForms", "Visual Studio"],
-      emoji: "🪄",
+      icon: "fa-solid fa-cubes-stacked",
+      thumbClass: "thumb-desktop"
     },
     {
       title: proj.p3_title,
@@ -207,8 +209,9 @@ function getProjectItems() {
       why: proj.p3_why,
       link: "https://github.com/SebiGitHub/Agenda",
       tech: ["Android", "Kotlin", "SQLite/Room"],
-      icon: "fa-solid fa-calendar-days"
-    },
+      icon: "fa-solid fa-calendar-days",
+      thumbClass: "thumb-android"
+    }
   ];
 }
 
@@ -234,7 +237,9 @@ function renderProjects() {
 
   stage.innerHTML = `
     <div class="card project-card">
-      <div class="project-thumb"><span>${p.emoji}</span></div>
+      <div class="project-thumb ${p.thumbClass || ""}">
+        <i class="project-icon ${p.icon}" aria-hidden="true"></i>
+      </div>
 
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
