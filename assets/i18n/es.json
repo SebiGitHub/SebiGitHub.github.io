@@ -72,21 +72,17 @@
   },
   "cv": {
     "title": "Descargar CV",
-    "body": "Puedes descargar mi CV en español o inglés.",
+    "body": "Descargue mi CV para conocer más sobre mi experiencia, habilidades y cualidades.",
     "btn_es": "Descargar CV (ES)",
-    "btn_en": "Descargar CV (EN)",
-    "hint": "Tip: si aún no tienes el CV en inglés, deja ese botón apuntando a un placeholder temporal."
+    "btn_en": "Descargar CV (EN)"
   },
   "contact": {
-    "title": "Contacto",
-    "subtitle": "¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?",
-    "cta_button": "Enviar correo",
-    "linkedin_button": "Ver LinkedIn",
-    "github_button": "Ver GitHub",
+    "linkedin_value": "Ver perfil",
+    "github_value": "Ver repositorios",
     "form_name": "Nombre",
     "form_email": "Email",
     "form_message": "Mensaje",
-    "form_send": "Enviar mensaje",
-    "form_note": "Se abrirá tu cliente de correo con el mensaje preparado."
+    "form_button": "Enviar mensaje",
+    "form_note": "Se abrirá Gmail con el mensaje preparado."
   }
 }
