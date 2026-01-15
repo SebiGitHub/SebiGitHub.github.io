@@ -513,6 +513,8 @@ p{
   text-align:center;
   max-width: 860px;
   margin: 0 auto 18px;
+  font-weight: 800;
+  color: rgba(255,255,255,.82);
 }
 .cv-actions{
   display:flex;
@@ -530,6 +532,17 @@ p{
   border: 1px solid rgba(255,255,255,.10);
   background: rgba(6,10,22,.70);
   padding-bottom: 18px; /* ✅ menos espacio bajo el footer */
+}
+
+/* ===== CONTACT: titulo centrado + separador ancho ===== */
+#contact .section-title{
+  text-align: center;
+}
+
+#contact .section-title::after{
+  width: min(1100px, 92%);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-lead{
@@ -552,6 +565,8 @@ p{
 .contact-cards{
   display:grid;
   gap: 14px;
+  align-self: center;
+  transform: translateY(8px);
 }
 
 .contact-card{
@@ -649,8 +664,18 @@ p{
   border-color: rgba(196,181,253,.55);
 }
 
+.contact-form .btn{
+  display: flex;
+  justify-content: center;
+  width: max-content;
+  margin: 16px auto 0;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
 .contact-note{
   margin-top: 12px;
+  text-align: center;
   color: rgba(255,255,255,.55);
   font-size: 13px;
 }
@@ -682,6 +707,7 @@ p{
 @media (max-width: 900px){
   .contact-grid{
     grid-template-columns: 1fr;
+    transform: none;
   }
 }
 
@@ -703,3 +729,36 @@ p{
   .card.col-4{ grid-column: span 4; }
   .card.col-6{ grid-column: span 6; }
 }
+
+/* ===== Chips con color por tecnología ===== */
+.chip, .project-card .tech span{
+  --chip-bg: rgba(255,255,255,.05);
+  --chip-bd: rgba(255,255,255,.10);
+  --chip-fg: rgba(255,255,255,.92);
+  background: var(--chip-bg);
+  border: 1px solid var(--chip-bd);
+  color: var(--chip-fg);
+}
+
+/* tonos */
+.t-salesforce{ --chip-bg: rgba(0,161,224,.16); --chip-bd: rgba(0,161,224,.32); }
+.t-powerapps{ --chip-bg: rgba(196,181,253,.16); --chip-bd: rgba(196,181,253,.34); }
+.t-data{ --chip-bg: rgba(52,211,153,.14); --chip-bd: rgba(52,211,153,.30); }
+.t-excel{ --chip-bg: rgba(34,197,94,.14); --chip-bd: rgba(34,197,94,.32); }
+.t-dotnet{ --chip-bg: rgba(167,139,250,.15); --chip-bd: rgba(167,139,250,.34); }
+.t-kotlin{ --chip-bg: rgba(244,114,182,.14); --chip-bd: rgba(244,114,182,.30); }
+.t-python{ --chip-bg: rgba(250,204,21,.12); --chip-bd: rgba(250,204,21,.28); }
+.t-js{ --chip-bg: rgba(250,204,21,.12); --chip-bd: rgba(250,204,21,.28); }
+.t-java{ --chip-bg: rgba(251,146,60,.14); --chip-bd: rgba(251,146,60,.30); }
+.t-vb{ --chip-bg: rgba(148,163,184,.14); --chip-bd: rgba(148,163,184,.30); }
+.t-html{ --chip-bg: rgba(249,115,22,.14); --chip-bd: rgba(249,115,22,.30); }
+.t-css{ --chip-bg: rgba(59,130,246,.14); --chip-bd: rgba(59,130,246,.30); }
+.t-wp{ --chip-bg: rgba(56,189,248,.14); --chip-bd: rgba(56,189,248,.30); }
+.t-git{ --chip-bg: rgba(249,115,22,.12); --chip-bd: rgba(249,115,22,.26); }
+.t-github{ --chip-bg: rgba(148,163,184,.12); --chip-bd: rgba(148,163,184,.26); }
+
+/* soft skills */
+.t-soft-comm{ --chip-bg: rgba(34,211,238,.12); --chip-bd: rgba(34,211,238,.26); }
+.t-soft-cur{ --chip-bg: rgba(196,181,253,.12); --chip-bd: rgba(196,181,253,.28); }
+.t-soft-adapt{ --chip-bg: rgba(52,211,153,.12); --chip-bd: rgba(52,211,153,.26); }
+.t-soft-org{ --chip-bg: rgba(251,191,36,.12); --chip-bd: rgba(251,191,36,.26); }

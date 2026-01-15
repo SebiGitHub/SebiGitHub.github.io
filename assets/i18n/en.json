@@ -116,13 +116,13 @@
     "p2_desc": "Fictional product catalog with full CRUD: add, update, delete, filter and sort products across multiple screens.",
     "p2_why": "It helped me structure data in a desktop app and keep consistency across screens—solid foundations for bigger projects.",
 
-    "p3_title": "PokedexBuscador",
-    "p3_desc": "Kotlin Android app that consumes the Pokémon API to display relevant Pokémon information.",
-    "p3_why": "Practice with real APIs and JSON trees: client-server communication and efficient UI data rendering."
+    "p3_title": "Agenda App",
+    "p3_desc": "Agenda app to manage contacts and/or events with a clean, productivity-focused UI.",
+    "p3_why": "It helped me practice app structure, data persistence and a clean UI designed for real usage."
   },
   "xp": {
     "title": "Experience & Certifications",
-    "lead": "Where I’ve applied this with real people, real data and real deadlines.",
+    "lead": "Where, how and when I’ve gained and applied my skills.",
     "timeline": [
       {
         "title": "DAM Internship — Hospital San Juan de Dios",
@@ -173,12 +173,13 @@
     "btn_en": "Download CV (EN)"
   },
   "contact": {
+    "subtitle": "Interested in collaborating, or want to know what I can bring to your team?",
     "linkedin_value": "View profile",
     "github_value": "View repositories",
     "form_name": "Name",
     "form_email": "Email",
     "form_message": "Message",
     "form_button": "Send message",
-    "form_note": "Gmail will open with a prepared draft."
+    "form_note": "(Gmail will open with a prepared draft)"
   }
 }

@@ -56,6 +56,35 @@ function updateLangToggleUI() {
   });
 }
 
+function chipTone(label = "") {
+  const l = label.toLowerCase();
+
+  if (l.includes("salesforce") || l.includes("apex")) return "t-salesforce";
+  if (l.includes("powerapps") || l.includes("sharepoint")) return "t-powerapps";
+  if (l.includes("access") || l.includes("sql")) return "t-data";
+  if (l.includes("excel")) return "t-excel";
+  if (l.includes("c#") || l.includes(".net") || l.includes("csharp")) return "t-dotnet";
+  if (l.includes("kotlin")) return "t-kotlin";
+  if (l.includes("python")) return "t-python";
+  if (l.includes("javascript")) return "t-js";
+  if (l === "java" || l.includes(" java")) return "t-java";
+  if (l.includes("vbscript")) return "t-vb";
+  if (l === "html") return "t-html";
+  if (l === "css") return "t-css";
+  if (l.includes("wordpress")) return "t-wp";
+  if (l === "git") return "t-git";
+  if (l.includes("github")) return "t-github";
+
+  // soft skills
+  if (l.includes("comunicación") || l.includes("communication")) return "t-soft-comm";
+  if (l.includes("curiosidad") || l.includes("curiosity")) return "t-soft-cur";
+  if (l.includes("adaptabilidad") || l.includes("adaptability")) return "t-soft-adapt";
+  if (l.includes("orden") || l.includes("organization")) return "t-soft-org";
+
+  return "";
+}
+
+
 document.getElementById("lang-toggle")?.addEventListener("click", () => {
   loadDict(STATE.lang === "es" ? "en" : "es");
 });
@@ -84,7 +113,7 @@ function renderAbout() {
     .join("");
 
   chips.innerHTML = (t.about.chips || [])
-    .map((ch) => `<span class="chip"><i class="${ch.icon}"></i>${ch.label}</span>`)
+    .map((ch) => `<span class="chip ${chipTone(ch.label)}"><i class="${ch.icon}"></i>${ch.label}</span>`)
     .join("");
 }
 
@@ -104,7 +133,8 @@ function renderSkills() {
       <h3 class="card-title"><i class="${cat.icon}"></i><span>${cat.title}</span></h3>
       <div class="chips">
         ${(cat.items || [])
-          .map((it) => `<span class="chip"><i class="${it.icon}"></i>${it.label}</span>`)
+          .map((it) => `<span class="chip ${chipTone(it.label)}"><i class="${it.icon}"></i>${it.label}</span>
+`)
           .join("")}
       </div>
     </article>
@@ -175,9 +205,9 @@ function getProjectItems() {
       title: proj.p3_title,
       desc: proj.p3_desc,
       why: proj.p3_why,
-      link: "https://github.com/SebiGitHub/PokedexBuscador",
-      tech: ["Android Studio", "Kotlin", "PokeAPI"],
-      emoji: "🔍",
+      link: "https://github.com/SebiGitHub/Agenda",
+      tech: ["Android", "Kotlin", "SQLite/Room"],
+      icon: "fa-solid fa-calendar-days"
     },
   ];
 }
@@ -210,7 +240,7 @@ function renderProjects() {
       <p>${p.desc}</p>
 
       <div class="tech">
-        ${p.tech.map((t) => `<span>${t}</span>`).join("")}
+        ${p.tech.map((t) => `<span class="${chipTone(t)}">${t}</span>`).join("")}
       </div>
 
       <details>

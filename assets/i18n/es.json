@@ -116,13 +116,13 @@
     "p2_desc": "Catálogo ficticio con CRUD completo: agregar, actualizar, eliminar, filtrar y ordenar productos en varias pantallas.",
     "p2_why": "Me ayudó a estructurar datos en una app de escritorio y a mantener consistencia entre pantallas, base para proyectos más grandes.",
 
-    "p3_title": "PokedexBuscador",
-    "p3_desc": "Aplicación en Kotlin que consulta la API de Pokémon para mostrar información útil de cada Pokémon.",
-    "p3_why": "Práctica con APIs reales y JSON: comunicación cliente-servidor y presentación de datos dinámicos en Android."
+    "p3_title": "Agenda App",
+    "p3_desc": "App de agenda para gestionar contactos y/o eventos, con interfaz clara y enfoque en productividad.",
+    "p3_why": "Me permitió practicar estructura de app, persistencia de datos y una UI limpia orientada a uso real."
   },
   "xp": {
     "title": "Experiencia & Certificaciones",
-    "lead": "Donde he aplicado esto con gente real, datos reales y deadlines reales.",
+    "lead": "Donde, como y cuando he obtenido y aplicado mis conocimientos.",
     "timeline": [
       {
         "title": "Prácticas DAM — Hospital San Juan de Dios",
@@ -173,12 +173,13 @@
     "btn_en": "Descargar CV (EN)"
   },
   "contact": {
+    "subtitle": "¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?",
     "linkedin_value": "Ver perfil",
     "github_value": "Ver repositorios",
     "form_name": "Nombre",
     "form_email": "Email",
     "form_message": "Mensaje",
     "form_button": "Enviar mensaje",
-    "form_note": "Se abrirá Gmail con el mensaje preparado."
+    "form_note": "(Se abrirá Gmail con el mensaje preparado)"
   }
 }
