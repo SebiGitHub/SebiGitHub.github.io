@@ -15,9 +15,9 @@ Mi portfolio personal alojado en GitHub Pages, donde muestro mis proyectos, tecn
 - Versión ES/EN
 
 ## Capturas/GIF
-<img width="1875" height="852" alt="image" src="https://github.com/user-attachments/assets/50183a53-62d6-4a8c-a1b0-793e6fe9313f" />
-<img width="1259" height="828" alt="image" src="https://github.com/user-attachments/assets/54ab6eae-40e3-4cbb-bc02-3adcd10ff046" />
-
+<img width="2497" height="1256" alt="image" src="https://github.com/user-attachments/assets/91f4d19c-afbd-401e-951c-bbbafc6d6b1c" />
+<img width="1151" height="1162" alt="image" src="https://github.com/user-attachments/assets/284bab8c-2067-4605-a5d3-893c9701edd8" />
+<img width="1232" height="939" alt="image" src="https://github.com/user-attachments/assets/c3bb2044-52e3-43b2-acc2-86e063b1f33a" />
 
 ## Cómo ejecutar
 Opción A (simple):
