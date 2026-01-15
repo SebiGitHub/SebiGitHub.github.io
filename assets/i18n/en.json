@@ -119,24 +119,20 @@
     "p3_title": "Agenda App",
     "p3_desc": "Agenda app to manage contacts and/or events with a clean, productivity-focused UI.",
     "p3_why": "It helped me practice app structure, data persistence and a clean UI designed for real usage.",
-    
-    "case_labels": {
-      "problem": "Problem",
-      "solution": "Solution",
-      "signal": "Signal"
-    },
 
-    "p4_title": "BingoEnvidiosos",
-    "p4_desc": "A themed bingo with an interactive board and cell marking, designed for events with a playful twist.",
-    "p4_why": "Great practice for data structure, simple UX, and marking/persistence logic.",
+    "case_labels": { "problem": "Problem", "solution": "Solution", "signal": "Signal" },
 
-    "p5_title": "Realtime Collaborative Bingo Web App",
-    "p5_desc": "Real-time collaborative bingo: multiple users join a room and the board state syncs instantly.",
-    "p5_why": "Hands-on practice with real-time sync, shared state, and multi-user UX.",
+    "p4_title": "Realtime Collaborative Bingo Web App",
+    "p4_desc": "Real-time collaborative bingo: multiple users join a room and the board state syncs instantly.",
+    "p4_why": "Previously called “BingoEnvidiosos”. Great practice for real-time sync, shared state and multi-user UX.",
+
+    "p5_title": "Selenium end-to-end",
+    "p5_desc": "Automated E2E tests to validate real user flows on web, making sure key features don’t break.",
+    "p5_why": "It builds discipline: reproducible tests, early bug detection and a quality-first mindset.",
 
     "p6_title": "Kotlin Labs",
-    "p6_desc": "A collection of Kotlin mini-projects to master key areas: multimedia, concurrency, and persistence.",
-    "p6_why": "A “mini-case” format: a real problem, a concrete solution, and a clear competency signal.",
+    "p6_desc": "A set of Kotlin mini-projects to master key areas: multimedia, concurrency and persistence.",
+    "p6_why": "Mini-case format: a real problem, a concrete solution and a clear competency signal.",
 
     "p6_cases": [
       {
@@ -144,21 +140,21 @@
         "problem": "Simulate load/network and update UI without freezing",
         "solution": "Coroutines + IO/Main dispatchers + cancellation",
         "signal": "I understand concurrency and lifecycle",
-        "link": "PUT_MINICASE_LINK_HERE"
+        "link": "https://github.com/SebiGitHub/Corrutinas"
       },
       {
-        "title": "Multimedia (placeholder)",
-        "problem": "PUT_PROBLEM_HERE",
-        "solution": "PUT_SOLUTION_HERE",
-        "signal": "PUT_SIGNAL_HERE",
-        "link": "PUT_LINK_HERE"
+        "title": "Multimedia",
+        "problem": "Handle playback/resources without breaking UX",
+        "solution": "State handling + resource control",
+        "signal": "I understand multimedia management in apps",
+        "link": "https://github.com/SebiGitHub/Multimedia"
       },
       {
-        "title": "Products DB (placeholder)",
-        "problem": "PUT_PROBLEM_HERE",
-        "solution": "PUT_SOLUTION_HERE",
-        "signal": "PUT_SIGNAL_HERE",
-        "link": "PUT_LINK_HERE"
+        "title": "Persistence (BBDDProductos)",
+        "problem": "Store/query products and reflect changes in UI",
+        "solution": "Local persistence + CRUD operations",
+        "signal": "I understand data and persistence in apps",
+        "link": "https://github.com/SebiGitHub/BBDDProductos"
       }
     ]
   },

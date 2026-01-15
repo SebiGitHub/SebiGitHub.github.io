@@ -216,25 +216,25 @@ function getProjectItems() {
       title: proj.p4_title,
       desc: proj.p4_desc,
       why: proj.p4_why,
-      link: "PON_AQUI_EL_LINK_DE_BINGOENVIDIOSOS",
-      tech: ["Firebase", "Realtime", "UI"],
-      icon: "fa-solid fa-table-cells-large",
-      thumbClass: "thumb-bingo"
-    },
-    {
-      title: proj.p5_title,
-      desc: proj.p5_desc,
-      why: proj.p5_why,
-      link: "PON_AQUI_EL_LINK_DE_REALTIME_BINGO_WEB",
+      link: "https://github.com/SebiGitHub/Realtime-Collaborative-Bingo-Web-App",
       tech: ["Web", "Realtime", "Rooms"],
       icon: "fa-solid fa-users",
       thumbClass: "thumb-realtime"
     },
     {
+      title: proj.p5_title,
+      desc: proj.p5_desc,
+      why: proj.p5_why,
+      link: "https://github.com/SebiGitHub/Selenium-end-to-end",
+      tech: ["Selenium", "E2E", "Testing"],
+      icon: "fa-solid fa-vial-circle-check",
+      thumbClass: "thumb-testing"
+    },
+    {
       title: proj.p6_title,
       desc: proj.p6_desc,
       why: proj.p6_why,
-      link: "PON_AQUI_EL_LINK_DE_KOTLIN_LABS",
+      link: "https://github.com/SebiGitHub/Corrutinas",
       tech: ["Kotlin", "Labs", "Android"],
       icon: "fa-solid fa-flask",
       thumbClass: "thumb-labs",
@@ -270,12 +270,10 @@ function renderProjects() {
         ${p.cases.map(c => `
           <article class="mini-card">
             <div class="mini-title">${c.title}</div>
-
             <div class="mini-row"><span class="mini-k">${labels.problem || "Problema"}:</span> ${c.problem}</div>
             <div class="mini-row"><span class="mini-k">${labels.solution || "Solución"}:</span> ${c.solution}</div>
             <div class="mini-row"><span class="mini-k">${labels.signal || "Señal"}:</span> ${c.signal}</div>
-
-            ${c.link ? `<a class="mini-link" href="${c.link}" target="_blank" rel="noopener noreferrer">Ver</a>` : ``}
+            ${c.link ? `<a class="mini-link" href="${c.link}" target="_blank" rel="noopener noreferrer">Ver repo</a>` : ``}
           </article>
         `).join("")}
       </div>
