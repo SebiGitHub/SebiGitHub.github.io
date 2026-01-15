@@ -97,9 +97,18 @@
 
     <section id="projects" class="section">
       <h2 data-i18n="projects.title">Proyectos</h2>
-      <div id="projects-grid"></div>
-      <!-- Nota: esta sección la reestructuramos después de elegir un estilo (carrusel / modal / scroll-snap). -->
+
+      <div class="carousel" aria-label="Carrusel de proyectos">
+        <button class="carousel-btn" id="proj-prev" aria-label="Proyecto anterior">‹</button>
+
+        <div id="project-stage" class="carousel-stage"></div>
+
+        <button class="carousel-btn" id="proj-next" aria-label="Proyecto siguiente">›</button>
+      </div>
+
+      <div id="project-dots" class="carousel-dots" aria-label="Selector de proyecto"></div>
     </section>
+
 
     <section id="xp" class="section">
       <h2 data-i18n="xp.title">Experiencia & Certificaciones</h2>

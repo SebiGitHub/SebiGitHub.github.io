@@ -530,3 +530,78 @@ p{ color: var(--muted); line-height: 1.7; }
     grid-template-columns: 1fr;
   }
 }
+
+/* =========================
+   PROYECTOS — Carrusel (Opción A)
+   ========================= */
+.carousel{
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  gap: 14px;
+  align-items: center;
+}
+
+.carousel-stage{
+  min-height: 320px; /* evita saltos al cambiar */
+}
+
+.carousel-btn{
+  height: 52px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.18);
+  background: rgba(0,0,0,.18);
+  color: var(--text);
+  font-size: 28px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.carousel-btn:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.32);
+  background: rgba(0,0,0,.26);
+}
+
+.carousel-btn:active{
+  transform: translateY(0);
+}
+
+.carousel-dots{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.carousel-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.20);
+  background: rgba(255,255,255,.10);
+  cursor: pointer;
+  opacity: .85;
+  transition: transform .15s ease, opacity .15s ease;
+}
+
+.carousel-dot:hover{
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+.carousel-dot.active{
+  background: rgba(255,255,255,.55);
+  opacity: 1;
+}
+
+/* En móvil: botones un poco más pequeños */
+@media (max-width: 768px){
+  .carousel{
+    grid-template-columns: 44px 1fr 44px;
+    gap: 10px;
+  }
+  .carousel-stage{
+    min-height: 360px;
+  }
+}

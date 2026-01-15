@@ -164,13 +164,13 @@ function setupContactForm(){
 /* =========================================================
    RENDER: PROJECTS
 ========================================================= */
-function renderProjects(){
-  const grid = document.getElementById("projects-grid");
-  if (!grid || !STATE.dict?.projects) return;
+let PROJECT_INDEX = 0;
 
-  const proj = STATE.dict.projects;
+function getProjectItems(){
+  const proj = STATE.dict?.projects;
+  if (!proj) return [];
 
-  const items = [
+  return [
     {
       title: proj.p1_title,
       desc: proj.p1_desc,
@@ -196,21 +196,106 @@ function renderProjects(){
       emoji: "🔍"
     }
   ];
+}
 
-  grid.innerHTML = items.map(p => `
+function clampIndex(i, len){
+  if (len <= 0) return 0;
+  return (i + len) % len; // wrap circular
+}
+
+function renderProjects(){
+  const stage = document.getElementById("project-stage");
+  const dots = document.getElementById("project-dots");
+  if (!stage || !dots) return;
+
+  const items = getProjectItems();
+  if (items.length === 0) {
+    stage.innerHTML = "";
+    dots.innerHTML = "";
+    return;
+  }
+
+  PROJECT_INDEX = clampIndex(PROJECT_INDEX, items.length);
+  const p = items[PROJECT_INDEX];
+
+  stage.innerHTML = `
     <div class="card project-card">
-      <div class="project-thumb"><span>${p.emoji}</span></div>
+      <div class="project-thumb">
+        <span>${p.emoji}</span>
+      </div>
+
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
-      <div class="tech">${p.tech.map(t => `<span>${t}</span>`).join("")}</div>
+
+      <div class="tech">
+        ${p.tech.map(t => `<span>${t}</span>`).join("")}
+      </div>
+
       <details>
-        <summary>${STATE.lang === "es" ? "+ info" : "+ info"}</summary>
+        <summary>+ info</summary>
         <p>${p.why}</p>
       </details>
-      <a href="${p.link}" class="btn btn--primary" target="_blank" rel="noopener noreferrer">GitHub</a>
+
+      <a href="${p.link}" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
+  `;
+
+  dots.innerHTML = items.map((_, idx) => `
+    <button
+      class="carousel-dot ${idx === PROJECT_INDEX ? "active" : ""}"
+      aria-label="Ir al proyecto ${idx + 1}"
+      data-idx="${idx}">
+    </button>
   `).join("");
+
+  // dots click
+  dots.querySelectorAll(".carousel-dot").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      PROJECT_INDEX = Number(b.getAttribute("data-idx"));
+      renderProjects();
+    });
+  });
 }
+
+// Botones prev/next + swipe
+function setupProjectsCarousel(){
+  const prev = document.getElementById("proj-prev");
+  const next = document.getElementById("proj-next");
+  const stage = document.getElementById("project-stage");
+  if (!prev || !next || !stage) return;
+
+  prev.addEventListener("click", ()=>{
+    const items = getProjectItems();
+    PROJECT_INDEX = clampIndex(PROJECT_INDEX - 1, items.length);
+    renderProjects();
+  });
+
+  next.addEventListener("click", ()=>{
+    const items = getProjectItems();
+    PROJECT_INDEX = clampIndex(PROJECT_INDEX + 1, items.length);
+    renderProjects();
+  });
+
+  // Swipe simple (móvil)
+  let x0 = null;
+  stage.addEventListener("touchstart", (e)=>{
+    x0 = e.touches?.[0]?.clientX ?? null;
+  }, { passive:true });
+
+  stage.addEventListener("touchend", (e)=>{
+    const x1 = e.changedTouches?.[0]?.clientX ?? null;
+    if (x0 == null || x1 == null) return;
+
+    const dx = x1 - x0;
+    if (Math.abs(dx) < 60) return;
+
+    const items = getProjectItems();
+    PROJECT_INDEX = clampIndex(PROJECT_INDEX + (dx < 0 ? 1 : -1), items.length);
+    renderProjects();
+    x0 = null;
+  }, { passive:true });
+}
+
 
 /* =========================================================
    RENDER: SKILLS
@@ -285,6 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
   setupSearch();
   setupContactForm();
   setupSectionObserver();
+  setupProjectsCarousel();
 
   loadDict(STATE.lang);
 });
