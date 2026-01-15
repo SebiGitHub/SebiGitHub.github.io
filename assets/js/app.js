@@ -211,6 +211,34 @@ function getProjectItems() {
       tech: ["Android", "Kotlin", "SQLite/Room"],
       icon: "fa-solid fa-calendar-days",
       thumbClass: "thumb-android"
+    },
+    {
+      title: proj.p4_title,
+      desc: proj.p4_desc,
+      why: proj.p4_why,
+      link: "PON_AQUI_EL_LINK_DE_BINGOENVIDIOSOS",
+      tech: ["Firebase", "Realtime", "UI"],
+      icon: "fa-solid fa-table-cells-large",
+      thumbClass: "thumb-bingo"
+    },
+    {
+      title: proj.p5_title,
+      desc: proj.p5_desc,
+      why: proj.p5_why,
+      link: "PON_AQUI_EL_LINK_DE_REALTIME_BINGO_WEB",
+      tech: ["Web", "Realtime", "Rooms"],
+      icon: "fa-solid fa-users",
+      thumbClass: "thumb-realtime"
+    },
+    {
+      title: proj.p6_title,
+      desc: proj.p6_desc,
+      why: proj.p6_why,
+      link: "PON_AQUI_EL_LINK_DE_KOTLIN_LABS",
+      tech: ["Kotlin", "Labs", "Android"],
+      icon: "fa-solid fa-flask",
+      thumbClass: "thumb-labs",
+      cases: proj.p6_cases || []
     }
   ];
 }
@@ -235,6 +263,25 @@ function renderProjects() {
   PROJECT_INDEX = clampIndex(PROJECT_INDEX, items.length);
   const p = items[PROJECT_INDEX];
 
+  const labels = STATE.dict?.projects?.case_labels || {};
+  const casesHTML = (p.cases && p.cases.length)
+    ? `
+      <div class="mini-grid" aria-label="Mini casos">
+        ${p.cases.map(c => `
+          <article class="mini-card">
+            <div class="mini-title">${c.title}</div>
+
+            <div class="mini-row"><span class="mini-k">${labels.problem || "Problema"}:</span> ${c.problem}</div>
+            <div class="mini-row"><span class="mini-k">${labels.solution || "Solución"}:</span> ${c.solution}</div>
+            <div class="mini-row"><span class="mini-k">${labels.signal || "Señal"}:</span> ${c.signal}</div>
+
+            ${c.link ? `<a class="mini-link" href="${c.link}" target="_blank" rel="noopener noreferrer">Ver</a>` : ``}
+          </article>
+        `).join("")}
+      </div>
+    `
+    : "";
+
   stage.innerHTML = `
     <div class="card project-card">
       <div class="project-thumb ${p.thumbClass || ""}">
@@ -245,8 +292,10 @@ function renderProjects() {
       <p>${p.desc}</p>
 
       <div class="tech">
-        ${p.tech.map((t) => `<span class="${chipTone(t)}">${t}</span>`).join("")}
+        ${p.tech.map(t => `<span>${t}</span>`).join("")}
       </div>
+
+      ${casesHTML}
 
       <details>
         <summary>+ info</summary>

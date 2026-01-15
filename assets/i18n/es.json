@@ -118,7 +118,49 @@
 
     "p3_title": "Agenda App",
     "p3_desc": "App de agenda para gestionar contactos y/o eventos, con interfaz clara y enfoque en productividad.",
-    "p3_why": "Me permitió practicar estructura de app, persistencia de datos y una UI limpia orientada a uso real."
+    "p3_why": "Me permitió practicar estructura de app, persistencia de datos y una UI limpia orientada a uso real.",
+    
+    "case_labels": {
+      "problem": "Problema",
+      "solution": "Solución",
+      "signal": "Señal"
+    },
+
+    "p4_title": "BingoEnvidiosos",
+    "p4_desc": "Bingo temático con tablero interactivo y marcado de casillas, pensado para jugar en eventos y con un toque gamificado.",
+    "p4_why": "Me sirvió para practicar estructura de datos, UX simple y lógica de marcado/persistencia.",
+
+    "p5_title": "Realtime Collaborative Bingo Web App",
+    "p5_desc": "Bingo colaborativo en tiempo real: varios usuarios comparten sala y el estado del tablero se sincroniza al instante.",
+    "p5_why": "Práctica directa de sincronización en tiempo real, estados compartidos y experiencia multiusuario.",
+
+    "p6_title": "Kotlin Labs",
+    "p6_desc": "Colección de mini-proyectos en Kotlin para dominar piezas clave: multimedia, concurrencia y persistencia.",
+    "p6_why": "Enfoque “mini-casos”: un problema real, una solución concreta y una señal clara de competencia técnica.",
+
+    "p6_cases": [
+      {
+        "title": "Concurrencia sin bloquear UI (Coroutines)",
+        "problem": "Simular carga/red y actualizar UI sin freeze",
+        "solution": "Coroutines + dispatcher IO/Main + cancelación",
+        "signal": "Entiendo concurrencia y ciclo de vida",
+        "link": "PON_AQUI_EL_LINK_DEL_MINICASO"
+      },
+      {
+        "title": "Multimedia (placeholder)",
+        "problem": "PON_AQUI_EL_PROBLEMA",
+        "solution": "PON_AQUI_LA_SOLUCION",
+        "signal": "PON_AQUI_LA_SENAL",
+        "link": "PON_AQUI_EL_LINK"
+      },
+      {
+        "title": "BBDDProductos (placeholder)",
+        "problem": "PON_AQUI_EL_PROBLEMA",
+        "solution": "PON_AQUI_LA_SOLUCION",
+        "signal": "PON_AQUI_LA_SENAL",
+        "link": "PON_AQUI_EL_LINK"
+      }
+    ]
   },
   "xp": {
     "title": "Experiencia & Certificaciones",

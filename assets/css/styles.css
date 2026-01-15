@@ -809,3 +809,62 @@ p{
 .t-soft-cur{ --chip-bg: rgba(196,181,253,.12); --chip-bd: rgba(196,181,253,.28); }
 .t-soft-adapt{ --chip-bg: rgba(52,211,153,.12); --chip-bd: rgba(52,211,153,.26); }
 .t-soft-org{ --chip-bg: rgba(251,191,36,.12); --chip-bd: rgba(251,191,36,.26); }
+
+
+/* ===== Kotlin Labs: mini-casos ===== */
+.mini-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin: 14px 0 8px;
+}
+
+.mini-card{
+  border-radius: 16px;
+  padding: 12px 12px;
+
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.mini-title{
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.mini-row{
+  color: rgba(255,255,255,.80);
+  font-size: 14px;
+  line-height: 1.45;
+  margin: 6px 0;
+}
+
+.mini-k{
+  font-weight: 900;
+  color: rgba(196,181,253,.95);
+}
+
+.mini-link{
+  display:inline-flex;
+  margin-top: 10px;
+  font-weight: 900;
+  text-decoration:none;
+
+  padding: 8px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+  color: #fff;
+}
+.mini-link:hover{
+  transform: translateY(-1px);
+  background: rgba(0,0,0,.25);
+}
+
+/* ===== Thumbs paleta extra ===== */
+.project-thumb.thumb-bingo{     --a: rgba(244,114,182,.18); --b: rgba(34,211,238,.16); }
+.project-thumb.thumb-realtime{ --a: rgba(34,211,238,.20);  --b: rgba(196,181,253,.16); }
+.project-thumb.thumb-labs{     --a: rgba(250,204,21,.14);  --b: rgba(196,181,253,.18); }
+

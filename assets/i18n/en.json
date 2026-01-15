@@ -118,7 +118,49 @@
 
     "p3_title": "Agenda App",
     "p3_desc": "Agenda app to manage contacts and/or events with a clean, productivity-focused UI.",
-    "p3_why": "It helped me practice app structure, data persistence and a clean UI designed for real usage."
+    "p3_why": "It helped me practice app structure, data persistence and a clean UI designed for real usage.",
+    
+    "case_labels": {
+      "problem": "Problem",
+      "solution": "Solution",
+      "signal": "Signal"
+    },
+
+    "p4_title": "BingoEnvidiosos",
+    "p4_desc": "A themed bingo with an interactive board and cell marking, designed for events with a playful twist.",
+    "p4_why": "Great practice for data structure, simple UX, and marking/persistence logic.",
+
+    "p5_title": "Realtime Collaborative Bingo Web App",
+    "p5_desc": "Real-time collaborative bingo: multiple users join a room and the board state syncs instantly.",
+    "p5_why": "Hands-on practice with real-time sync, shared state, and multi-user UX.",
+
+    "p6_title": "Kotlin Labs",
+    "p6_desc": "A collection of Kotlin mini-projects to master key areas: multimedia, concurrency, and persistence.",
+    "p6_why": "A “mini-case” format: a real problem, a concrete solution, and a clear competency signal.",
+
+    "p6_cases": [
+      {
+        "title": "Concurrency without blocking UI (Coroutines)",
+        "problem": "Simulate load/network and update UI without freezing",
+        "solution": "Coroutines + IO/Main dispatchers + cancellation",
+        "signal": "I understand concurrency and lifecycle",
+        "link": "PUT_MINICASE_LINK_HERE"
+      },
+      {
+        "title": "Multimedia (placeholder)",
+        "problem": "PUT_PROBLEM_HERE",
+        "solution": "PUT_SOLUTION_HERE",
+        "signal": "PUT_SIGNAL_HERE",
+        "link": "PUT_LINK_HERE"
+      },
+      {
+        "title": "Products DB (placeholder)",
+        "problem": "PUT_PROBLEM_HERE",
+        "solution": "PUT_SOLUTION_HERE",
+        "signal": "PUT_SIGNAL_HERE",
+        "link": "PUT_LINK_HERE"
+      }
+    ]
   },
   "xp": {
     "title": "Experience & Certifications",
