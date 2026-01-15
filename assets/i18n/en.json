@@ -17,34 +17,93 @@
   },
   "about": {
     "title": "About me",
-    "body": "I’m a junior developer with a bilingual DAM background and experience building internal tools that connect data, automate workflows and make users’ lives easier. I’ve worked with PowerApps, SharePoint, Access, Excel, Kotlin, C#, Python and SQL. I’m looking for a team where I can keep learning while delivering real value from day one."
+    "lead": "I build end-to-end solutions: connect data, automate workflows, and care about user experience.",
+    "cards": [
+      {
+        "icon": "fa-solid fa-bolt",
+        "title": "What I do",
+        "bullets": [
+          "Fast and useful internal apps",
+          "Automation for repetitive tasks",
+          "Data integration (SharePoint/Access/Excel)"
+        ]
+      },
+      {
+        "icon": "fa-solid fa-sitemap",
+        "title": "How I think",
+        "bullets": [
+          "User first, then code",
+          "Iterate fast: prototype → feedback → polish",
+          "I like clean, documented, maintainable work"
+        ]
+      },
+      {
+        "icon": "fa-solid fa-rocket",
+        "title": "Right now",
+        "bullets": [
+          "Looking for my first dev role",
+          "Bilingual GitHub Pages portfolio",
+          "Improving testing and best practices"
+        ]
+      }
+    ],
+    "chips": [
+      { "icon": "devicon-salesforce-plain", "label": "Salesforce APEX" },
+      { "icon": "fa-solid fa-diagram-project", "label": "PowerApps + SharePoint" },
+      { "icon": "fa-solid fa-database", "label": "Access / SQL" },
+      { "icon": "fa-solid fa-file-excel", "label": "Excel" },
+      { "icon": "devicon-csharp-plain", "label": "C# / .NET" },
+      { "icon": "devicon-kotlin-plain", "label": "Kotlin" },
+      { "icon": "devicon-python-plain", "label": "Python" },
+      { "icon": "devicon-javascript-plain", "label": "JavaScript" }
+    ]
   },
   "skills": {
     "title": "Skills",
-    "dev_title": "Development & automation",
-    "dev_items": [
-      "Java · C# · Kotlin (basic Android)",
-      "Apex in Salesforce (APEX 2025 training)",
-      "VBScript for process automation",
-      "REST APIs and JSON handling"
-    ],
-    "web_title": "Web & UI",
-    "web_items": [
-      "WordPress: site creation and customization",
-      "HTML · CSS · basic responsive design",
-      "Interest in clean, dark and minimal UI"
-    ],
-    "data_title": "Data & tools",
-    "data_items": [
-      "Advanced Excel (formulas, structured data)",
-      "Access: small databases and prototypes",
-      "PowerApps + SharePoint integration"
-    ],
-    "soft_title": "Soft skills",
-    "soft_items": [
-      "Fast learning and constant curiosity",
-      "Clear communication with non-technical people",
-      "Ability to work with changing requirements"
+    "lead": "Tech I use to build, ship and maintain things that actually work.",
+    "categories": [
+      {
+        "icon": "fa-solid fa-code",
+        "title": "Backend / logic",
+        "items": [
+          { "icon": "devicon-java-plain", "label": "Java" },
+          { "icon": "devicon-csharp-plain", "label": "C#" },
+          { "icon": "devicon-salesforce-plain", "label": "Apex (Salesforce)" },
+          { "icon": "devicon-python-plain", "label": "Python" },
+          { "icon": "fa-solid fa-gears", "label": "VBScript (automation)" }
+        ]
+      },
+      {
+        "icon": "fa-solid fa-laptop-code",
+        "title": "Web / UI",
+        "items": [
+          { "icon": "devicon-html5-plain", "label": "HTML" },
+          { "icon": "devicon-css3-plain", "label": "CSS" },
+          { "icon": "devicon-javascript-plain", "label": "JavaScript" },
+          { "icon": "devicon-wordpress-plain", "label": "WordPress" }
+        ]
+      },
+      {
+        "icon": "fa-solid fa-database",
+        "title": "Data & tools",
+        "items": [
+          { "icon": "fa-solid fa-table", "label": "Advanced Excel" },
+          { "icon": "fa-solid fa-database", "label": "Access / SQL" },
+          { "icon": "fa-solid fa-diagram-project", "label": "PowerApps + SharePoint" },
+          { "icon": "devicon-git-plain", "label": "Git" },
+          { "icon": "devicon-github-original", "label": "GitHub" }
+        ]
+      },
+      {
+        "icon": "fa-solid fa-people-group",
+        "title": "Soft skills",
+        "items": [
+          { "icon": "fa-solid fa-comments", "label": "Clear communication" },
+          { "icon": "fa-solid fa-magnifying-glass", "label": "Curiosity / learning" },
+          { "icon": "fa-solid fa-arrows-rotate", "label": "Adaptability" },
+          { "icon": "fa-solid fa-list-check", "label": "Organization & documentation" }
+        ]
+      }
     ]
   },
   "projects": {
@@ -63,12 +122,49 @@
   },
   "xp": {
     "title": "Experience & Certifications",
-    "xp1_title": "DAM Internship — Hospital San Juan de Dios (2025)",
-    "xp1_body": "Hybrid role between technical support and internal development. I learned data integration, automation and translating real user needs into working solutions.",
-    "xp2_title": "Final Project — PowerApps + SharePoint + Access + Excel (2025)",
-    "xp2_body": "End-to-end project: PowerApps connected to SharePoint/Access/Excel + automation via VBScript.",
-    "xp3_title": "Customer Service Agent — Konecta (2023)",
-    "xp3_body": "Communication, incident management and CRM documentation: a strong base for working with real users and requirements."
+    "lead": "Where I’ve applied this with real people, real data and real deadlines.",
+    "timeline": [
+      {
+        "title": "DAM Internship — Hospital San Juan de Dios",
+        "meta": "2025 · Internal development + support",
+        "bullets": [
+          "PowerApps role-based protocol access",
+          "Integration with SharePoint / Access / Excel",
+          "Automation and data cleanup (VBScript)"
+        ],
+        "tech": ["fa-solid fa-diagram-project", "fa-solid fa-database", "fa-solid fa-file-excel"]
+      },
+      {
+        "title": "Final Project — WEB-DE-PROTOCOLOS-HSJD",
+        "meta": "2025 · End-to-end project",
+        "bullets": [
+          "Designed the full flow (UI + data + automation)",
+          "Documentation and focus on reducing manual errors",
+          "Iterated with real user feedback"
+        ],
+        "tech": ["fa-solid fa-puzzle-piece", "devicon-github-original", "fa-solid fa-wand-magic-sparkles"]
+      },
+      {
+        "title": "Salesforce: Developing Apps in APEX 2025",
+        "meta": "Training · APEX / best practices",
+        "bullets": [
+          "Apex: classes, triggers and testing",
+          "Best practices (structure, maintainability)",
+          "Data modeling and automations"
+        ],
+        "tech": ["devicon-salesforce-plain", "fa-solid fa-vial", "fa-solid fa-layer-group"]
+      },
+      {
+        "title": "Customer Service Agent — Konecta",
+        "meta": "2023 · Customer support",
+        "bullets": [
+          "Incident handling and CRM documentation",
+          "Communication with non-technical users",
+          "Goal-driven work under pressure"
+        ],
+        "tech": ["fa-solid fa-headset", "fa-solid fa-file-lines", "fa-solid fa-people-arrows"]
+      }
+    ]
   },
   "cv": {
     "title": "Download CV",

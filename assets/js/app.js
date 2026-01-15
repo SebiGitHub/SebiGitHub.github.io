@@ -34,9 +34,10 @@ function applyI18n(){
     if (typeof val === 'string') el.textContent = val;
   });
 
+  renderAbout();
   renderSkills();
-  renderProjects();
   renderXP();
+  renderProjects();
 
   document.documentElement.lang = STATE.lang;
 }
@@ -55,27 +56,45 @@ document.getElementById('lang-toggle')?.addEventListener('click', ()=>{
 });
 
 /* =========================================================
+   ABOUT
+   ========================================================= */
+function renderAbout(){
+  const grid = document.getElementById("aboutGrid");
+  const chips = document.getElementById("aboutChips");
+  const t = STATE.dict;
+  if(!grid || !chips || !t?.about) return;
+
+  grid.innerHTML = (t.about.cards || []).map(c => `
+    <article class="card col-4">
+      <h3 class="card-title"><i class="${c.icon}"></i><span>${c.title}</span></h3>
+      <ul class="bullets">
+        ${(c.bullets || []).map(b => `<li>${b}</li>`).join("")}
+      </ul>
+    </article>
+  `).join("");
+
+  chips.innerHTML = (t.about.chips || []).map(ch => `
+    <span class="chip"><i class="${ch.icon}"></i>${ch.label}</span>
+  `).join("");
+}
+
+/* =========================================================
    SKILLS
    ========================================================= */
 function renderSkills(){
-  const grid = document.getElementById("skills-grid");
-  if (!grid || !STATE.dict?.skills) return;
+  const wrap = document.getElementById("skillsGrid");
+  const t = STATE.dict;
+  if(!wrap || !t?.skills?.categories) return;
 
-  const s = STATE.dict.skills;
-  const blocks = [
-    { title: s.dev_title,  items: s.dev_items  },
-    { title: s.web_title,  items: s.web_items  },
-    { title: s.data_title, items: s.data_items },
-    { title: s.soft_title, items: s.soft_items }
-  ];
-
-  grid.innerHTML = blocks.map(b => `
-    <div class="card skill-card">
-      <h3>${b.title}</h3>
-      <ul>
-        ${b.items.map(i => `<li>${i}</li>`).join("")}
-      </ul>
-    </div>
+  wrap.innerHTML = (t.skills.categories || []).map(cat => `
+    <article class="card col-6">
+      <h3 class="card-title"><i class="${cat.icon}"></i><span>${cat.title}</span></h3>
+      <div class="chips">
+        ${(cat.items || []).map(it => `
+          <span class="chip"><i class="${it.icon}"></i>${it.label}</span>
+        `).join("")}
+      </div>
+    </article>
   `).join("");
 }
 
@@ -83,20 +102,25 @@ function renderSkills(){
    EXPERIENCE
    ========================================================= */
 function renderXP(){
-  const container = document.getElementById("xp-list");
-  if (!container || !STATE.dict?.xp) return;
+  const tl = document.getElementById("experienceTimeline");
+  const t = STATE.dict;
+  if(!tl || !t?.xp?.timeline) return;
 
-  const x = STATE.dict.xp;
-  const items = [
-    { title: x.xp1_title, body: x.xp1_body },
-    { title: x.xp2_title, body: x.xp2_body },
-    { title: x.xp3_title, body: x.xp3_body }
-  ];
+  tl.innerHTML = (t.xp.timeline || []).map(item => `
+    <div class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-card">
+        <div style="font-weight:900; font-size:1.05rem;">${item.title}</div>
+        <div class="t-meta">${item.meta || ""}</div>
 
-  container.innerHTML = items.map(i => `
-    <div class="card xp-card">
-      <h3>${i.title}</h3>
-      <p>${i.body}</p>
+        <ul class="bullets" style="margin-top:10px;">
+          ${(item.bullets || []).map(b => `<li>${b}</li>`).join("")}
+        </ul>
+
+        <div class="t-tech">
+          ${(item.tech || []).map(ic => `<i class="${ic}"></i>`).join("")}
+        </div>
+      </div>
     </div>
   `).join("");
 }
@@ -297,3 +321,61 @@ document.addEventListener("DOMContentLoaded", ()=>{
   setupContactForm();
   loadDict(STATE.lang);
 });
+
+
+function renderAbout(t){
+  const grid = document.getElementById("aboutGrid");
+  const chips = document.getElementById("aboutChips");
+  if(!grid || !chips) return;
+
+  grid.innerHTML = (t.about?.cards || []).map(c => `
+    <article class="card col-4">
+      <h3 class="card-title"><i class="${c.icon}"></i><span>${c.title}</span></h3>
+      <ul class="bullets">
+        ${(c.bullets || []).map(b => `<li>${b}</li>`).join("")}
+      </ul>
+    </article>
+  `).join("");
+
+  chips.innerHTML = (t.about?.chips || []).map(ch => `
+    <span class="chip"><i class="${ch.icon}"></i>${ch.label}</span>
+  `).join("");
+}
+
+function renderSkills(t){
+  const wrap = document.getElementById("skillsGrid");
+  if(!wrap) return;
+
+  wrap.innerHTML = (t.skills?.categories || []).map(cat => `
+    <article class="card col-6">
+      <h3 class="card-title"><i class="${cat.icon}"></i><span>${cat.title}</span></h3>
+      <div class="chips">
+        ${(cat.items || []).map(it => `
+          <span class="chip"><i class="${it.icon}"></i>${it.label}</span>
+        `).join("")}
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderExperience(t){
+  const tl = document.getElementById("experienceTimeline");
+  if(!tl) return;
+
+  tl.innerHTML = (t.experience?.timeline || []).map(item => `
+    <div class="t-item">
+      <div class="t-dot"></div>
+      <div class="t-card">
+        <div style="font-weight:800;">${item.title}</div>
+        <div class="t-meta">${item.meta || ""}</div>
+        <ul class="bullets" style="margin-top:10px;">
+          ${(item.bullets || []).map(b => `<li>${b}</li>`).join("")}
+        </ul>
+        <div class="t-tech">
+          ${(item.tech || []).map(ic => `<i class="${ic}"></i>`).join("")}
+        </div>
+      </div>
+    </div>
+  `).join("");
+}
+

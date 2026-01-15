@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://sebigithub.github.io/assets/img/preview.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/img/logo-s.png">
+<link rel="icon" type="image/png" href="assets/img/logo-s-trasparente.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,13 +33,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" referrerpolicy="no-referrer">
 </head>
 
 <body>
   <!-- NAV -->
   <header class="nav">
     <a class="brand" href="#hero" aria-label="Ir al inicio">
-      <img src="assets/img/logo-s.png" alt="Logo Sebi" />
+      <img src="assets/img/logo-s-trasparente.png" alt="Logo Sebi" />
       <span>Sebi</span>
     </a>
 
@@ -62,22 +64,27 @@
   <main>
     <!-- HERO -->
     <section id="hero" class="section hero">
-      <img src="assets/img/logo-s.png" alt="" class="hero-logo" />
-      <h1 data-i18n="hero.title">Desarrollador junior que construye soluciones completas, no solo código.</h1>
-      <p class="hero-sub" data-i18n="hero.subtitle">DAM · Salesforce APEX · PowerApps · WordPress · Automatización</p>
+      <img src="assets/img/logo-s-trasparente.png" alt="" class="hero-logo" />
+      <h1 class="hero-title"><span class="glow" data-i18n="hero.title"></span></h1>
+      <p class="hero-sub" data-i18n="hero.subtitle"></p>
       <a href="#projects" class="btn" data-i18n="hero.cta">Ver proyectos</a>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section">
       <h2 class="section-title" data-i18n="about.title">Sobre mí</h2>
-      <p data-i18n="about.body">Soy desarrollador junior...</p>
+      <p class="section-lead" data-i18n="about.lead"></p>
+
+      <div class="cards-grid" id="aboutGrid"></div>
+      <div class="chips" id="aboutChips"></div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills" class="section">
       <h2 class="section-title" data-i18n="skills.title">Skills</h2>
-      <div id="skills-grid"></div>
+      <p class="section-lead" data-i18n="skills.lead"></p>
+
+      <div class="cards-grid" id="skillsGrid"></div>
     </section>
 
     <!-- PROJECTS (Carrusel - Opción A) -->
@@ -96,7 +103,9 @@
     <!-- EXPERIENCE -->
     <section id="xp" class="section">
       <h2 class="section-title" data-i18n="xp.title">Experiencia & Certificaciones</h2>
-      <div id="xp-list"></div>
+      <p class="section-lead" data-i18n="xp.lead"></p>
+
+      <div class="timeline" id="experienceTimeline"></div>
     </section>
 
     <!-- CV DOWNLOAD (reemplaza Servicios) -->

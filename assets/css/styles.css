@@ -69,11 +69,36 @@ h1{
 }
 
 .section-title{
-  text-align:center;
-  font-size: clamp(30px, 4.2vw, 46px); /* más grande y llamativo */
-  margin:0 0 18px;
-  letter-spacing: .2px;
-  text-shadow: 0 16px 50px rgba(0,0,0,.45);
+  font-size: clamp(2.2rem, 3.2vw, 3.2rem);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+
+  background: linear-gradient(90deg, rgba(196,181,253,1), rgba(34,211,238,.95));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 0 26px rgba(196,181,253,.12);
+  position: relative;
+}
+
+.section-title::after{
+  content:"";
+  display:block;
+  width: 72px;
+  height: 3px;
+  margin-top: 10px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(120,120,255,.9), rgba(200,120,255,.9));
+  opacity: .9;
+}
+
+.section-lead{
+  max-width: 980px;
+  margin: 0 0 22px;
+  color: rgba(255,255,255,.82);
+  font-weight: 700;
+  font-size: clamp(16px, 2vw, 18px);
 }
 
 p{
@@ -238,9 +263,10 @@ p{
 }
 
 .hero-logo{
-  width: 110px;
-  margin-bottom: 18px;
-  filter: drop-shadow(0 25px 70px rgba(196,181,253,.35));
+  width: clamp(120px, 12vw, 200px);
+  height: auto;
+  filter: drop-shadow(0 14px 40px rgba(0,0,0,.55));
+  margin-bottom: 14px;
 }
 
 .hero-sub{
@@ -249,6 +275,22 @@ p{
   color: #ffffff;
   margin: 6px 0 18px;
 }
+
+.hero-title{
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 10px 0 8px;
+}
+
+.hero-title .glow{
+  background: linear-gradient(90deg, rgba(120,120,255,.95), rgba(200,120,255,.95), rgba(120,255,220,.9));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 28px rgba(180,120,255,.22);
+}
+
 
 /* =========================================================
    CARDS (skills/xp/projects)
@@ -271,6 +313,83 @@ p{
   transform: translateY(-6px);
   box-shadow: 0 18px 60px rgba(0,0,0,.45);
 }
+
+.cards-grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+}
+
+.card .card-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight: 700;
+  margin: 0 0 10px;
+}
+
+.card .card-title i{
+  font-size: 1.05rem;
+  opacity: .95;
+}
+
+.bullets{
+  margin: 0;
+  padding-left: 18px;
+  opacity: .92;
+}
+
+.chips{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.chip{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  font-size: .92rem;
+  opacity: .95;
+}
+
+.chip i{ font-size: 1.05rem; }
+
+.timeline{
+  display:flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.t-item{
+  display:grid;
+  grid-template-columns: 14px 1fr;
+  gap: 12px;
+}
+
+.t-dot{
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: rgba(200,120,255,.9);
+  box-shadow: 0 0 18px rgba(200,120,255,.25);
+  margin-top: 6px;
+}
+
+.t-card{
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 18px;
+  padding: 14px 16px;
+}
+.t-meta{ opacity:.78; font-size:.95rem; margin-top: 2px; }
+.t-tech{ margin-top: 10px; display:flex; flex-wrap:wrap; gap:10px; opacity:.95; }
+.t-tech i{ font-size: 1.15rem; }
 
 /* =========================================================
    SKILLS / XP GRIDS
@@ -578,4 +697,9 @@ p{
   .carousel-stage{ min-height: 420px; }
 
   .brand img{ height: 36px; }
+}
+
+@media (min-width: 820px){
+  .card.col-4{ grid-column: span 4; }
+  .card.col-6{ grid-column: span 6; }
 }
