@@ -1,58 +1,172 @@
-// año del footer
-const year = document.getElementById('year');
-if (year) year.textContent = new Date().getFullYear();
+/* =========================================================
+   CONFIG
+========================================================= */
+const EMAIL_TO = "sebitaexporu@gmail.com";
 
-// estado de idioma
-const STATE = { lang: localStorage.getItem('lang') || 'es', dict: {} };
+/* =========================================================
+   STATE
+========================================================= */
+const STATE = {
+  lang: localStorage.getItem("lang") || "es",
+  dict: {}
+};
 
-// carga JSON de idioma
+/* =========================================================
+   HELPERS
+========================================================= */
+function setYear(){
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+}
+
+function setCssMouseVars(){
+  // Throttle via rAF para no spamear el main thread
+  let raf = null;
+  window.addEventListener("mousemove", (e) => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      const x = (e.clientX / window.innerWidth) * 100;
+      const y = (e.clientY / window.innerHeight) * 100;
+      document.documentElement.style.setProperty("--mx", `${x}%`);
+      document.documentElement.style.setProperty("--my", `${y}%`);
+      raf = null;
+    });
+  });
+}
+
+/* =========================================================
+   I18N
+========================================================= */
 async function loadDict(lang){
-  try {
+  try{
     const res = await fetch(`assets/i18n/${lang}.json`);
     const json = await res.json();
     STATE.dict = json;
     STATE.lang = lang;
-    localStorage.setItem('lang', lang);
+    localStorage.setItem("lang", lang);
+
     applyI18n();
-    updateLangToggle();
-  } catch (e) {
-    console.error('Error cargando diccionario', e);
+    updateLangUI();
+  }catch(e){
+    console.error("Error cargando diccionario:", e);
   }
 }
 
-// aplica textos + re-renderiza secciones
 function applyI18n(){
-  if (!STATE.dict || !STATE.dict.nav) {
-    // aún no se ha cargado bien el JSON
-    return;
-  }
+  if (!STATE.dict) return;
 
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const key = el.getAttribute('data-i18n');
-    const val = key.split('.').reduce((o,k)=>o?.[k], STATE.dict);
-    if (typeof val === 'string') el.textContent = val;
+  // textContent
+  document.querySelectorAll("[data-i18n]").forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    const val = key.split(".").reduce((o,k)=>o?.[k], STATE.dict);
+    if (typeof val === "string") el.textContent = val;
   });
 
+  // placeholders
+  document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    const val = key.split(".").reduce((o,k)=>o?.[k], STATE.dict);
+    if (typeof val === "string") el.setAttribute("placeholder", val);
+  });
+
+  // Render secciones dinámicas
   renderSkills();
   renderProjects();
   renderXP();
-  renderServices();
+
   document.documentElement.lang = STATE.lang;
 }
 
-// toggle ES/EN
-document.getElementById('lang-toggle')?.addEventListener('click', ()=>{
-  loadDict(STATE.lang === 'es' ? 'en' : 'es');
-});
+function updateLangUI(){
+  const toggle = document.getElementById("lang-toggle");
+  if (!toggle) return;
+  toggle.querySelectorAll(".lang-pill").forEach(p => {
+    p.classList.toggle("active", p.dataset.lang === STATE.lang);
+  });
+}
 
-// === RENDER PROYECTOS ===
+function setupLangToggle(){
+  const toggle = document.getElementById("lang-toggle");
+  if (!toggle) return;
+
+  toggle.addEventListener("click", (e) => {
+    const pill = e.target.closest(".lang-pill");
+    if (pill?.dataset.lang) {
+      loadDict(pill.dataset.lang);
+      return;
+    }
+    // click fuera de pill: alterna
+    loadDict(STATE.lang === "es" ? "en" : "es");
+  });
+}
+
+/* =========================================================
+   SEARCH (busca texto dentro del main)
+========================================================= */
+function setupSearch(){
+  const form = document.getElementById("search-form");
+  const input = document.getElementById("site-search");
+  const status = document.getElementById("search-status");
+  if (!form || !input) return;
+
+  const clearHit = () => {
+    document.querySelectorAll(".search-hit").forEach(el => el.classList.remove("search-hit"));
+  };
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    clearHit();
+
+    const q = (input.value || "").trim().toLowerCase();
+    if (!q){
+      if (status) status.textContent = "";
+      return;
+    }
+
+    // Buscamos en elementos típicos de contenido (evita nav)
+    const candidates = Array.from(document.querySelectorAll("main h1, main h2, main h3, main p, main li, main summary, main small"));
+    const match = candidates.find(el => (el.textContent || "").toLowerCase().includes(q));
+
+    if (!match){
+      if (status) status.textContent = (STATE.lang === "es" ? "Sin resultados" : "No results");
+      return;
+    }
+
+    match.classList.add("search-hit");
+    match.scrollIntoView({ behavior: "smooth", block: "center" });
+    if (status) status.textContent = (STATE.lang === "es" ? "Encontrado" : "Found");
+  });
+}
+
+/* =========================================================
+   CONTACT FORM (sin backend: crea mailto con el contenido)
+========================================================= */
+function setupContactForm(){
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const name = document.getElementById("f-name")?.value?.trim() || "";
+    const email = document.getElementById("f-email")?.value?.trim() || "";
+    const message = document.getElementById("f-message")?.value?.trim() || "";
+
+    const subject = encodeURIComponent(`[Portfolio] Mensaje de ${name || "alguien"}`);
+    const body = encodeURIComponent(
+      `Nombre: ${name}\nEmail: ${email}\n\nMensaje:\n${message}\n`
+    );
+
+    window.location.href = `mailto:${EMAIL_TO}?subject=${subject}&body=${body}`;
+  });
+}
+
+/* =========================================================
+   RENDER: PROJECTS
+========================================================= */
 function renderProjects(){
   const grid = document.getElementById("projects-grid");
-  if (!grid) return;
-  if (!STATE.dict || !STATE.dict.projects) {
-    console.warn('Projects aún no disponible en STATE.dict');
-    return;
-  }
+  if (!grid || !STATE.dict?.projects) return;
 
   const proj = STATE.dict.projects;
 
@@ -85,25 +199,25 @@ function renderProjects(){
 
   grid.innerHTML = items.map(p => `
     <div class="card project-card">
-      <div class="project-thumb">
-        <span>${p.emoji}</span>
-      </div>
+      <div class="project-thumb"><span>${p.emoji}</span></div>
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
       <div class="tech">${p.tech.map(t => `<span>${t}</span>`).join("")}</div>
       <details>
-        <summary>+ info</summary>
+        <summary>${STATE.lang === "es" ? "+ info" : "+ info"}</summary>
         <p>${p.why}</p>
       </details>
-      <a href="${p.link}" class="btn" target="_blank">GitHub</a>
+      <a href="${p.link}" class="btn btn--primary" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   `).join("");
 }
 
-// === RENDER SKILLS ===
+/* =========================================================
+   RENDER: SKILLS
+========================================================= */
 function renderSkills(){
   const grid = document.getElementById("skills-grid");
-  if (!grid || !STATE.dict.skills) return;
+  if (!grid || !STATE.dict?.skills) return;
 
   const s = STATE.dict.skills;
   const blocks = [
@@ -116,17 +230,17 @@ function renderSkills(){
   grid.innerHTML = blocks.map(b => `
     <div class="card skill-card">
       <h3>${b.title}</h3>
-      <ul>
-        ${b.items.map(i => `<li>${i}</li>`).join("")}
-      </ul>
+      <ul>${b.items.map(i => `<li>${i}</li>`).join("")}</ul>
     </div>
   `).join("");
 }
 
-// === RENDER EXPERIENCIA ===
+/* =========================================================
+   RENDER: EXPERIENCE
+========================================================= */
 function renderXP(){
   const container = document.getElementById("xp-list");
-  if (!container || !STATE.dict.xp) return;
+  if (!container || !STATE.dict?.xp) return;
 
   const x = STATE.dict.xp;
   const items = [
@@ -143,34 +257,15 @@ function renderXP(){
   `).join("");
 }
 
-// === RENDER SERVICIOS ===
-function renderServices(){
-  const container = document.getElementById("services-list");
-  if (!container || !STATE.dict.services) return;
-
-  const s = STATE.dict.services;
-  const items = [
-    { icon: "⚙️", title: s.s1_title, body: s.s1_body },
-    { icon: "🖥️", title: s.s2_title, body: s.s2_body },
-    { icon: "🛠️", title: s.s3_title, body: s.s3_body }
-  ];
-
-  container.innerHTML = items.map(i => `
-    <div class="card service-card">
-      <div class="service-icon">${i.icon}</div>
-      <h3>${i.title}</h3>
-      <p>${i.body}</p>
-    </div>
-  `).join("");
-}
-
-// === ANIMACIÓN DE SECCIONES ===
+/* =========================================================
+   ANIMACIÓN DE SECCIONES
+========================================================= */
 function setupSectionObserver(){
-  const sections = document.querySelectorAll('.section');
+  const sections = document.querySelectorAll(".section");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting){
-        entry.target.classList.add('visible');
+        entry.target.classList.add("visible");
         observer.unobserve(entry.target);
       }
     });
@@ -179,80 +274,17 @@ function setupSectionObserver(){
   sections.forEach(sec => observer.observe(sec));
 }
 
-// arranque
-document.addEventListener("DOMContentLoaded", ()=>{
+/* =========================================================
+   BOOT
+========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
+  setYear();
+  setCssMouseVars();
+
+  setupLangToggle();
+  setupSearch();
+  setupContactForm();
   setupSectionObserver();
+
   loadDict(STATE.lang);
-});
-
-// Spotlight: mueve variables CSS con el ratón
-window.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth) * 100;
-  const y = (e.clientY / window.innerHeight) * 100;
-  document.documentElement.style.setProperty("--mx", `${x}%`);
-  document.documentElement.style.setProperty("--my", `${y}%`);
-});
-
-function updateLangToggle(){
-  const pills = document.querySelectorAll('.lang-pill');
-  pills.forEach(p => p.classList.toggle('active', p.dataset.lang === STATE.lang));
-}
-
-function clearMarks(){
-  document.querySelectorAll("mark.hit").forEach(m=>{
-    const text = document.createTextNode(m.textContent);
-    m.replaceWith(text);
-  });
-}
-
-function markQuery(q){
-  clearMarks();
-  if (!q || q.trim().length < 2) return;
-
-  const query = q.trim();
-  const root = document.querySelector("main");
-  if (!root) return;
-
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-    acceptNode(node){
-      const p = node.parentElement;
-      if (!p) return NodeFilter.FILTER_REJECT;
-      if (["SCRIPT","STYLE"].includes(p.tagName)) return NodeFilter.FILTER_REJECT;
-      if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
-      return NodeFilter.FILTER_ACCEPT;
-    }
-  });
-
-  const nodes = [];
-  while (walker.nextNode()) nodes.push(walker.currentNode);
-
-  const re = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "gi");
-  nodes.forEach(n=>{
-    const txt = n.nodeValue;
-    if (!re.test(txt)) return;
-
-    const frag = document.createDocumentFragment();
-    let last = 0;
-    txt.replace(re, (match, offset)=>{
-      frag.appendChild(document.createTextNode(txt.slice(last, offset)));
-      const mark = document.createElement("mark");
-      mark.className = "hit";
-      mark.textContent = match;
-      frag.appendChild(mark);
-      last = offset + match.length;
-    });
-    frag.appendChild(document.createTextNode(txt.slice(last)));
-    n.parentNode.replaceChild(frag, n);
-  });
-
-  const first = document.querySelector("mark.hit");
-  if (first) first.scrollIntoView({ behavior:"smooth", block:"center" });
-}
-
-const searchInput = document.getElementById("site-search");
-const searchBtn = document.getElementById("search-btn");
-
-searchBtn?.addEventListener("click", ()=> markQuery(searchInput?.value || ""));
-searchInput?.addEventListener("keydown", (e)=>{
-  if (e.key === "Enter") markQuery(searchInput.value);
 });

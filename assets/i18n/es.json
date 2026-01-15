@@ -1,98 +1,92 @@
 {
-  "nav": { "about":"Sobre mí", "skills":"Skills", "projects":"Proyectos", "xp":"Experiencia & Certs", "services":"Servicios", "contact":"Contacto" },
-
+  "nav": {
+    "about": "Sobre mí",
+    "skills": "Skills",
+    "projects": "Proyectos",
+    "xp": "Experiencia & Certs",
+    "cv": "Descargar CV",
+    "contact": "Contacto"
+  },
+  "search": {
+    "placeholder": "Buscar en la web…"
+  },
   "hero": {
-  "title": "Desarrollador junior que construye soluciones completas, no solo código.",
-  "subtitle": "DAM · Salesforce APEX · PowerApps · WordPress · Automatización",
-  "cta": "Ver proyectos"
+    "title": "Desarrollador junior que construye soluciones completas, no solo código.",
+    "subtitle": "DAM · Salesforce APEX · PowerApps · WordPress · Automatización",
+    "cta": "Ver proyectos"
   },
-
-  "skills": {
-  "title": "Skills",
-  "dev_title": "Desarrollo y automatización",
-  "dev_items": [
-    "Java · C# · Kotlin (Android básico)",
-    "Apex en Salesforce (formación APEX 2025)",
-    "VBScript para automatización de procesos",
-    "Consumo de APIs REST y JSON"
-  ],
-  "web_title": "Web & UI",
-  "web_items": [
-    "WordPress: creación y personalización de sitios",
-    "HTML · CSS · conceptos básicos de diseño responsive",
-    "Interés por UI limpia, oscura y minimalista"
-  ],
-  "data_title": "Datos & herramientas",
-  "data_items": [
-    "Excel avanzado (fórmulas, estructuras de datos)",
-    "Access: bases de datos pequeñas y prototipos",
-    "Integración PowerApps + SharePoint"
-  ],
-  "soft_title": "Soft skills",
-  "soft_items": [
-    "Aprendizaje rápido y curiosidad constante",
-    "Comunicación clara con personas no técnicas",
-    "Capacidad de trabajar con requisitos cambiantes"
-  ]
-  },
-
-  "projects": {
-  "title": "Proyectos",
-  "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
-  "p1_desc": "Aplicación desarrollada con PowerApps y SharePoint para que cada empleado acceda solo a los protocolos que le corresponden según su categoría y servicio.",
-  "p1_why": "Este proyecto marca uno de mis primeros acercamientos a un entorno profesional real, donde tenía que entender necesidades de usuarios, flujos internos de un equipo sanitario y limitaciones técnicas de distintas plataformas. La parte más valiosa fue aprender a integrar herramientas heterogéneas en un flujo coherente que automatiza tareas y reduce errores manuales. Fue mi primer contacto con la idea de 'solución completa'.",
-
-  "p2_title": "AvaloniaCatalogoWinForms",
-  "p2_desc": "Catálogo ficticio con CRUD completo: agregar, actualizar, eliminar, filtrar y ordenar productos en varias pantallas.",
-  "p2_why": "Este proyecto me permitió comprender cómo estructurar, gestionar y manipular datos dentro de una aplicación de escritorio. Fue un ejercicio donde aprendí a planificar pantallas y asegurar la consistencia de los datos, habilidades que luego pude trasladar a proyectos más complejos.",
-
-  "p3_title": "PokedexBuscador",
-  "p3_desc": "Aplicación en Kotlin que consulta la API de Pokémon para mostrar información útil de cada Pokémon al usuario.",
-  "p3_why": "Con este desarrollo pude experimentar con APIs reales y manejo de datos JSON. Más allá del contenido lúdico, interioricé cómo funciona la comunicación cliente-servidor y cómo presentar información de forma ligera y eficiente en Android."
-  },
-
-  "xp": {
-  "title": "Experiencia y Certificaciones",
-
-  "xp1_title": "Prácticas DAM — Hospital San Juan de Dios (2025)",
-  "xp1_body": "Rol híbrido entre soporte técnico y desarrollo interno. Gestioné incidencias, configuré equipos, documenté procesos y contribuí a mejorar aplicaciones internas. Aprendí a integrar datos, automatizar tareas y comunicarme con usuarios para transformar necesidades reales en soluciones funcionales.",
-
-  "xp2_title": "TFG — PowerApps + SharePoint + Access + Excel (2025)",
-  "xp2_body": "Desarrollé una aplicación completa conectando PowerApps, SharePoint, Access, Excel y un script VBScript para automatizar sincronizaciones. Fue mi primer proyecto 'end-to-end', desde la lógica interna hasta el despliegue y control de accesos.",
-
-  "xp3_title": "Teleoperador — Konecta (2023)",
-  "xp3_body": "Puesto centrado en comunicación clara, gestión de incidencias y documentación en CRM. Experiencia clave para tratar con usuarios finales y traducir sus necesidades en tareas técnicas concretas.",
-
-  "certs_title": "Certificaciones",
-  "cert1": "Salesforce: Developing Apps in Apex (2025)",
-  "cert2": "DAM Multiplataforma (2023–2025)",
-  "cert3": "B1 Cambridge"
-  },
-
-  "services": {
-  "title": "Servicios",
-  
-  "s1_title": "Desarrollo y automatización",
-  "s1_body": "Creo pequeñas aplicaciones internas, automatizo procesos repetitivos y conecto datos entre herramientas. Experiencia con PowerApps, SharePoint, Access, VBScript y APIs REST.",
-
-  "s2_title": "Desarrollo web",
-  "s2_body": "Construyo webs claras y funcionales en WordPress, con diseño moderno y mantenimiento básico. También trabajo con HTML y CSS para ajustes personalizados.",
-
-  "s3_title": "Soporte técnico y mejora de sistemas",
-  "s3_body": "Diagnóstico, resolución de incidencias, documentación y comunicación con usuarios. Capacidad para detectar problemas y proponer soluciones prácticas."
-  },
-
-  "contact": {
-  "title": "Contacto",
-  "subtitle": "¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?",
-  "cta_button": "Enviar correo",
-  "linkedin_button": "Ver LinkedIn",
-  "github_button": "Ver GitHub"
-  },
-
   "about": {
     "title": "Sobre mí",
     "body": "Soy desarrollador junior con formación DAM bilingüe y experiencia creando soluciones internas que conectan datos, automatizan tareas y facilitan la vida a los usuarios. He trabajado con PowerApps, SharePoint, Access, Excel, Kotlin, C#, Python y SQL. Busco un equipo donde pueda seguir aprendiendo mientras aporto valor real desde el primer día."
-  }
+  },
+  "skills": {
+    "title": "Skills",
+    "dev_title": "Desarrollo y automatización",
+    "dev_items": [
+      "Java · C# · Kotlin (Android básico)",
+      "Apex en Salesforce (formación APEX 2025)",
+      "VBScript para automatización de procesos",
+      "Consumo de APIs REST y JSON"
+    ],
+    "web_title": "Web & UI",
+    "web_items": [
+      "WordPress: creación y personalización de sitios",
+      "HTML · CSS · conceptos básicos de diseño responsive",
+      "Interés por UI limpia, oscura y minimalista"
+    ],
+    "data_title": "Datos & herramientas",
+    "data_items": [
+      "Excel avanzado (fórmulas, estructuras de datos)",
+      "Access: bases de datos pequeñas y prototipos",
+      "Integración PowerApps + SharePoint"
+    ],
+    "soft_title": "Soft skills",
+    "soft_items": [
+      "Aprendizaje rápido y curiosidad constante",
+      "Comunicación clara con personas no técnicas",
+      "Capacidad de trabajar con requisitos cambiantes"
+    ]
+  },
+  "projects": {
+    "title": "Proyectos",
+    "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
+    "p1_desc": "Aplicación desarrollada con PowerApps y SharePoint para que cada empleado acceda solo a los protocolos que le corresponden según su categoría y servicio.",
+    "p1_why": "Aprendí a integrar herramientas heterogéneas en un flujo coherente que automatiza tareas y reduce errores manuales. Fue un paso real hacia una “solución completa”.",
 
+    "p2_title": "AvaloniaCatalogoWinForms",
+    "p2_desc": "Catálogo ficticio con CRUD completo: agregar, actualizar, eliminar, filtrar y ordenar productos en varias pantallas.",
+    "p2_why": "Me ayudó a estructurar datos en una app de escritorio y a mantener consistencia entre pantallas, base para proyectos más grandes.",
+
+    "p3_title": "PokedexBuscador",
+    "p3_desc": "Aplicación en Kotlin que consulta la API de Pokémon para mostrar información útil de cada Pokémon.",
+    "p3_why": "Práctica con APIs reales y JSON: comunicación cliente-servidor y presentación de datos dinámicos en Android."
+  },
+  "xp": {
+    "title": "Experiencia & Certificaciones",
+    "xp1_title": "Prácticas DAM — Hospital San Juan de Dios (2025)",
+    "xp1_body": "Rol híbrido entre soporte técnico y desarrollo interno. Aprendí integración de datos, automatización y a traducir necesidades reales en soluciones funcionales.",
+    "xp2_title": "TFG — PowerApps + SharePoint + Access + Excel (2025)",
+    "xp2_body": "Proyecto end-to-end: PowerApps conectado a SharePoint/Access/Excel y automatización con VBScript.",
+    "xp3_title": "Teleoperador — Konecta (2023)",
+    "xp3_body": "Comunicación, gestión de incidencias y documentación en CRM: base útil para tratar con usuarios y requisitos reales."
+  },
+  "cv": {
+    "title": "Descargar CV",
+    "body": "Puedes descargar mi CV en español o inglés.",
+    "btn_es": "Descargar CV (ES)",
+    "btn_en": "Descargar CV (EN)",
+    "hint": "Tip: si aún no tienes el CV en inglés, deja ese botón apuntando a un placeholder temporal."
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?",
+    "cta_button": "Enviar correo",
+    "linkedin_button": "Ver LinkedIn",
+    "github_button": "Ver GitHub",
+    "form_name": "Nombre",
+    "form_email": "Email",
+    "form_message": "Mensaje",
+    "form_send": "Enviar mensaje",
+    "form_note": "Se abrirá tu cliente de correo con el mensaje preparado."
+  }
 }

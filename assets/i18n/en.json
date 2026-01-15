@@ -1,98 +1,92 @@
 {
-  "nav": { "about":"About", "skills":"Skills", "projects":"Projects", "xp":"Experience & Certs", "services":"Services", "contact":"Contact" },
-
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "xp": "Experience & Certs",
+    "cv": "Download CV",
+    "contact": "Contact"
+  },
+  "search": {
+    "placeholder": "Search this site…"
+  },
   "hero": {
-  "title": "Junior developer focused on building complete solutions, not just code.",
-  "subtitle": "DAM · Salesforce APEX · PowerApps · WordPress · Automation",
-  "cta": "See projects"
+    "title": "Junior developer focused on building complete solutions, not just code.",
+    "subtitle": "DAM · Salesforce APEX · PowerApps · WordPress · Automation",
+    "cta": "See projects"
   },
-
-  "skills": {
-  "title": "Skills",
-  "dev_title": "Development & automation",
-  "dev_items": [
-    "Java · C# · Kotlin (basic Android)",
-    "Apex in Salesforce (APEX 2025 training)",
-    "VBScript for process automation",
-    "REST APIs and JSON handling"
-  ],
-  "web_title": "Web & UI",
-  "web_items": [
-    "WordPress: site creation and customization",
-    "HTML · CSS · basic responsive design",
-    "Interest in clean, dark and minimal UI"
-  ],
-  "data_title": "Data & tools",
-  "data_items": [
-    "Advanced Excel (formulas, structured data)",
-    "Access: small databases and prototypes",
-    "PowerApps + SharePoint integration"
-  ],
-  "soft_title": "Soft skills",
-  "soft_items": [
-    "Fast learning and constant curiosity",
-    "Clear communication with non-technical people",
-    "Ability to work with changing requirements"
-  ]
-  },
-  
-  "projects": {
-  "title": "Projects",
-  "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
-  "p1_desc": "PowerApps + SharePoint app that allows each employee to access only the protocols assigned to their role and department.",
-  "p1_why": "This project was one of my first experiences with a real-world environment. I had to understand user needs, internal workflows and platform limitations. The most valuable part was learning to integrate different tools into a coherent flow that automates tasks and reduces manual errors. It was my first real step into the idea of a 'complete solution'.",
-
-  "p2_title": "AvaloniaCatalogoWinForms",
-  "p2_desc": "Fictional product catalog with full CRUD: add, update, delete, filter and sort products across multiple screens.",
-  "p2_why": "This project helped me understand how to structure, manage and manipulate data within a desktop application. It was an exercise that taught me to plan screens, maintain data consistency and apply basic architecture principles.",
-
-  "p3_title": "PokedexBuscador",
-  "p3_desc": "Kotlin Android app that consumes the Pokémon API to display relevant Pokémon information.",
-  "p3_why": "Here I learned to work with real APIs and JSON trees. Beyond the playful theme, I learned how client-server communication works and how to present dynamic data efficiently in Android."
-  },
-
-  "xp": {
-  "title": "Experience & Certifications",
-
-  "xp1_title": "DAM Internship — Hospital San Juan de Dios (2025)",
-  "xp1_body": "Hybrid role between technical support and internal development. I managed incidents, configured equipment, documented procedures and improved internal applications. I learned data integration, task automation and how to translate user needs into functional solutions.",
-
-  "xp2_title": "Final Project — PowerApps + SharePoint + Access + Excel (2025)",
-  "xp2_body": "I built a full application connecting PowerApps, SharePoint, Access, Excel and a VBScript automation script. This was my first end-to-end project, covering logic design, data integration, automation and deployment.",
-
-  "xp3_title": "Customer Service Agent — Konecta (2023)",
-  "xp3_body": "A role that strengthened communication, incident management and structured documentation in a CRM. This helps me translate user needs into clear and actionable technical tasks.",
-
-  "certs_title": "Certifications",
-  "cert1": "Salesforce: Developing Apps in Apex (2025)",
-  "cert2": "Multiplatform Application Development (2023–2025)",
-  "cert3": "Cambridge B1"
-  },
-
-  "services": {
-  "title": "Services",
-  
-  "s1_title": "Development & automation",
-  "s1_body": "I build small internal applications, automate repetitive workflows and connect data across tools. Experience with PowerApps, SharePoint, Access, VBScript and REST APIs.",
-
-  "s2_title": "Web development",
-  "s2_body": "I create clean, functional websites using WordPress, with modern design and basic maintenance. Also comfortable with HTML and CSS for custom adjustments.",
-
-  "s3_title": "Technical support & system improvement",
-  "s3_body": "Incident resolution, diagnostics, documentation and user guidance. Strong ability to detect issues and propose practical, efficient solutions."
-  },
-
-  "contact": {
-  "title": "Contact",
-  "subtitle": "Interested in working together or knowing more about what I can bring to your team?",
-  "cta_button": "Send email",
-  "linkedin_button": "View LinkedIn",
-  "github_button": "View GitHub"
-  },
-
   "about": {
     "title": "About me",
     "body": "I’m a junior developer with a bilingual DAM background and experience building internal tools that connect data, automate workflows and make users’ lives easier. I’ve worked with PowerApps, SharePoint, Access, Excel, Kotlin, C#, Python and SQL. I’m looking for a team where I can keep learning while delivering real value from day one."
-  }
+  },
+  "skills": {
+    "title": "Skills",
+    "dev_title": "Development & automation",
+    "dev_items": [
+      "Java · C# · Kotlin (basic Android)",
+      "Apex in Salesforce (APEX 2025 training)",
+      "VBScript for process automation",
+      "REST APIs and JSON handling"
+    ],
+    "web_title": "Web & UI",
+    "web_items": [
+      "WordPress: site creation and customization",
+      "HTML · CSS · basic responsive design",
+      "Interest in clean, dark and minimal UI"
+    ],
+    "data_title": "Data & tools",
+    "data_items": [
+      "Advanced Excel (formulas, structured data)",
+      "Access: small databases and prototypes",
+      "PowerApps + SharePoint integration"
+    ],
+    "soft_title": "Soft skills",
+    "soft_items": [
+      "Fast learning and constant curiosity",
+      "Clear communication with non-technical people",
+      "Ability to work with changing requirements"
+    ]
+  },
+  "projects": {
+    "title": "Projects",
+    "p1_title": "WEB-DE-PROTOCOCOLOS-HSJD",
+    "p1_desc": "PowerApps + SharePoint app that allows each employee to access only the protocols assigned to their role and department.",
+    "p1_why": "I learned to integrate different tools into a coherent flow that automates tasks and reduces manual errors—my first step towards a “complete solution”.",
 
+    "p2_title": "AvaloniaCatalogoWinForms",
+    "p2_desc": "Fictional product catalog with full CRUD: add, update, delete, filter and sort products across multiple screens.",
+    "p2_why": "It helped me structure data in a desktop app and keep consistency across screens—solid foundations for bigger projects.",
+
+    "p3_title": "PokedexBuscador",
+    "p3_desc": "Kotlin Android app that consumes the Pokémon API to display relevant Pokémon information.",
+    "p3_why": "Practice with real APIs and JSON trees: client-server communication and efficient UI data rendering."
+  },
+  "xp": {
+    "title": "Experience & Certifications",
+    "xp1_title": "DAM Internship — Hospital San Juan de Dios (2025)",
+    "xp1_body": "Hybrid role between technical support and internal development. I learned data integration, automation and translating real user needs into working solutions.",
+    "xp2_title": "Final Project — PowerApps + SharePoint + Access + Excel (2025)",
+    "xp2_body": "End-to-end project: PowerApps connected to SharePoint/Access/Excel + automation via VBScript.",
+    "xp3_title": "Customer Service Agent — Konecta (2023)",
+    "xp3_body": "Communication, incident management and CRM documentation: a strong base for working with real users and requirements."
+  },
+  "cv": {
+    "title": "Download CV",
+    "body": "You can download my CV in Spanish or English.",
+    "btn_es": "Download CV (ES)",
+    "btn_en": "Download CV (EN)",
+    "hint": "Tip: if you don’t have an English CV yet, keep that button pointing to a temporary placeholder."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Interested in working together or knowing more about what I can bring to your team?",
+    "cta_button": "Send email",
+    "linkedin_button": "View LinkedIn",
+    "github_button": "View GitHub",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_message": "Message",
+    "form_send": "Send message",
+    "form_note": "Your email client will open with the message pre-filled."
+  }
 }

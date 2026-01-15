@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <title>Sebastián Expósito Ruiz · Junior Developer</title>
-
   <meta name="description"
     content="Portfolio de Sebastián Expósito Ruiz · Junior Developer. Desarrollo de soluciones completas, automatización, PowerApps, Salesforce APEX, WordPress y aplicaciones multiplataforma.">
 
-  <!-- Open Graph / Redes sociales -->
+  <!-- Open Graph -->
   <meta property="og:title" content="Sebastián Expósito Ruiz · Junior Developer">
   <meta property="og:description"
     content="Desarrollador junior orientado a crear soluciones completas: automatización, PowerApps, WordPress y aplicaciones multiplataforma.">
@@ -24,10 +23,10 @@
     content="Desarrollador junior orientado a crear soluciones completas: automatización, PowerApps, WordPress y apps multiplataforma.">
   <meta name="twitter:image" content="https://sebigithub.github.io/assets/img/preview.png">
 
-  <!-- Favicon temporal -->
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/img/logo-s-trasparente.png">
 
-  <!-- Tipografía -->
+  <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
@@ -37,31 +36,41 @@
 
 <body>
   <header class="nav">
-    <div class="nav-left">
-      <a class="brand" href="#hero">
-        <img src="assets/img/logo-s-trasparente.png" alt="Logo Sebi" />
-        <span>Sebi</span>
-      </a>
+    <a class="brand" href="#hero" aria-label="Ir al inicio">
+      <img src="assets/img/logo-s-trasparente.png" alt="Logo" class="brand-logo" />
+      <span class="brand-name">Sebi</span>
+    </a>
 
-      <div class="search-wrap">
-        <button id="search-btn" class="btn btn-icononly" aria-label="Buscar">
-          🔍
-        </button>
+    <!-- Buscador (busca palabras dentro de la web) -->
+    <form id="search-form" class="search" role="search" aria-label="Buscador del portfolio">
+      <button class="search-btn" type="submit" aria-label="Buscar">
+        <!-- Lupa SVG (no emoji) -->
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M10.5 3a7.5 7.5 0 105.02 13.08l3.2 3.2a1 1 0 001.42-1.42l-3.2-3.2A7.5 7.5 0 0010.5 3zm0 2a5.5 5.5 0 110 11 5.5 5.5 0 010-11z"></path>
+        </svg>
+      </button>
 
-        <input id="site-search" class="search" type="search"
-          placeholder="Buscar…" autocomplete="off">
-      </div>
-    </div>
+      <input
+        id="site-search"
+        class="search-input"
+        type="search"
+        autocomplete="off"
+        data-i18n-placeholder="search.placeholder"
+        placeholder="Buscar en la web…"
+      />
+      <span id="search-status" class="search-status" aria-live="polite"></span>
+    </form>
 
-    <nav>
-      <a href="#about" class="btn nav-btn" data-i18n="nav.about">Sobre mí</a>
-      <a href="#skills" class="btn nav-btn" data-i18n="nav.skills">Skills</a>
-      <a href="#projects" class="btn nav-btn" data-i18n="nav.projects">Proyectos</a>
-      <a href="#xp" class="btn nav-btn" data-i18n="nav.xp">Experiencia & Certs</a>
-      <a href="#services" class="btn nav-btn" data-i18n="nav.services">Servicios</a>
-      <a href="#contact" class="btn" data-i18n="nav.contact">Contacto</a>
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a class="nav-pill" href="#about" data-i18n="nav.about">Sobre mí</a>
+      <a class="nav-pill" href="#skills" data-i18n="nav.skills">Skills</a>
+      <a class="nav-pill" href="#projects" data-i18n="nav.projects">Proyectos</a>
+      <a class="nav-pill" href="#xp" data-i18n="nav.xp">Experiencia & Certs</a>
+      <a class="nav-pill" href="#cv" data-i18n="nav.cv">Descargar CV</a>
+      <a class="nav-pill nav-pill--primary" href="#contact" data-i18n="nav.contact">Contacto</a>
 
-      <button id="lang-toggle" class="lang-toggle" aria-label="Cambiar idioma">
+      <!-- Toggle idioma -->
+      <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Cambiar idioma">
         <span class="lang-pill" data-lang="es">ES</span>
         <span class="lang-pill" data-lang="en">EN</span>
       </button>
@@ -71,9 +80,9 @@
   <main>
     <section id="hero" class="section hero">
       <img src="assets/img/logo-s-trasparente.png" alt="" class="hero-logo" />
-      <h1 data-i18n="hero.title">Desarrollo, automatizo y diseño experiencias web.</h1>
-      <p data-i18n="hero.subtitle">DAM · Salesforce APEX · WordPress · Frontend</p>
-      <a href="#projects" class="btn" data-i18n="hero.cta">Ver proyectos</a>
+      <h1 data-i18n="hero.title">Desarrollador junior que construye soluciones completas, no solo código.</h1>
+      <p data-i18n="hero.subtitle">DAM · Salesforce APEX · PowerApps · WordPress · Automatización</p>
+      <a href="#projects" class="btn btn--primary" data-i18n="hero.cta">Ver proyectos</a>
     </section>
 
     <section id="about" class="section">
@@ -89,6 +98,7 @@
     <section id="projects" class="section">
       <h2 data-i18n="projects.title">Proyectos</h2>
       <div id="projects-grid"></div>
+      <!-- Nota: esta sección la reestructuramos después de elegir un estilo (carrusel / modal / scroll-snap). -->
     </section>
 
     <section id="xp" class="section">
@@ -96,56 +106,73 @@
       <div id="xp-list"></div>
     </section>
 
-    <section id="services" class="section">
-      <h2 data-i18n="services.title">Servicios</h2>
-      <ul id="services-list"></ul>
+    <!-- Sustituye “Servicios” por “Descargar CV” -->
+    <section id="cv" class="section">
+      <h2 data-i18n="cv.title">Descargar CV</h2>
+      <p class="center" data-i18n="cv.body">Puedes descargar mi CV en español o inglés.</p>
+
+      <div class="cv-actions">
+        <!-- Pon aquí tus PDFs en assets/cv/ -->
+        <a class="btn" href="assets/cv/CV_Sebastian_Exposito_Ruiz_ES.pdf" download data-i18n="cv.btn_es">Descargar CV (ES)</a>
+        <a class="btn" href="assets/cv/CV_Sebastian_Exposito_Ruiz_EN.pdf" download data-i18n="cv.btn_en">Download CV (EN)</a>
+      </div>
+      <p class="cv-hint" data-i18n="cv.hint">Tip: si aún no tienes el CV en inglés, deja ese botón apuntando a un placeholder temporal.</p>
     </section>
 
-    <section id="contact" class="section">
+    <!-- Contacto más formal: bloque + formulario -->
+    <section id="contact" class="section contact">
       <h2 data-i18n="contact.title">Contacto</h2>
 
-      <p data-i18n="contact.subtitle">
-        ¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?
-      </p>
+      <div class="contact-wrap">
+        <div class="contact-left">
+          <p class="contact-lead" data-i18n="contact.subtitle">
+            ¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?
+          </p>
 
-      <!-- Flechas -->
-      <div class="contact-arrows" aria-hidden="true">
-        <span class="arrow">↙</span>
-        <span class="arrow">↓</span>
-        <span class="arrow">↘</span>
-      </div>
+          <div class="contact-actions">
+            <a class="btn btn--primary" href="mailto:sebitaexporu@gmail.com" data-i18n="contact.cta_button">Enviar correo</a>
 
+            <a class="btn" href="https://www.linkedin.com/in/sebastián-expósito-ruiz-a8a24a34a" target="_blank" rel="noopener noreferrer">
+              <img src="assets/img/LinkedIn.png" alt="" class="btn-icon btn-icon--linkedin" />
+              <span data-i18n="contact.linkedin_button">Ver LinkedIn</span>
+            </a>
 
-      <div class="contact-actions">
-        <a id="contact-email" class="btn"
-          href="mailto:sebitaexporu@gmail.com"
-          data-i18n="contact.cta_button">
-          Enviar correo
-        </a>
+            <a class="btn" href="https://github.com/SebiGitHub" target="_blank" rel="noopener noreferrer">
+              <span data-i18n="contact.github_button">Ver GitHub</span>
+            </a>
+          </div>
+        </div>
 
-        <a class="btn"
-          href="https://www.linkedin.com/in/sebastián-expósito-ruiz-a8a24a34a"
-          target="_blank"
-          rel="noopener noreferrer">
-          <img class="btn-icon" src="assets/img/LinkedIn.png" alt="LinkedIn">
-          <span data-i18n="contact.linkedin_button">Ver LinkedIn</span>
-        </a>
+        <!-- Formulario “serio”, sin backend (se abre mailto con el contenido) -->
+        <div class="contact-card">
+          <form id="contact-form">
+            <label class="field">
+              <span data-i18n="contact.form_name">Nombre</span>
+              <input id="f-name" type="text" autocomplete="name" required />
+            </label>
 
-        <a class="btn"
-          href="https://github.com/SebiGitHub"
-          target="_blank"
-          rel="noopener noreferrer">
-          <span data-i18n="contact.github_button">Ver GitHub</span>
-        </a>
+            <label class="field">
+              <span data-i18n="contact.form_email">Email</span>
+              <input id="f-email" type="email" autocomplete="email" required />
+            </label>
+
+            <label class="field">
+              <span data-i18n="contact.form_message">Mensaje</span>
+              <textarea id="f-message" rows="5" required></textarea>
+            </label>
+
+            <button class="btn btn--primary" type="submit" data-i18n="contact.form_send">Enviar mensaje</button>
+            <p class="form-note" data-i18n="contact.form_note">Se abrirá tu cliente de correo con el mensaje preparado.</p>
+          </form>
+        </div>
       </div>
 
       <div class="contact-footer">
-        <small>© <span id="year"></span> Sebi — All rights reserved.</small>
+        <small>© <span id="year"></span> Sebastián Expósito Ruiz — All rights reserved.</small>
       </div>
     </section>
   </main>
 
-  <script src="assets/js/app.js?v=2"></script>
-
+  <script src="assets/js/app.js"></script>
 </body>
 </html>
