@@ -111,7 +111,7 @@
     "title": "Projects",
 
     "psr_labels": { "problem": "Problem", "solution": "Solution", "result": "Result" },
-    "case_labels": { "problem": "Problem", "solution": "Solution", "signal": "Signal" },
+    "case_labels": { "problem": "Problem", "solution": "Solution", "result": "Result" },
 
     "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
     "p1_desc": "PowerApps + SharePoint app that allows each employee to access only the protocols assigned to their role and department.",

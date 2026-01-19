@@ -111,7 +111,7 @@
     "title": "Proyectos",
 
     "psr_labels": { "problem": "Problema", "solution": "Solución", "result": "Resultado" },
-    "case_labels": { "problem": "Problema", "solution": "Solución", "signal": "Señal" },
+    "case_labels": { "problem": "Problema", "solution": "Solución", "result": "Resultado" },
 
     "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
     "p1_desc": "Aplicación desarrollada con PowerApps y SharePoint para que cada empleado acceda solo a los protocolos que le corresponden según su categoría y servicio.",

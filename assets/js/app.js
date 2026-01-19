@@ -317,12 +317,11 @@ function renderProjects(){
     return;
   }
 
-  // ✅ Labels seguros (si faltan en el JSON no rompe)
-  const L = proj.psr_labels || proj.case_labels || {
-    problem: "Problem",
-    solution: "Solution",
-    result: "Result"
-  };
+  // Labels ultra seguros (nunca rompen)
+  const labels = (proj.case_labels ?? proj.psr_labels ?? {});
+  const LP = labels.problem ?? (STATE.lang === "es" ? "Problema" : "Problem");
+  const LS = labels.solution ?? (STATE.lang === "es" ? "Solución" : "Solution");
+  const LR = labels.result ?? (STATE.lang === "es" ? "Resultado" : "Result");
 
   const items = getProjectItems(proj); // 👈 importante, ver B)
   if (!items.length){
@@ -342,6 +341,12 @@ function renderProjects(){
 
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
+
+      <div class="project-psr">
+        <div><strong>${LP}:</strong> ${p.problem || "—"}</div>
+        <div><strong>${LS}:</strong> ${p.solution || "—"}</div>
+        <div><strong>${LR}:</strong> ${p.result || "—"}</div>
+      </div>
 
       <div class="tech">
         ${(p.tech || []).map(t => `<span class="${t.cls || ""}">${t.label}</span>`).join("")}
