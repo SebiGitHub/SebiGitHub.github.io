@@ -864,6 +864,16 @@ p{
   }
 }
 
+/* FIX: cards-grid en móvil (evita las “columnas palillo”) */
+@media (max-width: 819px){
+  .cards-grid{
+    grid-template-columns: 1fr; /* una columna */
+  }
+  .cards-grid > .card{
+    grid-column: 1 / -1; /* ocupa todo el ancho */
+  }
+}
+
 @media (max-width: 768px){
   .nav{ padding: 10px 12px; }
   .nav nav{ gap: 10px; font-size: 14px; }

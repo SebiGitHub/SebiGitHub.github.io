@@ -110,55 +110,50 @@
   "projects": {
     "title": "Projects",
 
-    "labels": {
-      "problem": "Problem",
-      "solution": "Solution",
-      "result": "Result"
-    },
+    "psr_labels": { "problem": "Problem", "solution": "Solution", "result": "Result" },
+    "case_labels": { "problem": "Problem", "solution": "Solution", "signal": "Signal" },
 
     "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
     "p1_desc": "PowerApps + SharePoint app that allows each employee to access only the protocols assigned to their role and department.",
     "p1_why": "I learned to integrate different tools into a coherent flow that automates tasks and reduces manual errors—my first step towards a “complete solution”.",
-    "p1_problem": "Employees couldn’t quickly find the right protocols for their role and department.",
-    "p1_solution": "PowerApps + SharePoint with role-based filtering and version-aware flow.",
-    "p1_result": "Evidence: repo and screenshots; built in a real internship context.",
+    "p1_problem": "Employees needed to quickly reach the right protocol (and the current version) without manual searching through documents.",
+    "p1_solution": "PowerApps connected to SharePoint with role/department filtering, search, version control and read tracking.",
+    "p1_result": "Evidence: real project (final project) with role-based filtering and read/version traceability.",
 
     "p2_title": "AvaloniaCatalogoWinForms",
-    "p2_desc": "Fictional product catalog with full CRUD: add, update, delete, filter and sort products across multiple screens.",
+    "p2_desc": "Desktop catalog with full CRUD: add, update, delete, filter and sort products across multiple screens.",
     "p2_why": "It helped me structure data in a desktop app and keep consistency across screens—solid foundations for bigger projects.",
-    "p2_problem": "Need to manage a catalog with full operations and clear navigation.",
-    "p2_solution": "Desktop app with CRUD + filtering/sorting across consistent screens.",
-    "p2_result": "Evidence: repo with complete features (CRUD + filters + sorting).",
+    "p2_problem": "I wanted to practice a complete desktop catalog app with navigation, persistence and typical CRUD + filtering flows.",
+    "p2_solution": "C#/.NET app with Avalonia UI (MVVM) and JSON persistence, including search/filter and basic CRUD.",
+    "p2_result": "Evidence: CRUD + filtering + screenshots and run steps in the README.",
 
     "p3_title": "Agenda App",
     "p3_desc": "Agenda app to manage contacts and/or events with a clean, productivity-focused UI.",
     "p3_why": "It helped me practice app structure, data persistence and a clean UI designed for real usage.",
-    "p3_problem": "Manage contacts/events in a simple way without relying on external tools.",
-    "p3_solution": "App with modular structure and persistence for day-to-day usage.",
-    "p3_result": "Evidence: repo with functional screens and complete management flow.",
+    "p3_problem": "Managing contacts/tasks per user and keeping data safe and accessible across devices.",
+    "p3_solution": "Android app in Kotlin with Firebase Auth + Realtime Database, CRUD and UI validations/feedback.",
+    "p3_result": "Evidence: login/register + per-user cloud CRUD + screenshots in the repo.",
 
     "p4_title": "Realtime Collaborative Bingo Web App",
     "p4_desc": "Real-time collaborative bingo: multiple users join a room and the board state syncs instantly.",
     "p4_why": "Previously called “BingoEnvidiosos”. Great practice for real-time sync, shared state and multi-user UX.",
-    "p4_problem": "In group bingo, boards get out of sync if each user tracks state independently.",
-    "p4_solution": "Shared rooms with real-time board state synchronization.",
-    "p4_result": "Evidence: repo with multi-user logic and synced state (no public demo).",
+    "p4_problem": "Coordinating a shared board across multiple users in real time without desync or page reloads.",
+    "p4_solution": "Room-based web app with real-time shared state, handling events and consistency across clients.",
+    "p4_result": "Evidence: real-time multi-user project (repo includes features and structure).",
 
     "p5_title": "Selenium end-to-end",
     "p5_desc": "Automated E2E tests to validate real user flows on web, making sure key features don’t break.",
     "p5_why": "It builds discipline: reproducible tests, early bug detection and a quality-first mindset.",
-    "p5_problem": "Website changes can silently break key flows until it’s too late.",
-    "p5_solution": "Selenium E2E suite that validates real user scenarios.",
-    "p5_result": "Evidence: repo with repeatable automated tests (CI-ready).",
-
-    "case_labels": { "problem": "Problem", "solution": "Solution", "signal": "Signal" },
+    "p5_problem": "Catching breaking changes in critical user flows before they hit production.",
+    "p5_solution": "Selenium + JUnit5 suite using Page Objects, wait helpers and automated execution in CI.",
+    "p5_result": "Evidence: CI + reporting (Allure) + execution video in the repo.",
 
     "p6_title": "Kotlin Labs",
     "p6_desc": "A set of Kotlin mini-projects to master key areas: multimedia, concurrency and persistence.",
     "p6_why": "Mini-case format: a real problem, a concrete solution and a clear competency signal.",
-    "p6_problem": "I wanted to master Kotlin through real, focused problems instead of only theory.",
-    "p6_solution": "A collection of mini-projects (coroutines, multimedia, persistence), one goal per case.",
-    "p6_result": "Evidence: 3 separate repos + mini-cases documented with problem/solution.",
+    "p6_problem": "Learning key Kotlin/Android concepts fast without getting stuck in huge slow-to-iterate projects.",
+    "p6_solution": "Focused mini-projects: coroutines (dispatchers/cancellation), multimedia (resources/lifecycle), persistence (CRUD).",
+    "p6_result": "Evidence: 3 repos with features + screenshots/docs per mini-case.",
 
     "p6_cases": [
       {

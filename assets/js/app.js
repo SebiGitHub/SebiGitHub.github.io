@@ -87,10 +87,28 @@ function chipTone(label = "") {
   return "";
 }
 
-
 document.getElementById("lang-toggle")?.addEventListener("click", () => {
   loadDict(STATE.lang === "es" ? "en" : "es");
 });
+
+
+function typewriter(el, text, speed = 18){
+  if(!el) return;
+  el.textContent = "";
+  let i = 0;
+  const t = setInterval(() => {
+    el.textContent = text.slice(0, ++i);
+    if(i >= text.length) clearInterval(t);
+  }, speed);
+}
+
+// Ejemplo de uso tras traducir:
+const heroTitleEl = document.querySelector('[data-i18n="hero.title"]');
+if(heroTitleEl){
+  const full = heroTitleEl.textContent.trim();
+  typewriter(heroTitleEl, full, 14);
+}
+
 
 /* =========================================================
    ABOUT
