@@ -305,6 +305,11 @@ function clampIndex(i, len) {
   return (i + len) % len;
 }
 
+function getProjectsList(){
+  const proj = STATE.dict?.projects;
+  return proj ? getProjectItems(proj) : [];
+}
+
 function renderProjects(){
   const stage = document.getElementById("project-stage");
   const dots  = document.getElementById("project-dots");
@@ -322,8 +327,8 @@ function renderProjects(){
   const LP = labels.problem ?? (STATE.lang === "es" ? "Problema" : "Problem");
   const LS = labels.solution ?? (STATE.lang === "es" ? "Solución" : "Solution");
   const LR = labels.result ?? (STATE.lang === "es" ? "Resultado" : "Result");
-
-  const items = getProjectItems(proj); // 👈 importante, ver B)
+  
+  const items = getProjectsList();
   if (!items.length){
     stage.innerHTML = "";
     dots.innerHTML = "";
@@ -350,12 +355,6 @@ function renderProjects(){
 
       <div class="tech">
         ${(p.tech || []).map(t => `<span class="${t.cls || ""}">${t.label}</span>`).join("")}
-      </div>
-
-      <div class="project-psr">
-        <div><strong>${L.problem}:</strong> ${p.problem || "—"}</div>
-        <div><strong>${L.solution}:</strong> ${p.solution || "—"}</div>
-        <div><strong>${L.result}:</strong> ${p.result || "—"}</div>
       </div>
 
       <details>
@@ -388,43 +387,40 @@ function setupProjectsCarousel() {
   if (!prev || !next || !stage) return;
 
   prev.addEventListener("click", () => {
-    const items = getProjectItems();
+    const items = getProjectsList();
+    if (!items.length) return;
     PROJECT_INDEX = clampIndex(PROJECT_INDEX - 1, items.length);
     renderProjects();
   });
 
   next.addEventListener("click", () => {
-    const items = getProjectItems();
+    const items = getProjectsList();
+    if (!items.length) return;
     PROJECT_INDEX = clampIndex(PROJECT_INDEX + 1, items.length);
     renderProjects();
   });
 
   let x0 = null;
-  stage.addEventListener(
-    "touchstart",
-    (e) => {
-      x0 = e.touches?.[0]?.clientX ?? null;
-    },
-    { passive: true }
-  );
+  stage.addEventListener("touchstart", (e) => {
+    x0 = e.touches?.[0]?.clientX ?? null;
+  }, { passive: true });
 
-  stage.addEventListener(
-    "touchend",
-    (e) => {
-      const x1 = e.changedTouches?.[0]?.clientX ?? null;
-      if (x0 == null || x1 == null) return;
+  stage.addEventListener("touchend", (e) => {
+    const x1 = e.changedTouches?.[0]?.clientX ?? null;
+    if (x0 == null || x1 == null) return;
 
-      const dx = x1 - x0;
-      if (Math.abs(dx) < 60) return;
+    const dx = x1 - x0;
+    if (Math.abs(dx) < 60) return;
 
-      const items = getProjectItems();
-      PROJECT_INDEX = clampIndex(PROJECT_INDEX + (dx < 0 ? 1 : -1), items.length);
-      renderProjects();
-      x0 = null;
-    },
-    { passive: true }
-  );
+    const items = getProjectsList();
+    if (!items.length) return;
+
+    PROJECT_INDEX = clampIndex(PROJECT_INDEX + (dx < 0 ? 1 : -1), items.length);
+    renderProjects();
+    x0 = null;
+  }, { passive: true });
 }
+
 
 /* =========================================================
    CONTACT FORM -> Gmail draft
