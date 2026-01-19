@@ -201,81 +201,131 @@ function renderXP() {
    ========================================================= */
 let PROJECT_INDEX = 0;
 
-function getProjectItems() {
-  const proj = STATE.dict?.projects;
-  if (!proj) return [];
-
+function getProjectItems(proj){
   return [
     {
       title: proj.p1_title,
       desc: proj.p1_desc,
-      why: proj.p1_why,
+      why:  proj.p1_why,
+      problem: proj.p1_problem,
+      solution: proj.p1_solution,
+      result: proj.p1_result,
       link: "https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD",
-      tech: ["PowerApps", "SharePoint", "VBScript", "Access", "Excel"],
-      icon: "fa-solid fa-diagram-project",
-      thumbClass: "thumb-powerapps"
+      iconClass: "fa-solid fa-diagram-project",
+      thumbClass: "thumb-powerapps",
+      tech: [
+        { label:"PowerApps", cls:"t-powerapps" },
+        { label:"SharePoint", cls:"t-powerapps" },
+        { label:"Access/SQL", cls:"t-data" },
+        { label:"Excel", cls:"t-excel" }
+      ]
     },
     {
       title: proj.p2_title,
       desc: proj.p2_desc,
-      why: proj.p2_why,
+      why:  proj.p2_why,
+      problem: proj.p2_problem,
+      solution: proj.p2_solution,
+      result: proj.p2_result,
       link: "https://github.com/SebiGitHub/AvaloniaCatalogoWinForms",
-      tech: ["Avalonia", "WinForms", "Visual Studio"],
-      icon: "fa-solid fa-cubes-stacked",
-      thumbClass: "thumb-desktop"
+      iconClass: "fa-solid fa-desktop",
+      thumbClass: "thumb-desktop",
+      tech: [
+        { label:"C# / .NET", cls:"t-dotnet" }
+      ]
     },
     {
       title: proj.p3_title,
       desc: proj.p3_desc,
-      why: proj.p3_why,
+      why:  proj.p3_why,
+      problem: proj.p3_problem,
+      solution: proj.p3_solution,
+      result: proj.p3_result,
       link: "https://github.com/SebiGitHub/Agenda",
-      tech: ["Android", "Kotlin", "SQLite/Room"],
-      icon: "fa-solid fa-calendar-days",
-      thumbClass: "thumb-android"
+      iconClass: "fa-solid fa-calendar-days",
+      thumbClass: "thumb-android",
+      tech: [
+        { label:"Kotlin", cls:"t-kotlin" },
+        { label:"Firebase", cls:"t-data" }
+      ]
     },
     {
       title: proj.p4_title,
       desc: proj.p4_desc,
-      why: proj.p4_why,
+      why:  proj.p4_why,
+      problem: proj.p4_problem,
+      solution: proj.p4_solution,
+      result: proj.p4_result,
       link: "https://github.com/SebiGitHub/Realtime-Collaborative-Bingo-Web-App",
-      tech: ["Web", "Realtime", "Rooms"],
-      icon: "fa-solid fa-users",
-      thumbClass: "thumb-realtime"
+      iconClass: "fa-solid fa-users",
+      thumbClass: "thumb-realtime",
+      tech: [
+        { label:"Realtime", cls:"t-soft-comm" }
+      ]
     },
     {
       title: proj.p5_title,
       desc: proj.p5_desc,
-      why: proj.p5_why,
+      why:  proj.p5_why,
+      problem: proj.p5_problem,
+      solution: proj.p5_solution,
+      result: proj.p5_result,
       link: "https://github.com/SebiGitHub/Selenium-end-to-end",
-      tech: ["Selenium", "E2E", "Testing"],
-      icon: "fa-solid fa-vial-circle-check",
-      thumbClass: "thumb-testing"
+      iconClass: "fa-solid fa-vial",
+      thumbClass: "thumb-testing",
+      tech: [
+        { label:"Selenium", cls:"t-soft-org" },
+        { label:"JUnit5", cls:"t-java" },
+        { label:"CI", cls:"t-github" }
+      ]
     },
     {
       title: proj.p6_title,
       desc: proj.p6_desc,
-      why: proj.p6_why,
-      link: "https://github.com/SebiGitHub/Corrutinas",
-      tech: ["Kotlin", "Labs", "Android"],
-      icon: "fa-solid fa-flask",
+      why:  proj.p6_why,
+      problem: proj.p6_problem,
+      solution: proj.p6_solution,
+      result: proj.p6_result,
+      link: "#https://github.com/SebiGitHub/Corrutinas", // Kotlin Labs no es un repo único
+      iconClass: "fa-solid fa-flask",
       thumbClass: "thumb-labs",
+      tech: [
+        { label:"Kotlin", cls:"t-kotlin" },
+        { label:"Coroutines", cls:"t-kotlin" },
+        { label:"Persistence", cls:"t-data" }
+      ],
       cases: proj.p6_cases || []
     }
   ];
 }
+
 
 function clampIndex(i, len) {
   if (len <= 0) return 0;
   return (i + len) % len;
 }
 
-function renderProjects() {
+function renderProjects(){
   const stage = document.getElementById("project-stage");
-  const dots = document.getElementById("project-dots");
+  const dots  = document.getElementById("project-dots");
   if (!stage || !dots) return;
 
-  const items = getProjectItems();
-  if (items.length === 0) {
+  const proj = STATE.dict?.projects;
+  if (!proj){
+    stage.innerHTML = "";
+    dots.innerHTML = "";
+    return;
+  }
+
+  // ✅ Labels seguros (si faltan en el JSON no rompe)
+  const L = proj.psr_labels || proj.case_labels || {
+    problem: "Problem",
+    solution: "Solution",
+    result: "Result"
+  };
+
+  const items = getProjectItems(proj); // 👈 importante, ver B)
+  if (!items.length){
     stage.innerHTML = "";
     dots.innerHTML = "";
     return;
@@ -284,64 +334,42 @@ function renderProjects() {
   PROJECT_INDEX = clampIndex(PROJECT_INDEX, items.length);
   const p = items[PROJECT_INDEX];
 
-  const labels = STATE.dict?.projects?.case_labels || {};
-  const casesHTML = (p.cases && p.cases.length)
-    ? `
-      <div class="mini-grid" aria-label="Mini casos">
-        ${p.cases.map(c => `
-          <article class="mini-card">
-            <div class="mini-title">${c.title}</div>
-            <div class="mini-row"><span class="mini-k">${labels.problem || "Problema"}:</span> ${c.problem}</div>
-            <div class="mini-row"><span class="mini-k">${labels.solution || "Solución"}:</span> ${c.solution}</div>
-            <div class="mini-row"><span class="mini-k">${labels.signal || "Señal"}:</span> ${c.signal}</div>
-            ${c.link ? `<a class="mini-link" href="${c.link}" target="_blank" rel="noopener noreferrer">Ver repo</a>` : ``}
-          </article>
-        `).join("")}
-      </div>
-    `
-    : "";
-
   stage.innerHTML = `
     <div class="card project-card">
       <div class="project-thumb ${p.thumbClass || ""}">
-        <i class="project-icon ${p.icon}" aria-hidden="true"></i>
+        <i class="${p.iconClass} project-icon" aria-hidden="true"></i>
       </div>
 
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
 
-      <div class="project-psr">
-        <div><strong>${STATE.dict.projects.labels.problem}:</strong> ${p.problem}</div>
-        <div><strong>${STATE.dict.projects.labels.solution}:</strong> ${p.solution}</div>
-        <div><strong>${STATE.dict.projects.labels.result}:</strong> ${p.result}</div>
-      </div>
-
       <div class="tech">
-        ${p.tech.map(t => `<span>${t}</span>`).join("")}
+        ${(p.tech || []).map(t => `<span class="${t.cls || ""}">${t.label}</span>`).join("")}
       </div>
 
-      ${casesHTML}
+      <div class="project-psr">
+        <div><strong>${L.problem}:</strong> ${p.problem || "—"}</div>
+        <div><strong>${L.solution}:</strong> ${p.solution || "—"}</div>
+        <div><strong>${L.result}:</strong> ${p.result || "—"}</div>
+      </div>
 
       <details>
         <summary>+ info</summary>
-        <p>${p.why}</p>
+        <p>${p.why || ""}</p>
       </details>
 
       <a href="${p.link}" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   `;
 
-  dots.innerHTML = items
-    .map(
-      (_, idx) => `
+  dots.innerHTML = items.map((_, idx) => `
     <button class="carousel-dot ${idx === PROJECT_INDEX ? "active" : ""}"
-      aria-label="Ir al proyecto ${idx + 1}" data-idx="${idx}"></button>
-  `
-    )
-    .join("");
+            aria-label="Ir al proyecto ${idx + 1}"
+            data-idx="${idx}"></button>
+  `).join("");
 
-  dots.querySelectorAll(".carousel-dot").forEach((b) => {
-    b.addEventListener("click", () => {
+  dots.querySelectorAll(".carousel-dot").forEach(b=>{
+    b.addEventListener("click", ()=>{
       PROJECT_INDEX = Number(b.getAttribute("data-idx"));
       renderProjects();
     });

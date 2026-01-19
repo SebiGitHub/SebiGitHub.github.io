@@ -866,12 +866,8 @@ p{
 
 /* FIX: cards-grid en móvil (evita las “columnas palillo”) */
 @media (max-width: 819px){
-  .cards-grid{
-    grid-template-columns: 1fr; /* una columna */
-  }
-  .cards-grid > .card{
-    grid-column: 1 / -1; /* ocupa todo el ancho */
-  }
+  .cards-grid{ grid-template-columns: 1fr; }
+  .cards-grid > .card{ grid-column: 1 / -1; }
 }
 
 @media (max-width: 768px){
