@@ -18,6 +18,7 @@
   "about": {
     "title": "Sobre mí",
     "lead": "Construyo soluciones end-to-end: conecto datos, automatizo procesos y cuido la experiencia de usuario.",
+    "lead2": "Automatizo procesos (Power Apps / scripts / testing). Me gusta construir end-to-end y documentarlo.",
     "cards": [
       {
         "icon": "fa-solid fa-bolt",
@@ -108,31 +109,56 @@
   },
   "projects": {
     "title": "Proyectos",
+
+    "labels": {
+      "problem": "Problema",
+      "solution": "Solución",
+      "result": "Resultado"
+    },
+
     "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
     "p1_desc": "Aplicación desarrollada con PowerApps y SharePoint para que cada empleado acceda solo a los protocolos que le corresponden según su categoría y servicio.",
     "p1_why": "Aprendí a integrar herramientas heterogéneas en un flujo coherente que automatiza tareas y reduce errores manuales. Fue un paso real hacia una “solución completa”.",
+    "p1_problem": "Los empleados no podían encontrar rápido los protocolos correctos según su rol/servicio.",
+    "p1_solution": "PowerApps + SharePoint con filtrado por categoría/servicio y flujo de versiones.",
+    "p1_result": "Evidencia: repositorio y capturas del flujo; app usada en contexto real de prácticas.",
 
     "p2_title": "AvaloniaCatalogoWinForms",
     "p2_desc": "Catálogo ficticio con CRUD completo: agregar, actualizar, eliminar, filtrar y ordenar productos en varias pantallas.",
     "p2_why": "Me ayudó a estructurar datos en una app de escritorio y a mantener consistencia entre pantallas, base para proyectos más grandes.",
+    "p2_problem": "Necesidad de gestionar un catálogo con operaciones completas y navegación clara.",
+    "p2_solution": "App de escritorio con CRUD + filtros/ordenación y pantallas consistentes.",
+    "p2_result": "Evidencia: repo con funcionalidades completas (CRUD + filtros + ordenación).",
 
     "p3_title": "Agenda App",
     "p3_desc": "App de agenda para gestionar contactos y/o eventos, con interfaz clara y enfoque en productividad.",
     "p3_why": "Me permitió practicar estructura de app, persistencia de datos y una UI limpia orientada a uso real.",
-
-    "case_labels": { "problem": "Problema", "solution": "Solución", "signal": "Señal" },
+    "p3_problem": "Organizar contactos/eventos sin depender de herramientas externas y con una UI simple.",
+    "p3_solution": "App con estructura modular y persistencia para gestionar datos de forma cómoda.",
+    "p3_result": "Evidencia: repo con pantallas funcionales y flujo completo de gestión.",
 
     "p4_title": "Realtime Collaborative Bingo Web App",
     "p4_desc": "Bingo colaborativo en tiempo real: varios usuarios comparten sala y el estado del tablero se sincroniza al instante.",
     "p4_why": "Antes era “BingoEnvidiosos”. Aquí practiqué sincronización en tiempo real, estados compartidos y UX multiusuario.",
+    "p4_problem": "En un bingo en grupo, el tablero se desincroniza si cada usuario va por su cuenta.",
+    "p4_solution": "Salas compartidas con sincronización del estado del tablero en tiempo real.",
+    "p4_result": "Evidencia: repo con lógica multiusuario y estado sincronizado (sin demo pública).",
 
     "p5_title": "Selenium end-to-end",
     "p5_desc": "Tests E2E automatizados para validar flujos reales de usuario en web, asegurando que lo importante no se rompe.",
     "p5_why": "Me aporta disciplina: pruebas reproducibles, detección temprana de fallos y enfoque en calidad.",
+    "p5_problem": "Cambios en una web pueden romper flujos críticos sin que se note hasta tarde.",
+    "p5_solution": "Suite de tests E2E con Selenium para validar escenarios reales de usuario.",
+    "p5_result": "Evidencia: repo con tests automatizados y ejecución repetible (base para CI).",
+
+    "case_labels": { "problem": "Problema", "solution": "Solución", "signal": "Señal" },
 
     "p6_title": "Kotlin Labs",
     "p6_desc": "Colección de mini-proyectos en Kotlin para dominar piezas clave: multimedia, concurrencia y persistencia.",
     "p6_why": "Formato mini-casos: un problema real, una solución concreta y una señal clara de competencia técnica.",
+    "p6_problem": "Quería aprender Kotlin en profundidad con problemas reales y casos pequeños pero completos.",
+    "p6_solution": "Agrupación de mini-proyectos (coroutines, multimedia, persistencia) con foco en un objetivo por caso.",
+    "p6_result": "Evidencia: 3 repos separados + mini-casos documentados con problema/solución.",
 
     "p6_cases": [
       {

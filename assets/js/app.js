@@ -1,3 +1,6 @@
+// Marca que hay JS (para animaciones/hamburguesa sin romper ATS/no-JS)
+document.documentElement.classList.add('js');
+
 /* =========================================================
    UTIL: Año dinámico
    ========================================================= */
@@ -289,6 +292,12 @@ function renderProjects() {
       <h3>${p.title}</h3>
       <p>${p.desc}</p>
 
+      <div class="project-psr">
+        <div><strong>${STATE.dict.projects.labels.problem}:</strong> ${p.problem}</div>
+        <div><strong>${STATE.dict.projects.labels.solution}:</strong> ${p.solution}</div>
+        <div><strong>${STATE.dict.projects.labels.result}:</strong> ${p.result}</div>
+      </div>
+
       <div class="tech">
         ${p.tech.map(t => `<span>${t}</span>`).join("")}
       </div>
@@ -400,6 +409,61 @@ function setupContactForm() {
 }
 
 /* =========================================================
+   MENÚ NAVEGACIÓN (Hamburguesa)
+   ========================================================= */
+function setupNavMenu(){
+  const toggle = document.getElementById("nav-toggle");
+  const links = document.getElementById("nav-links");
+  const overlay = document.getElementById("nav-overlay");
+  if(!toggle || !links || !overlay) return;
+
+  const open = ()=>{
+    links.classList.add("open");
+    overlay.hidden = false;
+    toggle.setAttribute("aria-expanded", "true");
+  };
+  const close = ()=>{
+    links.classList.remove("open");
+    overlay.hidden = true;
+    toggle.setAttribute("aria-expanded", "false");
+  };
+
+  toggle.addEventListener("click", ()=>{
+    links.classList.contains("open") ? close() : open();
+  });
+
+  overlay.addEventListener("click", close);
+
+  // Cierra al clicar un link
+  links.querySelectorAll("a").forEach(a => a.addEventListener("click", close));
+
+  // Esc para cerrar
+  window.addEventListener("keydown", (e)=>{
+    if(e.key === "Escape") close();
+  });
+}
+
+function setupHeroSpotlight(){
+  const hero = document.getElementById("hero");
+  if(!hero) return;
+
+  const onMove = (e)=>{
+    const r = hero.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width) * 100;
+    const y = ((e.clientY - r.top) / r.height) * 100;
+    hero.style.setProperty("--hx", `${x}%`);
+    hero.style.setProperty("--hy", `${y}%`);
+  };
+
+  hero.addEventListener("mousemove", onMove);
+  hero.addEventListener("mouseleave", ()=>{
+    hero.style.setProperty("--hx", `50%`);
+    hero.style.setProperty("--hy", `40%`);
+  });
+}
+
+
+/* =========================================================
    ANIMACIÓN SECCIONES
    ========================================================= */
 function setupSectionObserver() {
@@ -428,7 +492,10 @@ window.addEventListener("mousemove", (e) => {
 });
 
 /* Arranque */
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", ()=>{
+  setupNavMenu();
+  setupHeroSpotlight();
+
   setupSectionObserver();
   setupProjectsCarousel();
   setupContactForm();

@@ -45,35 +45,72 @@
       <span>Sebi</span>
     </a>
 
-    <nav>
-      <a class="nav-btn" href="#about" data-i18n="nav.about">Sobre mí</a>
-      <a class="nav-btn" href="#skills" data-i18n="nav.skills">Skills</a>
-      <a class="nav-btn" href="#projects" data-i18n="nav.projects">Proyectos</a>
-      <a class="nav-btn" href="#xp" data-i18n="nav.xp">Experiencia & Certs</a>
-      <a class="nav-btn" href="#cv" data-i18n="nav.cv">Descargar CV</a>
-      <a class="nav-btn nav-btn--primary" href="#contact" data-i18n="nav.contact">Contacto</a>
-
-      <!-- Toggle de idioma tipo “pill” -->
-      <button class="lang-toggle" id="lang-toggle" aria-label="Cambiar idioma">
-        <span class="lang-pill" data-lang="es">ES</span>
-        <span class="lang-pill" data-lang="en">EN</span>
+    <nav class="nav-wrap" aria-label="Navegación principal">
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Abrir menú"
+        aria-expanded="false"
+        aria-controls="nav-links">
+        <span></span><span></span><span></span>
       </button>
+
+      <div class="nav-links" id="nav-links">
+        <a class="nav-btn" href="#about" data-i18n="nav.about">Sobre mí</a>
+        <a class="nav-btn" href="#skills" data-i18n="nav.skills">Skills</a>
+        <a class="nav-btn" href="#projects" data-i18n="nav.projects">Proyectos</a>
+        <a class="nav-btn" href="#xp" data-i18n="nav.xp">Experiencia & Certs</a>
+        <a class="nav-btn" href="#cv" data-i18n="nav.cv">Descargar CV</a>
+        <a class="nav-btn nav-btn--primary" href="#contact" data-i18n="nav.contact">Contacto</a>
+
+        <button class="lang-toggle" id="lang-toggle" aria-label="Cambiar idioma">
+          <span class="lang-pill" data-lang="es">ES</span>
+          <span class="lang-pill" data-lang="en">EN</span>
+        </button>
+      </div>
     </nav>
+
+    <div class="nav-overlay" id="nav-overlay" hidden></div>
   </header>
 
   <main>
+    <noscript>
+      <div style="max-width:1120px;margin:16px auto;padding:16px;border:1px solid rgba(255,255,255,.14);border-radius:16px;background:rgba(0,0,0,.25);">
+        <p><strong>Nota:</strong> Esta web usa JavaScript para mejorar la experiencia. Aquí tienes enlaces directos:</p>
+        <ul>
+          <li><a href="https://github.com/SebiGitHub" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/sebastián-expósito-ruiz-a8a24a34a" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="assets/cv/CV_ES.pdf" target="_blank" rel="noopener noreferrer">CV (ES)</a> · <a href="assets/cv/CV_EN.pdf" target="_blank" rel="noopener noreferrer">CV (EN)</a></li>
+          <li><a href="https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD" target="_blank" rel="noopener noreferrer">Proyecto clave 1</a></li>
+          <li><a href="https://github.com/SebiGitHub/Selenium-end-to-end" target="_blank" rel="noopener noreferrer">Proyecto clave 2</a></li>
+          <li><a href="https://github.com/SebiGitHub/Realtime-Collaborative-Bingo-Web-App" target="_blank" rel="noopener noreferrer">Proyecto clave 3</a></li>
+        </ul>
+      </div>
+    </noscript>
+
     <!-- HERO -->
     <section id="hero" class="section hero">
       <img src="assets/img/logo-s-trasparente.png" alt="" class="hero-logo" />
       <h1 class="hero-title"><span class="glow" data-i18n="hero.title"></span></h1>
       <p class="hero-sub" data-i18n="hero.subtitle"></p>
-      <a href="#projects" class="btn" data-i18n="hero.cta">Ver proyectos</a>
+      <a href="#projects" class="btn btn--hero" data-i18n="hero.cta">
+        Ver proyectos <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
     </section>
 
     <!-- ABOUT -->
     <section id="about" class="section">
       <h2 class="section-title" data-i18n="about.title">Sobre mí</h2>
       <p class="section-lead" data-i18n="about.lead"></p>
+      <div class="fallback">
+        <p>
+          Soy desarrollador junior con formación DAM bilingüe y experiencia creando soluciones internas que conectan datos,
+          automatizan tareas y facilitan la vida a los usuarios.
+        </p>
+        <p>
+          Automatizo procesos (Power Apps / scripts / testing). Me gusta construir end-to-end y documentarlo.
+        </p>
+      </div>
 
       <div class="cards-grid" id="aboutGrid"></div>
       <div class="chips" id="aboutChips"></div>
@@ -83,6 +120,9 @@
     <section id="skills" class="section">
       <h2 class="section-title" data-i18n="skills.title">Skills</h2>
       <p class="section-lead" data-i18n="skills.lead"></p>
+      <div class="fallback">
+        <p>Stack principal: PowerApps + SharePoint, Salesforce APEX, Java/C#, SQL/Access/Excel, WordPress, JavaScript.</p>
+      </div>
 
       <div class="cards-grid" id="skillsGrid"></div>
     </section>
@@ -90,6 +130,14 @@
     <!-- PROJECTS (Carrusel - Opción A) -->
     <section id="projects" class="section">
       <h2 class="section-title" data-i18n="projects.title">Proyectos</h2>
+
+      <div class="fallback">
+        <ul>
+          <li><a href="https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD" target="_blank" rel="noopener noreferrer">WEB-DE-PROTOCOLOS-HSJD</a></li>
+          <li><a href="https://github.com/SebiGitHub/Selenium-end-to-end" target="_blank" rel="noopener noreferrer">Selenium end-to-end</a></li>
+          <li><a href="https://github.com/SebiGitHub/Realtime-Collaborative-Bingo-Web-App" target="_blank" rel="noopener noreferrer">Realtime Collaborative Bingo Web App</a></li>
+        </ul>
+      </div>
 
       <div class="carousel" aria-label="Carrusel de proyectos">
         <button class="carousel-btn" id="proj-prev" aria-label="Proyecto anterior">‹</button>
@@ -104,6 +152,9 @@
     <section id="xp" class="section">
       <h2 class="section-title" data-i18n="xp.title">Experiencia & Certificaciones</h2>
       <p class="section-lead" data-i18n="xp.lead"></p>
+      <div class="fallback">
+        <p>Prácticas DAM (HSJD), TFG end-to-end y formación en Salesforce APEX 2025.</p>
+      </div>
 
       <div class="timeline" id="experienceTimeline"></div>
     </section>

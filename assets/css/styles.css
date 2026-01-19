@@ -20,6 +20,8 @@
 *{ box-sizing:border-box; }
 html,body{ margin:0; }
 html{ scroll-behavior:smooth; }
+img{ max-width:100%; height:auto; }
+
 
 body{
   background:#070814;
@@ -190,6 +192,56 @@ p{
   color:#fff;
 }
 
+.nav-wrap{ display:flex; align-items:center; gap:12px; }
+.nav-toggle{
+  display:none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.18);
+  cursor:pointer;
+}
+.nav-toggle span{
+  display:block;
+  height:2px;
+  margin: 7px 10px;
+  background: rgba(255,255,255,.85);
+  border-radius:999px;
+}
+
+.nav-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 9;
+}
+
+@media (max-width: 900px){
+  /* Si NO hay JS, no escondas el menú (porque no hay toggle) */
+  .js .nav-toggle{ display:inline-block; }
+
+  .js .nav-links{
+    display:none;
+    position: fixed;
+    top: 70px;
+    right: 12px;
+    left: 12px;
+    z-index: 10;
+
+    padding: 12px;
+    border-radius: 18px;
+    background: rgba(6,10,22,.92);
+    border: 1px solid rgba(255,255,255,.14);
+    backdrop-filter: blur(10px);
+
+    flex-direction: column;
+    gap: 10px;
+  }
+  .js .nav-links.open{ display:flex; }
+}
+
+
 /* Toggle idioma tipo “pill” */
 .lang-toggle{
   display:inline-flex;
@@ -252,6 +304,25 @@ p{
   transform: translateY(1px);
 }
 
+/* Botón hover más “premium” */
+.btn--hero{
+  position: relative;
+  overflow:hidden;
+}
+.btn--hero i{
+  transition: transform .18s ease;
+}
+.btn--hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,.10);
+  transform: translateX(-110%);
+  transition: transform .25s ease;
+}
+.btn--hero:hover::before{ transform: translateX(0); }
+.btn--hero:hover i{ transform: translateX(4px); }
+
 /* =========================================================
    HERO
    ========================================================= */
@@ -260,6 +331,21 @@ p{
   display:grid;
   place-items:center;
   text-align:center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Spotlight solo en hero (usa --hx/--hy) */
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:-1px;
+  pointer-events:none;
+  background: radial-gradient(
+    220px circle at var(--hx, 50%) var(--hy, 40%),
+    rgba(34,211,238,0.18),
+    transparent 60%
+  );
 }
 
 .hero-logo{
@@ -290,6 +376,26 @@ p{
   color: transparent;
   text-shadow: 0 0 28px rgba(180,120,255,.22);
 }
+
+/* Reveal suave */
+.js .hero-logo,
+.js .hero-title,
+.js .hero-sub,
+.js .btn--hero{
+  opacity:0;
+  transform: translateY(14px);
+  animation: heroIn .9s ease forwards;
+}
+.js .hero-title{ animation-delay: .08s; }
+.js .hero-sub{ animation-delay: .18s; }
+.js .btn--hero{ animation-delay: .28s; }
+
+@keyframes heroIn{
+  to{ opacity:1; transform: translateY(0); }
+}
+
+/* ATS/SEO ven el texto en el HTML igualmente */
+.js .fallback{ display:none; }
 
 
 /* =========================================================
@@ -738,12 +844,12 @@ p{
 /* =========================================================
    ANIMACIÓN DE SECCIONES (fade-in)
    ========================================================= */
-.section{
+.js .section{
   opacity: 0;
   transform: translateY(24px);
   transition: opacity .6s ease, transform .6s ease;
 }
-.section.visible{
+.js .section.visible{
   opacity: 1;
   transform: translateY(0);
 }
@@ -861,6 +967,16 @@ p{
   transform: translateY(-1px);
   background: rgba(0,0,0,.25);
 }
+
+.project-psr{
+  margin-top: 12px;
+  display:grid;
+  gap: 8px;
+  color: rgba(255,255,255,.82);
+  font-size: 0.95rem;
+}
+.project-psr strong{ color: #fff; }
+
 
 /* ===== Paletas thumbs nuevas ===== */
 .project-thumb.thumb-realtime{ --a: rgba(34,211,238,.20);  --b: rgba(196,181,253,.16); }
