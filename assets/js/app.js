@@ -295,6 +295,25 @@ function getProjectItems(proj){
         { label:"Persistence", cls:"t-data" }
       ],
       cases: proj.p6_cases || []
+    },
+    {
+      title: proj.p7_title,
+      desc:  proj.p7_desc,
+      why:   proj.p7_why,
+      problem: proj.p7_problem,
+      solution: proj.p7_solution,
+      result: proj.p7_result,
+      link: "https://github.com/SebiGitHub/knowledge-ops-hub",
+      iconClass: "fa-solid fa-brain",
+      thumbClass: "thumb-rag",
+      tech: [
+        { label:"Spring Boot", cls:"t-java" },
+        { label:"Postgres + pgvector", cls:"t-data" },
+        { label:"Ollama", cls:"t-soft-cur" },
+        { label:"n8n", cls:"t-soft-org" },
+        { label:"Docker", cls:"t-github" },
+        { label:"RAG", cls:"t-soft-cur" }
+      ]
     }
   ];
 }
@@ -386,21 +405,22 @@ function setupProjectsCarousel() {
   const stage = document.getElementById("project-stage");
   if (!prev || !next || !stage) return;
 
+  const getItemsSafe = () => getProjectItems(STATE.dict?.projects);
+
   prev.addEventListener("click", () => {
-    const items = getProjectsList();
-    if (!items.length) return;
+    const items = getItemsSafe();
     PROJECT_INDEX = clampIndex(PROJECT_INDEX - 1, items.length);
     renderProjects();
   });
 
   next.addEventListener("click", () => {
-    const items = getProjectsList();
-    if (!items.length) return;
+    const items = getItemsSafe();
     PROJECT_INDEX = clampIndex(PROJECT_INDEX + 1, items.length);
     renderProjects();
   });
 
   let x0 = null;
+
   stage.addEventListener("touchstart", (e) => {
     x0 = e.touches?.[0]?.clientX ?? null;
   }, { passive: true });
@@ -412,14 +432,13 @@ function setupProjectsCarousel() {
     const dx = x1 - x0;
     if (Math.abs(dx) < 60) return;
 
-    const items = getProjectsList();
-    if (!items.length) return;
-
+    const items = getItemsSafe();
     PROJECT_INDEX = clampIndex(PROJECT_INDEX + (dx < 0 ? 1 : -1), items.length);
     renderProjects();
     x0 = null;
   }, { passive: true });
 }
+
 
 
 /* =========================================================

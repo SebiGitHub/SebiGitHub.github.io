@@ -155,6 +155,13 @@
     "p6_solution": "Focused mini-projects: coroutines (dispatchers/cancellation), multimedia (resources/lifecycle), persistence (CRUD).",
     "p6_result": "Evidence: 3 repos with features + screenshots/docs per mini-case.",
 
+    "p7_title": "Knowledge Ops Hub (Local RAG + automation)",
+    "p7_desc": "100% local pipeline to turn PDFs into a searchable RAG knowledge base (answers with citations) and automate ingestion + daily digests with n8n.",
+    "p7_why": "It helped me build a full end-to-end system: ingest → page extraction → embeddings → semantic search → answers with sources, fully local, with a secured API (JWT).",
+    "p7_problem": "When you pile up PDFs (guides, notes, specs), finding reliable answers is slow and hard to trace.",
+    "p7_solution": "Local stack with n8n workflows, Spring Boot API (JWT), Postgres + pgvector, and Ollama for embeddings + RAG returning `sources[]` with page/snippet evidence.",
+    "p7_result": "Evidence: `/ask` returns an answer + cited sources/pages; WF1 ingests PDFs from `inbox/` and WF2 writes daily digests to `outbox/` (docs + Postman collection).",
+
     "p6_cases": [
       {
         "title": "Concurrency without blocking UI (Coroutines)",

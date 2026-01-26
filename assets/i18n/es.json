@@ -155,6 +155,13 @@
     "p6_solution": "Mini-proyectos enfocados: corrutinas (dispatchers/cancelación), multimedia (recursos/ciclo de vida) y persistencia (CRUD).",
     "p6_result": "Evidencia: 3 repos con features + capturas/documentación por mini-caso.",
 
+    "p7_title": "Knowledge Ops Hub (RAG local + automatización)",
+    "p7_desc": "Pipeline 100% local para convertir PDFs en una base de conocimiento consultable con RAG (respuestas con citas) y automatizar ingesta y digests con n8n.",
+    "p7_why": "Me permitió montar un sistema completo end-to-end: ingesta → extracción por páginas → embeddings → búsqueda semántica → respuesta con fuentes, todo en local y con API segura (JWT).",
+    "p7_problem": "Cuando acumulas PDFs (guías, apuntes, specs), encontrar respuestas fiables es lento y poco trazable.",
+    "p7_solution": "Stack local con n8n (workflows de ingesta/digest), Spring Boot API (JWT), Postgres + pgvector y Ollama para embeddings y RAG con `sources[]` por página/snippet.",
+    "p7_result": "Evidencia: endpoint `/ask` devuelve respuesta + fuentes/páginas; WF1 procesa PDFs desde `inbox/` y WF2 genera digests en `outbox/` (docs + colección Postman).",
+
     "p6_cases": [
       {
         "title": "Concurrencia sin bloquear UI (Coroutines)",
