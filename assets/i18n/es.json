@@ -162,6 +162,13 @@
     "p7_solution": "Stack local con n8n (workflows de ingesta/digest), Spring Boot API (JWT), Postgres + pgvector y Ollama para embeddings y RAG con `sources[]` por página/snippet.",
     "p7_result": "Evidencia: endpoint `/ask` devuelve respuesta + fuentes/páginas; WF1 procesa PDFs desde `inbox/` y WF2 genera digests en `outbox/` (docs + colección Postman).",
 
+    "p8_title": "LifeOS System (Notion + Make + Detox)",
+    "p8_desc": "Sistema personal para hábitos + gamificación (XP/HP/rachas) + registro diario + detox digital, con Notion como base y automatización.",
+    "p8_why": "Proyecto grande donde conecto piezas reales (Notion + Make + ntfy + Android) y lo documento para que sea mantenible y robusto.",
+    "p8_problem": "Quería un sistema único para trackear hábitos y detox digital sin depender de apps de pago ni trabajo manual diario.",
+    "p8_solution": "Modelo en Notion + escenario diario en Make para rachas/XP/HP + notificaciones push con ntfy + app Android Detox para exportar CSV por app/categoría.",
+    "p8_result": "Evidencia: sistema funcional 0€ (Notion/Make free) con documentación, automatización diaria y export CSV para el módulo de detox.",
+
     "p6_cases": [
       {
         "title": "Concurrencia sin bloquear UI (Coroutines)",

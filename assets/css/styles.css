@@ -916,6 +916,15 @@ p{
 .t-git{ --chip-bg: rgba(249,115,22,.12); --chip-bd: rgba(249,115,22,.26); }
 .t-github{ --chip-bg: rgba(148,163,184,.12); --chip-bd: rgba(148,163,184,.26); }
 
+/* Colores para chips nuevas */
+.t-notion{ --chip-bg: rgba(148,163,184,.12); --chip-bd: rgba(148,163,184,.26); }
+.t-make{   --chip-bg: rgba(236,72,153,.12); --chip-bd: rgba(236,72,153,.28); }
+.t-ntfy{   --chip-bg: rgba(34,211,238,.12); --chip-bd: rgba(34,211,238,.26); }
+.t-n8n{    --chip-bg: rgba(249,115,22,.12); --chip-bd: rgba(249,115,22,.26); }
+.t-docker{ --chip-bg: rgba(59,130,246,.12); --chip-bd: rgba(59,130,246,.26); }
+.t-ollama{ --chip-bg: rgba(34,197,94,.12);  --chip-bd: rgba(34,197,94,.26); }
+.t-rag{    --chip-bg: rgba(196,181,253,.12);--chip-bd: rgba(196,181,253,.28); }
+
 /* soft skills */
 .t-soft-comm{ --chip-bg: rgba(34,211,238,.12); --chip-bd: rgba(34,211,238,.26); }
 .t-soft-cur{ --chip-bg: rgba(196,181,253,.12); --chip-bd: rgba(196,181,253,.28); }
@@ -989,3 +998,4 @@ p{
 .project-thumb.thumb-testing{  --a: rgba(250,204,21,.14);  --b: rgba(148,163,184,.18); }
 .project-thumb.thumb-labs{     --a: rgba(250,204,21,.14);  --b: rgba(196,181,253,.18); }
 .project-thumb.thumb-rag{ --a: rgba(34,197,94,.16); --b: rgba(196,181,253,.18); }
+.project-thumb.thumb-lifeos{ --a: rgba(236,72,153,.18); --b: rgba(34,211,238,.18); }

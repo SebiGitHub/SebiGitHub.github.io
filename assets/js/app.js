@@ -314,6 +314,24 @@ function getProjectItems(proj){
         { label:"Docker", cls:"t-github" },
         { label:"RAG", cls:"t-soft-cur" }
       ]
+    },
+    {
+      title: proj.p8_title,
+      desc: proj.p8_desc,
+      why:  proj.p8_why,
+      problem: proj.p8_problem,
+      solution: proj.p8_solution,
+      result: proj.p8_result,
+      link: "https://github.com/SebiGitHub/lifeos-system",
+      iconClass: "fa-solid fa-heart-pulse",
+      thumbClass: "thumb-lifeos",
+      tech: [
+        { label:"Notion",  cls:"t-notion" },
+        { label:"Make",   cls:"t-make" },
+        { label:"ntfy",   cls:"t-ntfy" },
+        { label:"Android",cls:"t-kotlin" },
+        { label:"CSV",    cls:"t-data" }
+      ]
     }
   ];
 }
