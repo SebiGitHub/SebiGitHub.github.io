@@ -4,7 +4,7 @@
     "skills": "Skills",
     "projects": "Projects",
     "xp": "Experience & education",
-    "cv": "Download CV",
+    "cv": "Resume",
     "contact": "Contact"
   },
   "search": {
@@ -313,10 +313,10 @@
     ]
   },
   "cv": {
-    "title": "Download CV",
-    "body": "Download my CV to learn more about my experience, skills, and strengths.",
-    "btn_es": "Download CV (ES)",
-    "btn_en": "Download CV (EN)"
+    "title": "My resume",
+    "body": "Read my updated resume. You can print it or save it as a PDF from your browser.",
+    "btn_es": "View CV (ES)",
+    "btn_en": "View CV (EN)"
   },
   "contact": {
     "subtitle": "Interested in collaborating, or want to know what I can bring to your team?",

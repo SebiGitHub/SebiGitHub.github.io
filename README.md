@@ -32,3 +32,9 @@ Opción B (recomendado):
 - Estructurar un portfolio pensado para recruiters (claridad, navegación, CTA)
 - Despliegue con GitHub Pages
 - Mejoras de UI/UX: jerarquía visual, responsive, accesibilidad básica
+
+## Validación y CV
+
+La web mantiene HTML, CSS y JavaScript sin framework. `npm install`, `npx playwright install chromium` y `npm test` comprueban tres anchuras, idiomas, errores JavaScript y enlaces internos. Se necesita Python 3 para el servidor de pruebas.
+
+Las fuentes actuales del CV están en `assets/cv/CV_ES.html` y `CV_EN.html`; pueden imprimirse desde el navegador. El workflow genera los PDF como artefactos descargables de GitHub Actions tras superar las pruebas. No modifica la rama. Los diseños de Canva se mantienen por separado y no se sincronizan automáticamente.

@@ -4,7 +4,7 @@
     "skills": "Skills",
     "projects": "Proyectos",
     "xp": "Experiencia y formación",
-    "cv": "Descargar CV",
+    "cv": "CV",
     "contact": "Contacto"
   },
   "search": {
@@ -313,10 +313,10 @@
     ]
   },
   "cv": {
-    "title": "Descargar CV",
-    "body": "Descargue mi CV para conocer más sobre mi experiencia, habilidades y cualidades.",
-    "btn_es": "Descargar CV (ES)",
-    "btn_en": "Descargar CV (EN)"
+    "title": "Mi CV",
+    "body": "Consulta mi CV actualizado. Puedes imprimirlo o guardarlo como PDF desde el navegador.",
+    "btn_es": "Ver CV (ES)",
+    "btn_en": "Ver CV (EN)"
   },
   "contact": {
     "subtitle": "¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?",
