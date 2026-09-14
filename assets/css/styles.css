@@ -395,7 +395,7 @@ p{
 }
 
 /* ATS/SEO ven el texto en el HTML igualmente */
-.js .fallback{ display:none; }
+.content-ready .fallback{ display:none; }
 
 
 /* =========================================================
@@ -999,3 +999,31 @@ p{
 .project-thumb.thumb-labs{     --a: rgba(250,204,21,.14);  --b: rgba(196,181,253,.18); }
 .project-thumb.thumb-rag{ --a: rgba(34,197,94,.16); --b: rgba(196,181,253,.18); }
 .project-thumb.thumb-lifeos{ --a: rgba(236,72,153,.18); --b: rgba(34,211,238,.18); }
+
+/* Recruitment-focused layout and accessibility */
+.skip-link{position:fixed;top:8px;left:8px;z-index:100;background:#c4b5fd;color:#0b0f14;padding:12px;transform:translateY(-180%)}
+.skip-link:focus{transform:none}
+:focus-visible{outline:3px solid #67e8f9;outline-offset:4px}
+.section{scroll-margin-top:90px}
+.js .section{opacity:1;transform:none}
+.btn:hover,.nav-btn--primary:hover{color:#0b0f14;background:#ddd6fe}
+.hero{min-height:0;gap:12px;padding-top:60px;padding-bottom:60px}
+.hero-logo{width:100px}
+.hero-title{max-width:950px;line-height:1.2}
+.hero-sub{max-width:780px;line-height:1.6;font-size:1.15rem}
+.hero-availability{color:#e5e7eb;margin:0}
+.projects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.projects-grid .project-card{min-width:0;display:flex;flex-direction:column}
+.projects-grid .project-card h3{overflow-wrap:anywhere}
+.projects-grid .project-card>.btn{margin-top:auto;align-self:flex-start}
+.project-label{font-size:.8rem;color:#f9a8d4;margin:0}
+.project-card details{margin-bottom:20px}
+.contact-info{min-width:0}.contact-value{overflow-wrap:anywhere}
+body::after,.hero::after{display:none}
+@media(max-width:1000px){.projects-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.projects-grid{grid-template-columns:minmax(0,1fr)}.hero-title{font-size:2rem}.section{padding:48px 16px}}
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+*,*::before,*::after{animation:none!important;transition:none!important}
+.js .hero-logo,.js .hero-title,.js .hero-sub,.js .btn--hero{opacity:1;transform:none}
+}

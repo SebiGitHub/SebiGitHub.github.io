@@ -13,21 +13,26 @@ document.documentElement.classList.add("js");
 /* =========================================================
    I18N: estado + carga diccionario
    ========================================================= */
-const STATE = { lang: localStorage.getItem("lang") || "es", dict: {} };
+function savedLanguage() { try { return localStorage.getItem("lang") === "en" ? "en" : "es"; } catch { return "es"; } }
+const STATE = { lang: savedLanguage(), dict: {} };
+let dictionaryRequest = 0;
 
 async function loadDict(lang) {
+  const request = ++dictionaryRequest;
   try {
     const res = await fetch(`assets/i18n/${lang}.json`, { cache: "no-store" });
     if (!res.ok) throw new Error(`No se pudo cargar ${lang}.json (${res.status})`);
 
     const json = await res.json();
 
+    if (request !== dictionaryRequest) return;
     STATE.dict = json;
     STATE.lang = lang;
-    localStorage.setItem("lang", lang);
+    try { localStorage.setItem("lang", lang); } catch { /* Storage may be disabled. */ }
 
     applyI18n();
     updateLangToggleUI();
+    document.documentElement.classList.add("content-ready");
 
     console.info(`[i18n] OK -> ${lang}`);
   } catch (e) {
@@ -50,6 +55,12 @@ function applyI18n() {
   renderProjects();
 
   document.documentElement.lang = STATE.lang;
+  document.title = STATE.dict.hero.title;
+  const english = STATE.lang === "en";
+  document.getElementById("lang-toggle")?.setAttribute("aria-label", english ? "Switch to Spanish" : "Cambiar a inglés");
+  document.getElementById("nav-toggle")?.setAttribute("aria-label", english ? "Toggle menu" : "Abrir o cerrar menú");
+  document.querySelector(".brand")?.setAttribute("aria-label", english ? "Go to home" : "Ir al inicio");
+  document.querySelector("nav")?.setAttribute("aria-label", english ? "Main navigation" : "Navegación principal");
 }
 
 function updateLangToggleUI() {
@@ -90,24 +101,6 @@ function chipTone(label = "") {
 document.getElementById("lang-toggle")?.addEventListener("click", () => {
   loadDict(STATE.lang === "es" ? "en" : "es");
 });
-
-
-function typewriter(el, text, speed = 18){
-  if(!el) return;
-  el.textContent = "";
-  let i = 0;
-  const t = setInterval(() => {
-    el.textContent = text.slice(0, ++i);
-    if(i >= text.length) clearInterval(t);
-  }, speed);
-}
-
-// Ejemplo de uso tras traducir:
-const heroTitleEl = document.querySelector('[data-i18n="hero.title"]');
-if(heroTitleEl){
-  const full = heroTitleEl.textContent.trim();
-  typewriter(heroTitleEl, full, 14);
-}
 
 
 /* =========================================================
@@ -201,7 +194,7 @@ function renderXP() {
    ========================================================= */
 let PROJECT_INDEX = 0;
 
-function getProjectItems(proj){
+function getProjectItems(proj = {}){
   return [
     {
       title: proj.p1_title,
@@ -275,8 +268,8 @@ function getProjectItems(proj){
       thumbClass: "thumb-testing",
       tech: [
         { label:"Selenium", cls:"t-soft-org" },
-        { label:"JUnit5", cls:"t-java" },
-        { label:"CI", cls:"t-github" }
+        { label:"Java", cls:"t-java" },
+        { label:"CSV", cls:"t-data" }
       ]
     },
     {
@@ -286,7 +279,7 @@ function getProjectItems(proj){
       problem: proj.p6_problem,
       solution: proj.p6_solution,
       result: proj.p6_result,
-      link: "#https://github.com/SebiGitHub/Corrutinas", // Kotlin Labs no es un repo único
+      link: "https://github.com/SebiGitHub/Corrutinas", // Kotlin Labs no es un repo único
       iconClass: "fa-solid fa-flask",
       thumbClass: "thumb-labs",
       tech: [
@@ -347,74 +340,25 @@ function getProjectsList(){
   return proj ? getProjectItems(proj) : [];
 }
 
-function renderProjects(){
+function renderProjects() {
   const stage = document.getElementById("project-stage");
-  const dots  = document.getElementById("project-dots");
-  if (!stage || !dots) return;
-
-  const proj = STATE.dict?.projects;
-  if (!proj){
-    stage.innerHTML = "";
-    dots.innerHTML = "";
-    return;
-  }
-
-  // Labels ultra seguros (nunca rompen)
-  const labels = (proj.case_labels ?? proj.psr_labels ?? {});
-  const LP = labels.problem ?? (STATE.lang === "es" ? "Problema" : "Problem");
-  const LS = labels.solution ?? (STATE.lang === "es" ? "Solución" : "Solution");
-  const LR = labels.result ?? (STATE.lang === "es" ? "Resultado" : "Result");
-  
+  if (!stage || !STATE.dict.projects) return;
+  const es = STATE.lang === "es";
   const items = getProjectsList();
-  if (!items.length){
-    stage.innerHTML = "";
-    dots.innerHTML = "";
-    return;
-  }
-
-  PROJECT_INDEX = clampIndex(PROJECT_INDEX, items.length);
-  const p = items[PROJECT_INDEX];
-
-  stage.innerHTML = `
-    <div class="card project-card">
-      <div class="project-thumb ${p.thumbClass || ""}">
-        <i class="${p.iconClass} project-icon" aria-hidden="true"></i>
-      </div>
-
-      <h3>${p.title}</h3>
-      <p>${p.desc}</p>
-
-      <div class="project-psr">
-        <div><strong>${LP}:</strong> ${p.problem || "—"}</div>
-        <div><strong>${LS}:</strong> ${p.solution || "—"}</div>
-        <div><strong>${LR}:</strong> ${p.result || "—"}</div>
-      </div>
-
-      <div class="tech">
-        ${(p.tech || []).map(t => `<span class="${t.cls || ""}">${t.label}</span>`).join("")}
-      </div>
-
-      <details>
-        <summary>+ info</summary>
-        <p>${p.why || ""}</p>
-      </details>
-
-      <a href="${p.link}" class="btn" target="_blank" rel="noopener noreferrer">GitHub</a>
-    </div>
-  `;
-
-  dots.innerHTML = items.map((_, idx) => `
-    <button class="carousel-dot ${idx === PROJECT_INDEX ? "active" : ""}"
-            aria-label="Ir al proyecto ${idx + 1}"
-            data-idx="${idx}"></button>
-  `).join("");
-
-  dots.querySelectorAll(".carousel-dot").forEach(b=>{
-    b.addEventListener("click", ()=>{
-      PROJECT_INDEX = Number(b.getAttribute("data-idx"));
-      renderProjects();
-    });
-  });
+  const order = [0, 6, 2, 1, 3, 4, 5, 7];
+  stage.innerHTML = order.map((index, position) => {
+    const p = items[index];
+    const label = position < 3 ? (es ? "Proyecto destacado" : "Featured project") : (es ? "Proyecto adicional" : "Additional project");
+    return `<article class="card project-card">
+      <p class="project-label">${label}</p>
+      <h3>${p.title}</h3><p>${p.desc}</p>
+      <div class="project-psr"><div><strong>${es ? "Solución" : "Solution"}:</strong> ${p.solution}</div>
+      <div><strong>${es ? "Estado y evidencia" : "Status & evidence"}:</strong> ${p.result}</div></div>
+      <div class="tech">${p.tech.map(t => `<span class="${t.cls}">${t.label}</span>`).join("")}</div>
+      <details><summary>${es ? "Qué aprendí" : "What I learned"}</summary><p>${p.why}</p></details>
+      <a href="${p.link}" class="btn" target="_blank" rel="noopener noreferrer">${es ? "Ver repositorio" : "View repository"}</a>
+    </article>`;
+  }).join("");
 }
 
 function setupProjectsCarousel() {
@@ -482,13 +426,7 @@ function setupContactForm() {
       (name ? `Nombre: ${name}\n` : "") +
       `\n— Enviado desde tu portfolio`;
 
-    const url =
-      `https://mail.google.com/mail/?view=cm&fs=1` +
-      `&to=${encodeURIComponent(to)}` +
-      `&su=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
-
-    window.open(url, "_blank", "noopener,noreferrer");
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }
 
@@ -523,7 +461,7 @@ function setupNavMenu(){
 
   // Esc para cerrar
   window.addEventListener("keydown", (e)=>{
-    if(e.key === "Escape") close();
+    if(e.key === "Escape" && links.classList.contains("open")) { close(); toggle.focus(); }
   });
 }
 
@@ -552,6 +490,7 @@ function setupHeroSpotlight(){
    ========================================================= */
 function setupSectionObserver() {
   const sections = document.querySelectorAll(".section");
+  if (!("IntersectionObserver" in window)) { sections.forEach(sec => sec.classList.add("visible")); return; }
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -567,21 +506,13 @@ function setupSectionObserver() {
   sections.forEach((sec) => observer.observe(sec));
 }
 
-/* Spotlight */
-window.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth) * 100;
-  const y = (e.clientY / window.innerHeight) * 100;
-  document.documentElement.style.setProperty("--mx", `${x}%`);
-  document.documentElement.style.setProperty("--my", `${y}%`);
-});
-
 /* Arranque */
 document.addEventListener("DOMContentLoaded", ()=>{
   setupNavMenu();
-  setupHeroSpotlight();
+
 
   setupSectionObserver();
-  setupProjectsCarousel();
+
   setupContactForm();
   loadDict(STATE.lang);
 });

@@ -3,7 +3,7 @@
     "about": "About",
     "skills": "Skills",
     "projects": "Projects",
-    "xp": "Experience & Certs",
+    "xp": "Experience & education",
     "cv": "Download CV",
     "contact": "Contact"
   },
@@ -11,22 +11,24 @@
     "placeholder": "Search this site…"
   },
   "hero": {
-    "title": "Junior developer focused on building complete solutions, not just code.",
-    "subtitle": "DAM · Salesforce APEX · PowerApps · WordPress · Automation",
-    "cta": "See projects"
+    "title": "Sebastián Expósito Ruiz · Junior full-stack developer",
+    "subtitle": "I build complete solutions: interfaces, application logic, data and deployment. Java · Spring Boot · JavaScript · SQL.",
+    "cta": "View projects",
+    "availability": "Seville · On-site/hybrid or remote · Available immediately",
+    "contact": "Get in touch"
   },
   "about": {
     "title": "About me",
-    "lead": "I build end-to-end solutions: connect data, automate workflows, and care about user experience.",
+    "lead": "I am a DAM graduate seeking my first junior full-stack role. My projects cover backend, web, Android and desktop development, alongside an IT support internship.",
     "lead2": "I automate processes (Power Apps / scripts / testing). I like building end-to-end and documenting it.",
     "cards": [
       {
         "icon": "fa-solid fa-bolt",
         "title": "What I do",
         "bullets": [
-          "Fast and useful internal apps",
-          "Automation for repetitive tasks",
-          "Data integration (SharePoint/Access/Excel)"
+          "Java/Spring Boot and PostgreSQL backend",
+          "Web interfaces with HTML, CSS and JavaScript",
+          "Android and desktop applications"
         ]
       },
       {
@@ -42,134 +44,181 @@
         "icon": "fa-solid fa-rocket",
         "title": "Right now",
         "bullets": [
-          "Looking for my first dev role",
-          "Bilingual GitHub Pages portfolio",
-          "Improving testing and best practices"
+          "Seeking a first junior developer role",
+          "Seville or remote · Available immediately",
+          "B1 English · Own car"
         ]
       }
     ],
     "chips": [
-      { "icon": "devicon-salesforce-plain", "label": "Salesforce APEX" },
-      { "icon": "fa-solid fa-diagram-project", "label": "PowerApps + SharePoint" },
-      { "icon": "fa-solid fa-database", "label": "Access / SQL" },
-      { "icon": "fa-solid fa-file-excel", "label": "Excel" },
-      { "icon": "devicon-csharp-plain", "label": "C# / .NET" },
-      { "icon": "devicon-kotlin-plain", "label": "Kotlin" },
-      { "icon": "devicon-python-plain", "label": "Python" },
-      { "icon": "devicon-javascript-plain", "label": "JavaScript" }
+      {
+        "icon": "devicon-java-plain",
+        "label": "Java / Spring Boot"
+      },
+      {
+        "icon": "devicon-javascript-plain",
+        "label": "JavaScript"
+      },
+      {
+        "icon": "devicon-postgresql-plain",
+        "label": "PostgreSQL"
+      },
+      {
+        "icon": "devicon-kotlin-plain",
+        "label": "Kotlin"
+      },
+      {
+        "icon": "devicon-csharp-plain",
+        "label": "C# / .NET"
+      }
     ]
   },
   "skills": {
     "title": "Skills",
-    "lead": "Tech I use to build, ship and maintain things that actually work.",
+    "lead": "Technologies used in my projects. Each repository describes its scope and remaining improvements.",
     "categories": [
       {
         "icon": "fa-solid fa-code",
-        "title": "Backend / logic",
+        "title": "Backend",
         "items": [
-          { "icon": "devicon-java-plain", "label": "Java" },
-          { "icon": "devicon-csharp-plain", "label": "C#" },
-          { "icon": "devicon-salesforce-plain", "label": "Apex (Salesforce)" },
-          { "icon": "devicon-python-plain", "label": "Python" },
-          { "icon": "fa-solid fa-gears", "label": "VBScript (automation)" }
+          {
+            "icon": "devicon-java-plain",
+            "label": "Java / Spring Boot"
+          },
+          {
+            "icon": "devicon-python-plain",
+            "label": "Python"
+          },
+          {
+            "icon": "fa-solid fa-database",
+            "label": "SQL / PostgreSQL"
+          }
         ]
       },
       {
         "icon": "fa-solid fa-laptop-code",
-        "title": "Web / UI",
+        "title": "Web & interfaces",
         "items": [
-          { "icon": "devicon-html5-plain", "label": "HTML" },
-          { "icon": "devicon-css3-plain", "label": "CSS" },
-          { "icon": "devicon-javascript-plain", "label": "JavaScript" },
-          { "icon": "devicon-wordpress-plain", "label": "WordPress" }
+          {
+            "icon": "devicon-html5-plain",
+            "label": "HTML"
+          },
+          {
+            "icon": "devicon-css3-plain",
+            "label": "CSS"
+          },
+          {
+            "icon": "devicon-javascript-plain",
+            "label": "JavaScript"
+          }
         ]
       },
       {
-        "icon": "fa-solid fa-database",
-        "title": "Data & tools",
+        "icon": "fa-solid fa-mobile-screen",
+        "title": "Multiplatform apps",
         "items": [
-          { "icon": "fa-solid fa-table", "label": "Advanced Excel" },
-          { "icon": "fa-solid fa-database", "label": "Access / SQL" },
-          { "icon": "fa-solid fa-diagram-project", "label": "PowerApps + SharePoint" },
-          { "icon": "devicon-git-plain", "label": "Git" },
-          { "icon": "devicon-github-original", "label": "GitHub" }
+          {
+            "icon": "devicon-kotlin-plain",
+            "label": "Kotlin / Android"
+          },
+          {
+            "icon": "devicon-firebase-plain",
+            "label": "Firebase Realtime Database"
+          },
+          {
+            "icon": "devicon-csharp-plain",
+            "label": "C# / .NET / Avalonia"
+          }
         ]
       },
       {
-        "icon": "fa-solid fa-people-group",
-        "title": "Soft skills",
+        "icon": "fa-solid fa-gears",
+        "title": "Integration & tools",
         "items": [
-          { "icon": "fa-solid fa-comments", "label": "Clear communication" },
-          { "icon": "fa-solid fa-magnifying-glass", "label": "Curiosity / learning" },
-          { "icon": "fa-solid fa-arrows-rotate", "label": "Adaptability" },
-          { "icon": "fa-solid fa-list-check", "label": "Organization & documentation" }
+          {
+            "icon": "devicon-git-plain",
+            "label": "Git"
+          },
+          {
+            "icon": "fa-solid fa-gears",
+            "label": "n8n / Make"
+          },
+          {
+            "icon": "fa-solid fa-brain",
+            "label": "Ollama / RAG"
+          },
+          {
+            "icon": "fa-solid fa-diagram-project",
+            "label": "Power Apps / SharePoint"
+          },
+          {
+            "icon": "devicon-salesforce-plain",
+            "label": "Apex · coursework"
+          }
         ]
       }
     ]
   },
   "projects": {
     "title": "Projects",
-
-    "psr_labels": { "problem": "Problem", "solution": "Solution", "result": "Result" },
-    "case_labels": { "problem": "Problem", "solution": "Solution", "result": "Result" },
-
+    "psr_labels": {
+      "problem": "Problem",
+      "solution": "Solution",
+      "result": "Result"
+    },
+    "case_labels": {
+      "problem": "Problem",
+      "solution": "Solution",
+      "result": "Result"
+    },
     "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
-    "p1_desc": "PowerApps + SharePoint app that allows each employee to access only the protocols assigned to their role and department.",
-    "p1_why": "I learned to integrate different tools into a coherent flow that automates tasks and reduces manual errors—my first step towards a “complete solution”.",
+    "p1_desc": "Final project for hospital protocol management with Power Apps and SharePoint.",
+    "p1_why": "Academic project focused on processes, data modeling and integration.",
     "p1_problem": "Employees needed to quickly reach the right protocol (and the current version) without manual searching through documents.",
-    "p1_solution": "PowerApps connected to SharePoint with role/department filtering, search, version control and read tracking.",
-    "p1_result": "Evidence: real project (final project) with role-based filtering and read/version traceability.",
-
+    "p1_solution": "Catalog design, profile/service filtering, read tracking and version handling.",
+    "p1_result": "Original data and exports removed. Synthetic example available; demo pending sanitization.",
     "p2_title": "AvaloniaCatalogoWinForms",
-    "p2_desc": "Desktop catalog with full CRUD: add, update, delete, filter and sort products across multiple screens.",
-    "p2_why": "It helped me structure data in a desktop app and keep consistency across screens—solid foundations for bigger projects.",
-    "p2_problem": "I wanted to practice a complete desktop catalog app with navigation, persistence and typical CRUD + filtering flows.",
-    "p2_solution": "C#/.NET app with Avalonia UI (MVVM) and JSON persistence, including search/filter and basic CRUD.",
-    "p2_result": "Evidence: CRUD + filtering + screenshots and run steps in the README.",
-
+    "p2_desc": "Card-deck catalog built with C#/.NET and Avalonia, with local JSON persistence.",
+    "p2_why": "I practiced data binding, commands and separation of model, view and logic.",
+    "p2_problem": "Practice desktop catalog management and persistence.",
+    "p2_solution": "MVVM, record navigation, creation and deletion.",
+    "p2_result": "Code and screenshots available. Editing, filters and full functional validation remain pending.",
     "p3_title": "Agenda App",
-    "p3_desc": "Agenda app to manage contacts and/or events with a clean, productivity-focused UI.",
-    "p3_why": "It helped me practice app structure, data persistence and a clean UI designed for real usage.",
-    "p3_problem": "Managing contacts/tasks per user and keeping data safe and accessible across devices.",
-    "p3_solution": "Android app in Kotlin with Firebase Auth + Realtime Database, CRUD and UI validations/feedback.",
-    "p3_result": "Evidence: login/register + per-user cloud CRUD + screenshots in the repo.",
-
+    "p3_desc": "Android contact book for adding, viewing and deleting contacts with images.",
+    "p3_why": "I practiced forms, lists and asynchronous operations with a remote database.",
+    "p3_problem": "Keep a contact list with phone numbers, birthdays and images.",
+    "p3_solution": "Kotlin, RecyclerView, validation and Firebase Realtime Database.",
+    "p3_result": "Creation, viewing and deletion implemented. Authentication, per-user data and editing remain pending.",
     "p4_title": "Realtime Collaborative Bingo Web App",
-    "p4_desc": "Real-time collaborative bingo: multiple users join a room and the board state syncs instantly.",
+    "p4_desc": "Collaborative web bingo with a shared board and personal boards.",
     "p4_why": "Previously called “BingoEnvidiosos”. Great practice for real-time sync, shared state and multi-user UX.",
     "p4_problem": "Coordinating a shared board across multiple users in real time without desync or page reloads.",
-    "p4_solution": "Room-based web app with real-time shared state, handling events and consistency across clients.",
+    "p4_solution": "HTML, CSS and JavaScript with shared state in Firebase Realtime Database.",
     "p4_result": "Evidence: real-time multi-user project (repo includes features and structure).",
-
     "p5_title": "Selenium end-to-end",
-    "p5_desc": "Automated E2E tests to validate real user flows on web, making sure key features don’t break.",
-    "p5_why": "It builds discipline: reproducible tests, early bug detection and a quality-first mindset.",
-    "p5_problem": "Catching breaking changes in critical user flows before they hit production.",
-    "p5_solution": "Selenium + JUnit5 suite using Page Objects, wait helpers and automated execution in CI.",
-    "p5_result": "Evidence: CI + reporting (Allure) + execution video in the repo.",
-
+    "p5_desc": "Search and information extraction automation with Java and Selenium.",
+    "p5_why": "I learned element selection, navigation and waits.",
+    "p5_problem": "Practice automated navigation and collection of web results.",
+    "p5_solution": "Java program with WebDriver, waits, screenshots and CSV export.",
+    "p5_result": "Code available. JUnit, Page Objects, CI and Allure are not implemented in this repository.",
     "p6_title": "Kotlin Labs",
     "p6_desc": "A set of Kotlin mini-projects to master key areas: multimedia, concurrency and persistence.",
     "p6_why": "Mini-case format: a real problem, a concrete solution and a clear competency signal.",
     "p6_problem": "Learning key Kotlin/Android concepts fast without getting stuck in huge slow-to-iterate projects.",
     "p6_solution": "Focused mini-projects: coroutines (dispatchers/cancellation), multimedia (resources/lifecycle), persistence (CRUD).",
     "p6_result": "Evidence: 3 repos with features + screenshots/docs per mini-case.",
-
     "p7_title": "Knowledge Ops Hub (Local RAG + automation)",
     "p7_desc": "100% local pipeline to turn PDFs into a searchable RAG knowledge base (answers with citations) and automate ingestion + daily digests with n8n.",
-    "p7_why": "It helped me build a full end-to-end system: ingest → page extraction → embeddings → semantic search → answers with sources, fully local, with a secured API (JWT).",
+    "p7_why": "I integrate JWT authentication, persistence and semantic search. Answers may contain errors; sources help users review them.",
     "p7_problem": "When you pile up PDFs (guides, notes, specs), finding reliable answers is slow and hard to trace.",
     "p7_solution": "Local stack with n8n workflows, Spring Boot API (JWT), Postgres + pgvector, and Ollama for embeddings + RAG returning `sources[]` with page/snippet evidence.",
     "p7_result": "Evidence: `/ask` returns an answer + cited sources/pages; WF1 ingests PDFs from `inbox/` and WF2 writes daily digests to `outbox/` (docs + Postman collection).",
-
-    
     "p8_title": "LifeOS System (Notion + Make + Detox)",
     "p8_desc": "Personal system for habits + gamification (XP/HP/streaks) + daily logging + digital detox, with Notion as the base and automation on top.",
     "p8_why": "A big end-to-end project: I connect real components (Notion + Make + ntfy + Android) and document everything so it stays maintainable and robust.",
     "p8_problem": "I wanted a single system to track habits and digital detox without paid apps or daily manual work.",
     "p8_solution": "Notion data model + daily Make scenario for streaks/XP/HP + push notifications via ntfy + Android Detox app exporting CSV by app/category.",
-    "p8_result": "Evidence: 0€ functional system (Notion/Make free) with docs, daily automation, and CSV export feeding the detox module.",
-
+    "p8_result": "Repository documenting Notion, Make and the Android app. Costs and limits depend on usage and service plans.",
     "p6_cases": [
       {
         "title": "Concurrency without blocking UI (Coroutines)",
@@ -195,38 +244,47 @@
     ]
   },
   "xp": {
-    "title": "Experience & Certifications",
-    "lead": "Where, how and when I’ve gained and applied my skills.",
+    "title": "Experience & education",
+    "lead": "Internship, academic projects and additional training.",
     "timeline": [
       {
         "title": "DAM Internship — Hospital San Juan de Dios",
-        "meta": "2025 · Internal development + support",
+        "meta": "March–June 2025 · IT internship",
         "bullets": [
-          "PowerApps role-based protocol access",
-          "Integration with SharePoint / Access / Excel",
-          "Automation and data cleanup (VBScript)"
+          "User support and hardware/software incident resolution",
+          "Inventory management and procedure documentation"
         ],
-        "tech": ["fa-solid fa-diagram-project", "fa-solid fa-database", "fa-solid fa-file-excel"]
+        "tech": [
+          "fa-solid fa-diagram-project",
+          "fa-solid fa-database",
+          "fa-solid fa-file-excel"
+        ]
       },
       {
         "title": "Final Project — WEB-DE-PROTOCOLOS-HSJD",
-        "meta": "2025 · End-to-end project",
+        "meta": "2025 · DAM final project",
         "bullets": [
-          "Designed the full flow (UI + data + automation)",
-          "Documentation and focus on reducing manual errors",
-          "Iterated with real user feedback"
+          "Power Apps and SharePoint solution design",
+          "Protocol catalog, read tracking and versions",
+          "Public version undergoing data and documentation review"
         ],
-        "tech": ["fa-solid fa-puzzle-piece", "devicon-github-original", "fa-solid fa-wand-magic-sparkles"]
+        "tech": [
+          "fa-solid fa-puzzle-piece",
+          "devicon-github-original",
+          "fa-solid fa-wand-magic-sparkles"
+        ]
       },
       {
         "title": "Salesforce: Developing Apps in APEX 2025",
-        "meta": "Training · APEX / best practices",
+        "meta": "2025 · 60-hour course · Cloud Coachers",
         "bullets": [
-          "Apex: classes, triggers and testing",
-          "Best practices (structure, maintainability)",
-          "Data modeling and automations"
+          "Apex development coursework"
         ],
-        "tech": ["devicon-salesforce-plain", "fa-solid fa-vial", "fa-solid fa-layer-group"]
+        "tech": [
+          "devicon-salesforce-plain",
+          "fa-solid fa-vial",
+          "fa-solid fa-layer-group"
+        ]
       },
       {
         "title": "Customer Service Agent — Konecta",
@@ -236,7 +294,21 @@
           "Communication with non-technical users",
           "Goal-driven work under pressure"
         ],
-        "tech": ["fa-solid fa-headset", "fa-solid fa-file-lines", "fa-solid fa-people-arrows"]
+        "tech": [
+          "fa-solid fa-headset",
+          "fa-solid fa-file-lines",
+          "fa-solid fa-people-arrows"
+        ]
+      },
+      {
+        "title": "Volunteer web designer — ADCA Association",
+        "meta": "2025 · WordPress",
+        "bullets": [
+          "Created an informational website and organized content and navigation"
+        ],
+        "tech": [
+          "devicon-wordpress-plain"
+        ]
       }
     ]
   },
@@ -253,7 +325,8 @@
     "form_name": "Name",
     "form_email": "Email",
     "form_message": "Message",
-    "form_button": "Send message",
-    "form_note": "(Gmail will open with a prepared draft)"
+    "form_button": "Prepare email",
+    "form_note": "Your email app will open. Review and send the message there.",
+    "title": "Contact"
   }
 }
