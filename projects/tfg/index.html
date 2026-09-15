@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Demostración con datos sintéticos del TFG de gestión de protocolos con Power Apps y SharePoint.">
+  <title>Demo TFG · Gestión de protocolos</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#catalogo">Saltar al catálogo</a>
+  <header>
+    <div>
+      <p class="eyebrow">TFG · Demostración segura</p>
+      <h1>Gestión de protocolos</h1>
+      <p>Reconstrucción web del flujo diseñado en Power Apps. Todos los nombres, perfiles y documentos son ficticios.</p>
+    </div>
+    <div class="status"><span aria-hidden="true"></span> Datos sintéticos</div>
+  </header>
+
+  <main>
+    <section class="panel controls" aria-labelledby="perfil-title">
+      <div>
+        <h2 id="perfil-title">Perfil de prueba</h2>
+        <p>El catálogo cambia según el servicio y la categoría del usuario seleccionado.</p>
+      </div>
+      <label>Usuario
+        <select id="usuario"></select>
+      </label>
+      <dl id="perfil"></dl>
+    </section>
+
+    <section class="panel" id="catalogo" aria-labelledby="catalogo-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="catalogo-title">Protocolos disponibles</h2>
+          <p id="resultado" aria-live="polite"></p>
+        </div>
+        <label>Buscar
+          <input id="buscar" type="search" placeholder="Título o descripción">
+        </label>
+      </div>
+      <div id="lista" class="grid"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="lecturas-title">
+      <div class="section-heading">
+        <div>
+          <h2 id="lecturas-title">Lecturas registradas</h2>
+          <p>Se guardan solo en este navegador para demostrar el flujo.</p>
+        </div>
+        <button id="reiniciar" class="secondary" type="button">Reiniciar demo</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Usuario</th><th>Protocolo</th><th>Versión</th><th>Fecha</th></tr></thead>
+          <tbody id="lecturas"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer>Demo independiente. No se conecta a sistemas ni datos institucionales.</footer>
+  <script src="data.js"></script>
+  <script src="model.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

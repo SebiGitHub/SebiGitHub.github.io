@@ -204,6 +204,7 @@ function getProjectItems(proj = {}){
       solution: proj.p1_solution,
       result: proj.p1_result,
       link: "https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD",
+      demoLink: "https://sebigithub.github.io/projects/tfg/",
       iconClass: "fa-solid fa-diagram-project",
       thumbClass: "thumb-powerapps",
       tech: [
@@ -356,7 +357,10 @@ function renderProjects() {
       <div><strong>${es ? "Estado y evidencia" : "Status & evidence"}:</strong> ${p.result}</div></div>
       <div class="tech">${p.tech.map(t => `<span class="${t.cls}">${t.label}</span>`).join("")}</div>
       <details><summary>${es ? "Qué aprendí" : "What I learned"}</summary><p>${p.why}</p></details>
-      <a href="${p.link}" class="btn" target="_blank" rel="noopener noreferrer">${es ? "Ver repositorio" : "View repository"}</a>
+      <div class="project-actions">
+        ${p.demoLink ? `<a href="${p.demoLink}" class="btn" target="_blank" rel="noopener noreferrer">${es ? "Ver demo" : "View demo"}</a>` : ""}
+        <a href="${p.link}" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">${es ? "Ver repositorio" : "View repository"}</a>
+      </div>
     </article>`;
   }).join("");
 }

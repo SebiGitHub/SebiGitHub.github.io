@@ -1027,3 +1027,5 @@ html{scroll-behavior:auto}
 *,*::before,*::after{animation:none!important;transition:none!important}
 .js .hero-logo,.js .hero-title,.js .hero-sub,.js .btn--hero{opacity:1;transform:none}
 }
+
+.project-actions{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:auto}.project-actions .btn{margin-top:0}.btn--secondary{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28)}

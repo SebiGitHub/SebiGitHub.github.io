@@ -43,3 +43,14 @@ test("generate current CV PDFs",async({page})=>{
   await page.pdf({path:"assets/cv/CV_"+lang+".pdf",format:"A4",printBackground:true});
  }
 });
+test("TFG demo filters profiles and hides drafts",async({page})=>{
+ await page.goto("/projects/tfg/");
+ await expect(page.locator(".protocol h3")).toHaveText(["Procedimiento ficticio de acogida","Guía ficticia de gestión documental"]);
+ await page.selectOption("#usuario","bruno.demo@example.invalid");
+ await expect(page.locator(".protocol h3")).toHaveText(["Procedimiento ficticio de acogida","Procedimiento ficticio de soporte"]);
+ await page.selectOption("#usuario","carla.demo@example.invalid");
+ await expect(page.locator(".protocol h3")).toHaveText(["Procedimiento ficticio de acogida"]);
+ await expect(page.locator("text=Borrador ficticio no publicado")).toHaveCount(0);
+ await page.locator(".protocol button").click();
+ await expect(page.locator("#lecturas tr")).toHaveCount(1);
+});
