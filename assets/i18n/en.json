@@ -11,24 +11,24 @@
     "placeholder": "Search this site…"
   },
   "hero": {
-    "title": "Sebastián Expósito Ruiz · Junior full-stack developer",
-    "subtitle": "I build complete solutions: interfaces, application logic, data and deployment. Java · Spring Boot · JavaScript · SQL.",
+    "title": "Sebastián Expósito Ruiz · Junior software developer",
+    "subtitle": "I build useful applications and automations: data, logic, documentation and process improvement. Java · Spring Boot · Automation · AI.",
     "cta": "View projects",
     "availability": "Seville · On-site/hybrid or remote · Available immediately",
     "contact": "Get in touch"
   },
   "about": {
     "title": "About me",
-    "lead": "I am a DAM graduate seeking my first junior full-stack role. My projects cover backend, web, Android and desktop development, alongside an IT support internship.",
-    "lead2": "I automate processes (Power Apps / scripts / testing). I like building end-to-end and documenting it.",
+    "lead": "DAM graduate with hands-on IT support experience and internal-solution development. I am looking for my first junior role in software development, automation or application support.",
+    "lead2": "I am especially interested in Java/Spring Boot, automation and applied AI. I like delivering useful, clear and well-documented solutions.",
     "cards": [
       {
         "icon": "fa-solid fa-bolt",
         "title": "What I do",
         "bullets": [
           "Java/Spring Boot and PostgreSQL backend",
-          "Web interfaces with HTML, CSS and JavaScript",
-          "Android and desktop applications"
+          "Automation, integration and document search",
+          "Web, Android and desktop applications"
         ]
       },
       {
@@ -75,7 +75,7 @@
   },
   "skills": {
     "title": "Skills",
-    "lead": "Technologies used in my projects. Each repository describes its scope and remaining improvements.",
+    "lead": "Technologies applied in hands-on projects and internships. Each repository describes its scope and remaining improvements.",
     "categories": [
       {
         "icon": "fa-solid fa-code",
@@ -265,8 +265,8 @@
         "meta": "2025 · DAM final project",
         "bullets": [
           "Power Apps and SharePoint solution design",
-          "Protocol catalog, read tracking and versions",
-          "Public version undergoing data and documentation review"
+          "Protocol catalog, read tracking and version control",
+          "Public demo available with fictional data and technical documentation"
         ],
         "tech": [
           "fa-solid fa-puzzle-piece",
@@ -319,7 +319,7 @@
     "btn_en": "View CV (EN)"
   },
   "contact": {
-    "subtitle": "Interested in collaborating, or want to know what I can bring to your team?",
+    "subtitle": "Need to automate an internal process or build an application? Get in touch.",
     "linkedin_value": "View profile",
     "github_value": "View repositories",
     "form_name": "Name",
