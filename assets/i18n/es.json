@@ -11,24 +11,24 @@
     "placeholder": "Buscar en la web…"
   },
   "hero": {
-    "title": "Sebastián Expósito Ruiz · Desarrollador full-stack junior",
-    "subtitle": "Construyo soluciones completas: interfaz, lógica, datos y despliegue. Java · Spring Boot · JavaScript · SQL.",
+    "title": "Sebastián Expósito Ruiz · Desarrollador de software junior",
+    "subtitle": "Construyo aplicaciones y automatizaciones útiles: datos, lógica, documentación y mejora de procesos. Java · Spring Boot · Automatización · IA.",
     "cta": "Ver proyectos",
     "availability": "Sevilla · Presencial/híbrido o remoto · Disponibilidad inmediata",
     "contact": "Contactar"
   },
   "about": {
     "title": "Sobre mí",
-    "lead": "Soy Técnico Superior en DAM y busco mi primera oportunidad como desarrollador full-stack junior. Combino proyectos de backend, web, Android y escritorio con experiencia de prácticas en soporte IT.",
-    "lead2": "Automatizo procesos (Power Apps / scripts / testing). Me gusta construir end-to-end y documentarlo.",
+    "lead": "Técnico Superior en DAM con experiencia práctica en soporte IT y desarrollo de soluciones internas. Busco una primera oportunidad junior en desarrollo, automatización o soporte de aplicaciones.",
+    "lead2": "Me interesan especialmente Java/Spring Boot, automatización e IA aplicada. Me gusta entregar soluciones útiles, claras y documentadas.",
     "cards": [
       {
         "icon": "fa-solid fa-bolt",
         "title": "Lo que hago",
         "bullets": [
           "Backend con Java/Spring Boot y PostgreSQL",
-          "Interfaces web con HTML, CSS y JavaScript",
-          "Aplicaciones Android y de escritorio"
+          "Automatización, integración y consulta documental",
+          "Aplicaciones web, Android y escritorio"
         ]
       },
       {
@@ -44,9 +44,9 @@
         "icon": "fa-solid fa-rocket",
         "title": "Ahora mismo",
         "bullets": [
-          "Primera oportunidad como desarrollador junior",
-          "Sevilla o remoto · Incorporación inmediata",
-          "Inglés B1 · Vehículo propio"
+          "Primera oportunidad junior en desarrollo o automatización",
+          "Sevilla o remoto · incorporación inmediata",
+          "Inglés B1 · vehículo propio"
         ]
       }
     ],
@@ -75,7 +75,7 @@
   },
   "skills": {
     "title": "Skills",
-    "lead": "Tecnologías aplicadas en mis proyectos. Los repositorios muestran su alcance y las mejoras pendientes.",
+    "lead": "Tecnologías aplicadas en proyectos reales y prácticas. Cada repositorio indica su alcance y mejoras pendientes.",
     "categories": [
       {
         "icon": "fa-solid fa-code",
@@ -265,8 +265,8 @@
         "meta": "2025 · Proyecto académico de DAM",
         "bullets": [
           "Diseño de una solución con Power Apps y SharePoint",
-          "Catálogo, lectura y versiones de protocolos",
-          "Versión pública en revisión de datos y documentación"
+          "Catálogo, lectura y control de versiones de protocolos",
+          "Demo pública disponible con datos ficticios y documentación técnica"
         ],
         "tech": [
           "fa-solid fa-puzzle-piece",
@@ -319,7 +319,7 @@
     "btn_en": "Ver CV (EN)"
   },
   "contact": {
-    "subtitle": "¿Te interesa que colaboremos o quieres saber más sobre lo que puedo aportar a tu equipo?",
+    "subtitle": "¿Necesitas automatizar un proceso interno o crear una aplicación? Escríbeme.",
     "linkedin_value": "Ver perfil",
     "github_value": "Ver repositorios",
     "form_name": "Nombre",
