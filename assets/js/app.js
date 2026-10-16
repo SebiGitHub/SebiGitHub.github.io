@@ -346,7 +346,7 @@ function renderProjects() {
   if (!stage || !STATE.dict.projects) return;
   const es = STATE.lang === "es";
   const items = getProjectsList();
-  const order = [0, 6, 2, 1, 3, 4, 5, 7];
+  const order = [6, 0, 4, 1, 3, 2, 5, 7];
   stage.innerHTML = order.map((index, position) => {
     const p = items[index];
     const label = position < 3 ? (es ? "Proyecto destacado" : "Featured project") : (es ? "Proyecto adicional" : "Additional project");
