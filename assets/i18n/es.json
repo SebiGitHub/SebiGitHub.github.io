@@ -314,9 +314,9 @@
   },
   "cv": {
     "title": "Mi CV",
-    "body": "Consulta mi CV actualizado. Puedes imprimirlo o guardarlo como PDF desde el navegador.",
-    "btn_es": "Ver CV (ES)",
-    "btn_en": "Ver CV (EN)"
+    "body": "Descarga mi CV actualizado en PDF.",
+    "btn_es": "Descargar CV (ES)",
+    "btn_en": "Descargar CV (EN)"
   },
   "contact": {
     "subtitle": "¿Necesitas automatizar un proceso interno o crear una aplicación? Escríbeme.",

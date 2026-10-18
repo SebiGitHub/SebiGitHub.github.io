@@ -314,9 +314,9 @@
   },
   "cv": {
     "title": "My resume",
-    "body": "Read my updated resume. You can print it or save it as a PDF from your browser.",
-    "btn_es": "View CV (ES)",
-    "btn_en": "View CV (EN)"
+    "body": "Download my updated resume as a PDF.",
+    "btn_es": "Download CV (ES)",
+    "btn_en": "Download CV (EN)"
   },
   "contact": {
     "subtitle": "Need to automate an internal process or build an application? Get in touch.",
