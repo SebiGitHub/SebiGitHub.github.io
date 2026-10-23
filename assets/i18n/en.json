@@ -18,7 +18,16 @@
     "primary": "View selected work",
     "secondary": "Download resume",
     "availability": "Seville · On-site, hybrid or remote · Available to start now",
-    "art_caption": "Understand · build · automate · improve"
+    "process": {
+      "label": "How I work",
+      "hint": "Hover or tap a step to explore it.",
+      "steps": [
+        ["Understand", "Before writing code, I clarify the process, the data and the real need."],
+        ["Design", "I turn the problem into a solution that is simple, usable and maintainable."],
+        ["Build", "I combine interface, logic, data and automation when it adds value."],
+        ["Improve", "I test the flow, document decisions and leave room to iterate."]
+      ]
+    }
   },
   "work": {
     "eyebrow": "Selected work",
@@ -30,8 +39,15 @@
       "index": "01 · Knowledge Ops Hub",
       "title": "A local RAG-powered knowledge base for documents.",
       "summary": "A local pipeline that turns PDFs into cited answers and automates ingestion and digests with n8n.",
-      "image": "assets/img/projects/knowledge-ops.webp",
-      "image_alt": "Knowledge Ops Hub response with cited pages and sources",
+      "image": "assets/img/projects/knowledge-ops-answer.webp",
+      "image_alt": "Knowledge Ops Hub response with retrieved sources",
+      "media": {
+        "label": "Knowledge Ops Hub screenshots",
+        "items": [
+          ["Access", "assets/img/projects/knowledge-ops-login.webp", "Access to the local Knowledge Ops Hub demo"],
+          ["Answer", "assets/img/projects/knowledge-ops-answer.webp", "Generated answer with sources retrieved from documents"]
+        ]
+      },
       "facts": [
         ["Problem", "Finding traceable answers among PDFs, guides and specifications."],
         ["Built", "A Spring Boot API with JWT, PostgreSQL plus pgvector, Ollama and n8n workflows."],
@@ -43,7 +59,7 @@
       "index": "02 · Protocol management",
       "title": "Clear access to the correct protocol version.",
       "summary": "Final DAM project that recreates, with synthetic data, a catalogue, role-filtering and reading-log flow designed with Power Apps and SharePoint.",
-      "image": "assets/img/projects/protocols.webp",
+      "image": "assets/img/projects/protocols-demo.webp",
       "image_alt": "Protocol management demo with profiles and a catalogue",
       "facts": [
         ["Problem", "Avoiding manual searches across documents and scattered versions."],
@@ -54,14 +70,21 @@
     },
     {
       "index": "03 · LifeOS System",
-      "title": "A personal habit system that maintains itself.",
+      "title": "A personal habit system in progress.",
       "summary": "A productivity, gamification and digital detox system connecting Notion, Make, notifications and a custom Android app.",
-      "image": "assets/img/projects/lifeos.webp",
+      "image": "assets/img/projects/lifeos-home.webp",
       "image_alt": "LifeOS home dashboard for habits and gamification",
+      "media": {
+        "label": "LifeOS screenshots",
+        "items": [
+          ["System", "assets/img/projects/lifeos-home.webp", "Notion dashboard with habits, character and daily form"],
+          ["Automation", "assets/img/projects/lifeos-automation.webp", "Make scenario that connects and automates the LifeOS system"]
+        ]
+      },
       "facts": [
         ["Problem", "Tracking habits and digital detox without repetitive manual work or paid apps."],
         ["Built", "A Notion model, daily Make automation, ntfy and an Android Detox app."],
-        ["Evidence", "Documented logic for streaks, XP, HP, recovery and CSV exports."]
+        ["Status", "A personal case in progress with documented logic for streaks, XP, HP, recovery and CSV exports."]
       ],
       "links": [["View repository", "https://github.com/SebiGitHub/lifeos-system"]]
     }

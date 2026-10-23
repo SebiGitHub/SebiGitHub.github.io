@@ -18,7 +18,16 @@
     "primary": "Ver trabajo seleccionado",
     "secondary": "Descargar CV",
     "availability": "Sevilla · Presencial, híbrido o remoto · Incorporación inmediata",
-    "art_caption": "Entender · construir · automatizar · mejorar"
+    "process": {
+      "label": "Cómo trabajo",
+      "hint": "Pasa el cursor o pulsa un paso para explorarlo.",
+      "steps": [
+        ["Entender", "Antes de escribir código, aclaro el proceso, los datos y la necesidad real."],
+        ["Diseñar", "Convierto el problema en una solución simple, usable y fácil de mantener."],
+        ["Construir", "Combino interfaz, lógica, datos y automatización cuando aporta valor."],
+        ["Mejorar", "Pruebo el flujo, documento las decisiones y dejo espacio para iterar."]
+      ]
+    }
   },
   "work": {
     "eyebrow": "Trabajo seleccionado",
@@ -30,8 +39,15 @@
       "index": "01 · Knowledge Ops Hub",
       "title": "Base documental consultable con RAG local.",
       "summary": "Pipeline local que transforma PDFs en respuestas con fuentes y automatiza la ingesta y los digests con n8n.",
-      "image": "assets/img/projects/knowledge-ops.webp",
-      "image_alt": "Respuesta de Knowledge Ops Hub con fuentes y páginas citadas",
+      "image": "assets/img/projects/knowledge-ops-answer.webp",
+      "image_alt": "Respuesta de Knowledge Ops Hub con fuentes recuperadas",
+      "media": {
+        "label": "Capturas de Knowledge Ops Hub",
+        "items": [
+          ["Acceso", "assets/img/projects/knowledge-ops-login.webp", "Acceso a la demostración local de Knowledge Ops Hub"],
+          ["Consulta", "assets/img/projects/knowledge-ops-answer.webp", "Respuesta generada con fuentes recuperadas de los documentos" ]
+        ]
+      },
       "facts": [
         ["Problema", "Encontrar respuestas trazables entre PDFs, guías y especificaciones."],
         ["Construí", "API Spring Boot con JWT, PostgreSQL con pgvector, Ollama y flujos n8n."],
@@ -43,7 +59,7 @@
       "index": "02 · Gestión de protocolos",
       "title": "Acceso claro a la versión correcta del protocolo.",
       "summary": "TFG que reconstruye con datos sintéticos el flujo de catálogo, filtrado por perfil y registro de lecturas diseñado con Power Apps y SharePoint.",
-      "image": "assets/img/projects/protocols.webp",
+      "image": "assets/img/projects/protocols-demo.webp",
       "image_alt": "Demo de gestión de protocolos con perfiles y catálogo",
       "facts": [
         ["Problema", "Evitar búsquedas manuales entre documentos y versiones dispersas."],
@@ -54,14 +70,21 @@
     },
     {
       "index": "03 · LifeOS System",
-      "title": "Un sistema personal de hábitos que se mantiene solo.",
+      "title": "Un sistema personal de hábitos en evolución.",
       "summary": "Sistema de organización, gamificación y detox digital que conecta Notion, Make, notificaciones y una app Android propia.",
-      "image": "assets/img/projects/lifeos.webp",
+      "image": "assets/img/projects/lifeos-home.webp",
       "image_alt": "Panel principal de LifeOS para hábitos y gamificación",
+      "media": {
+        "label": "Capturas de LifeOS",
+        "items": [
+          ["Sistema", "assets/img/projects/lifeos-home.webp", "Panel de hábitos, personaje y formulario diario en Notion"],
+          ["Automatización", "assets/img/projects/lifeos-automation.webp", "Escenario de Make que conecta y automatiza el sistema LifeOS"]
+        ]
+      },
       "facts": [
         ["Problema", "Registrar hábitos y detox digital sin trabajo manual repetitivo ni aplicaciones de pago."],
         ["Construí", "Modelo en Notion, automatización diaria en Make, ntfy y app Android Detox."],
-        ["Evidencia", "Lógica documentada para rachas, XP, HP, recuperación y exportación CSV." ]
+        ["Estado", "Caso personal en evolución: lógica documentada para rachas, XP, HP, recuperación y exportación CSV." ]
       ],
       "links": [["Ver repositorio", "https://github.com/SebiGitHub/lifeos-system"]]
     }

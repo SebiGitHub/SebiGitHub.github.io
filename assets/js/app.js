@@ -39,6 +39,40 @@ function setStaticCopy() {
   });
 }
 
+function renderProjectMedia(project) {
+  const items = Array.isArray(project.media?.items) && project.media.items.length
+    ? project.media.items
+    : [["Preview", project.image, project.image_alt]];
+  const label = project.media?.label || project.title;
+  const images = items.map(([name, source, alt], index) => `<img class="${index === 0 ? "is-active" : ""}" src="${escapeHTML(source)}" width="1600" height="1000" decoding="async" alt="${escapeHTML(alt)}">`).join("");
+  const controls = items.map(([name], index) => `<button class="project-media-control" type="button" data-media-index="${index}" aria-selected="${index === 0}" aria-label="${escapeHTML(name)}">${escapeHTML(name)}</button>`).join("");
+  return `<figure class="project-media" data-project-media>
+    <div class="project-media-stage">${images}</div>
+    ${items.length > 1 ? `<div class="project-media-controls" role="tablist" aria-label="${escapeHTML(label)}">${controls}</div>` : ""}
+    <figcaption class="project-media-caption" aria-live="polite">${escapeHTML(items[0][2])}</figcaption>
+  </figure>`;
+}
+
+function setupProjectMedia() {
+  document.querySelectorAll("[data-project-media]").forEach((media) => {
+    const images = Array.from(media.querySelectorAll("img"));
+    const caption = media.querySelector(".project-media-caption");
+    const select = (index) => {
+      images.forEach((image, imageIndex) => image.classList.toggle("is-active", imageIndex === index));
+      media.querySelectorAll("[data-media-index]").forEach((control) => {
+        control.setAttribute("aria-selected", String(Number(control.dataset.mediaIndex) === index));
+      });
+      if (caption && images[index]) caption.textContent = images[index].alt;
+    };
+    media.querySelectorAll("[data-media-index]").forEach((control) => {
+      const selectCurrent = () => select(Number(control.dataset.mediaIndex));
+      control.addEventListener("click", selectCurrent);
+      control.addEventListener("focus", selectCurrent);
+      control.addEventListener("pointerenter", selectCurrent);
+    });
+  });
+}
+
 function renderFeaturedProjects() {
   const container = document.getElementById("featured-projects");
   if (!container) return;
@@ -47,7 +81,7 @@ function renderFeaturedProjects() {
     const facts = project.facts.map(([label, text]) => `<li><b>${escapeHTML(label)}</b><span>${escapeHTML(text)}</span></li>`).join("");
     const links = project.links.map(([label, href]) => `<a href="${escapeHTML(href)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label)}</a>`).join("");
     return `<article class="featured-project">
-      <div class="project-media"><img src="${escapeHTML(project.image)}" width="960" height="480" decoding="async" alt="${escapeHTML(project.image_alt)}"></div>
+      ${renderProjectMedia(project)}
       <div class="project-body">
         <p class="project-index">${escapeHTML(project.index)}</p>
         <h3>${escapeHTML(project.title)}</h3>
@@ -57,6 +91,35 @@ function renderFeaturedProjects() {
       </div>
     </article>`;
   }).join("");
+  setupProjectMedia();
+}
+
+function renderHeroProcess() {
+  const container = document.getElementById("hero-process");
+  const detail = document.getElementById("process-detail");
+  const hint = document.querySelector(".process-hint");
+  const process = state.dictionary.hero?.process;
+  if (!container || !detail || !process?.steps?.length) return;
+
+  container.innerHTML = `${process.steps.map(([title], index) => `<button class="process-step ${index === 0 ? "is-active" : ""}" type="button" data-process-index="${index}" aria-pressed="${index === 0}"><span class="process-dot"></span><span>${escapeHTML(title)}</span></button>`).join("")}<div class="process-core" aria-hidden="true"><img src="assets/img/brand-mark.svg" width="86" height="86" alt=""></div>`;
+  detail.textContent = process.steps[0][1];
+  if (hint) hint.textContent = process.hint;
+  const select = (index) => {
+    const [, description] = process.steps[index] || [];
+    if (!description) return;
+    container.querySelectorAll("[data-process-index]").forEach((step) => {
+      const isActive = Number(step.dataset.processIndex) === index;
+      step.classList.toggle("is-active", isActive);
+      step.setAttribute("aria-pressed", String(isActive));
+    });
+    detail.textContent = description;
+  };
+  container.querySelectorAll("[data-process-index]").forEach((step) => {
+    const selectCurrent = () => select(Number(step.dataset.processIndex));
+    step.addEventListener("click", selectCurrent);
+    step.addEventListener("focus", selectCurrent);
+    step.addEventListener("pointerenter", selectCurrent);
+  });
 }
 
 function renderArchive() {
@@ -91,6 +154,7 @@ function renderTimeline() {
 
 function renderContent() {
   setStaticCopy();
+  renderHeroProcess();
   renderFeaturedProjects();
   renderArchive();
   renderProfile();

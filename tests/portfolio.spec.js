@@ -11,6 +11,12 @@ for (const width of [360, 768, 1440]) {
     await expect(page.locator("h1")).toContainText("Sebastián");
     await expect(page.locator("#featured-projects article")).toHaveCount(3);
     await expect(page.locator("#project-archive .archive-item")).toHaveCount(5);
+    await expect(page.locator("#hero-process [data-process-index]")).toHaveCount(4);
+    await page.locator('#hero-process [data-process-index="2"]').click();
+    await expect(page.locator("#process-detail")).toContainText("Combino");
+    await expect(page.locator("#featured-projects [data-project-media]").first().locator("[data-media-index]")).toHaveCount(2);
+    await page.locator("#featured-projects [data-project-media]").first().locator('[data-media-index="1"]').click();
+    await expect(page.locator("#featured-projects [data-project-media]").first().locator("img.is-active")).toHaveAttribute("src", /knowledge-ops-answer/);
     await expect(page.locator("body")).not.toContainText(/junior/i);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
 
@@ -47,7 +53,7 @@ test("internal links, key metadata and custom 404 resolve", async ({ page, reque
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /og-portfolio\.png/);
   await expect(page.locator('link[rel="icon"]')).toHaveAttribute("href", /brand-mark\.svg/);
 
-  for (const href of ["/assets/img/og-portfolio.png", "/assets/img/brand-mark.svg", "/assets/img/projects/knowledge-ops.webp", "/404.html", "/projects/tfg/"]) {
+  for (const href of ["/assets/img/og-portfolio.png", "/assets/img/brand-mark.svg", "/assets/img/projects/knowledge-ops-login.webp", "/assets/img/projects/knowledge-ops-answer.webp", "/assets/img/projects/protocols-demo.webp", "/assets/img/projects/lifeos-home.webp", "/assets/img/projects/lifeos-automation.webp", "/404.html", "/projects/tfg/"]) {
     expect((await request.get(href)).ok()).toBeTruthy();
   }
 });

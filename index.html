@@ -24,7 +24,7 @@
   <meta name="twitter:title" content="Sebastián Expósito Ruiz · Desarrollo Full-Stack y automatización">
   <meta name="twitter:description" content="Herramientas útiles para ordenar información, automatizar procesos y resolver problemas reales.">
   <meta name="twitter:image" content="https://sebigithub.github.io/assets/img/og-portfolio.png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261023">
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261023-2">
 </head>
 
 <body>
@@ -68,19 +68,18 @@
         <p class="availability" data-i18n="hero.availability">Sevilla · Presencial, híbrido o remoto · Incorporación inmediata</p>
       </div>
 
-      <div class="hero-art" aria-hidden="true">
-        <div class="orbit orbit--one"></div><div class="orbit orbit--two"></div>
-        <svg viewBox="0 0 520 480" focusable="false">
-          <path class="system-line" d="M118 243C176 103 236 107 259 188C281 270 360 332 416 192" />
-          <path class="system-line system-line--soft" d="M118 243C197 371 318 390 416 192" />
-          <circle class="node node--one" cx="118" cy="243" r="38" />
-          <circle class="node node--two" cx="259" cy="188" r="54" />
-          <circle class="node node--three" cx="416" cy="192" r="38" />
-          <circle class="node node--four" cx="272" cy="342" r="28" />
-          <path class="mark-path" d="M229 186c16-33 54-31 66 0c12 32-26 58-47 81c-21-23-46-49-19-81Zm-59 87c34-14 60 13 43 42c-18 29-59 14-90 3c29-11 14-31 47-45Zm169 0c33 14 18 34 47 45c-31 11-72 26-90-3c-17-29 9-56 43-42Zm-88 72c13-28 49-28 62 0c13 28-16 53-31 75c-15-22-44-47-31-75Z" />
-        </svg>
-        <p class="art-caption"><span>01</span><span data-i18n="hero.art_caption">Entender · construir · automatizar · mejorar</span></p>
-      </div>
+      <aside class="hero-process" aria-labelledby="process-title">
+        <p class="eyebrow" id="process-title" data-i18n="hero.process.label">Cómo trabajo</p>
+        <div class="process-canvas" id="hero-process" aria-describedby="process-detail">
+          <button class="process-step is-active" type="button" data-process-index="0" aria-pressed="true"><span class="process-dot"></span><span>Entender</span></button>
+          <button class="process-step" type="button" data-process-index="1" aria-pressed="false"><span class="process-dot"></span><span>Diseñar</span></button>
+          <button class="process-step" type="button" data-process-index="2" aria-pressed="false"><span class="process-dot"></span><span>Construir</span></button>
+          <button class="process-step" type="button" data-process-index="3" aria-pressed="false"><span class="process-dot"></span><span>Mejorar</span></button>
+          <div class="process-core" aria-hidden="true"><img src="assets/img/brand-mark.svg" width="86" height="86" alt=""></div>
+        </div>
+        <p class="process-detail" id="process-detail">Antes de escribir código, aclaro el proceso, los datos y la necesidad real.</p>
+        <p class="process-hint" data-i18n="hero.process.hint">Pasa el cursor o pulsa un paso para explorarlo.</p>
+      </aside>
     </section>
 
     <section class="section shell" id="work" aria-labelledby="work-title">
@@ -91,7 +90,7 @@
       </div>
       <div class="featured-projects" id="featured-projects">
         <article class="featured-project project--koh">
-          <div class="project-media"><img src="assets/img/projects/knowledge-ops.webp" width="960" height="480" alt="Respuesta con fuentes del proyecto Knowledge Ops Hub"></div>
+          <figure class="project-media"><div class="project-media-stage"><img class="is-active" src="assets/img/projects/knowledge-ops-answer.webp" width="1036" height="1321" alt="Respuesta de Knowledge Ops Hub con fuentes recuperadas"></div><figcaption class="project-media-caption">Respuesta con fuentes recuperadas de los documentos</figcaption></figure>
           <div class="project-body"><p class="project-index">01 · Knowledge Ops Hub</p><h3>Base documental consultable con RAG local.</h3><p>Pipeline local que transforma PDFs en respuestas con fuentes y automatiza la ingesta con n8n.</p><a href="https://github.com/SebiGitHub/knowledge-ops-hub">Ver repositorio</a></div>
         </article>
       </div>
@@ -137,6 +136,6 @@
   </main>
 
   <footer class="footer shell"><img src="assets/img/brand-mark.svg" width="24" height="24" alt="" aria-hidden="true"><span>© <span id="year"></span> Sebastián Expósito Ruiz</span><a href="#top" data-i18n="footer.back">Volver arriba ↑</a></footer>
-  <script src="assets/js/app.js"></script>
+  <script src="assets/js/app.js?v=20261023-2"></script>
 </body>
 </html>
