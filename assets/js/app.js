@@ -1,522 +1,171 @@
-// Marca que hay JS (para animaciones/hamburguesa sin romper ATS/no-JS)
-document.documentElement.classList.add('js');
-
-/* =========================================================
-   UTIL: Año dinámico
-   ========================================================= */
-const year = document.getElementById("year");
-if (year) year.textContent = new Date().getFullYear();
-
-/* Marca que hay JS (por si quieres fallback CSS) */
 document.documentElement.classList.add("js");
 
-/* =========================================================
-   I18N: estado + carga diccionario
-   ========================================================= */
-function savedLanguage() { try { return localStorage.getItem("lang") === "en" ? "en" : "es"; } catch { return "es"; } }
-const STATE = { lang: savedLanguage(), dict: {} };
-let dictionaryRequest = 0;
+const escapeHTML = (value = "") => String(value)
+  .replaceAll("&", "&amp;")
+  .replaceAll("<", "&lt;")
+  .replaceAll(">", "&gt;")
+  .replaceAll('"', "&quot;")
+  .replaceAll("'", "&#039;");
 
-async function loadDict(lang) {
-  const request = ++dictionaryRequest;
+const getSavedLanguage = () => {
   try {
-    const res = await fetch(`assets/i18n/${lang}.json`, { cache: "no-store" });
-    if (!res.ok) throw new Error(`No se pudo cargar ${lang}.json (${res.status})`);
-
-    const json = await res.json();
-
-    if (request !== dictionaryRequest) return;
-    STATE.dict = json;
-    STATE.lang = lang;
-    try { localStorage.setItem("lang", lang); } catch { /* Storage may be disabled. */ }
-
-    applyI18n();
-    updateLangToggleUI();
-    document.documentElement.classList.add("content-ready");
-
-    console.info(`[i18n] OK -> ${lang}`);
-  } catch (e) {
-    console.error("[i18n] Error cargando diccionario:", e);
+    return localStorage.getItem("portfolio-language") === "en" ? "en" : "es";
+  } catch {
+    return "es";
   }
-}
+};
 
-function applyI18n() {
-  if (!STATE.dict) return;
+const state = { lang: getSavedLanguage(), dictionary: null, request: 0 };
+const valueAt = (object, path) => path.split(".").reduce((value, key) => value?.[key], object);
 
-  document.querySelectorAll("[data-i18n]").forEach((el) => {
-    const key = el.getAttribute("data-i18n");
-    const val = key.split(".").reduce((o, k) => o?.[k], STATE.dict);
-    if (typeof val === "string") el.textContent = val;
+function setStaticCopy() {
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    const value = valueAt(state.dictionary, element.dataset.i18n);
+    if (typeof value === "string") element.textContent = value;
   });
 
-  renderAbout();
-  renderSkills();
-  renderXP();
-  renderProjects();
+  document.documentElement.lang = state.lang;
+  document.title = state.dictionary.meta.title;
+  document.querySelector('meta[name="description"]')?.setAttribute("content", state.dictionary.meta.description);
+  document.querySelector('meta[property="og:title"]')?.setAttribute("content", state.dictionary.meta.title);
+  document.querySelector('meta[name="twitter:title"]')?.setAttribute("content", state.dictionary.meta.title);
+  document.querySelector('meta[property="og:description"]')?.setAttribute("content", state.dictionary.meta.description);
+  document.querySelector('meta[name="twitter:description"]')?.setAttribute("content", state.dictionary.meta.description);
 
-  document.documentElement.lang = STATE.lang;
-  document.title = STATE.dict.hero.title;
-  const english = STATE.lang === "en";
-  document.getElementById("lang-toggle")?.setAttribute("aria-label", english ? "Switch to Spanish" : "Cambiar a inglés");
-  document.getElementById("nav-toggle")?.setAttribute("aria-label", english ? "Toggle menu" : "Abrir o cerrar menú");
-  document.querySelector(".brand")?.setAttribute("aria-label", english ? "Go to home" : "Ir al inicio");
-  document.querySelector("nav")?.setAttribute("aria-label", english ? "Main navigation" : "Navegación principal");
-}
-
-function updateLangToggleUI() {
-  document.querySelectorAll(".lang-pill").forEach((p) => {
-    const lang = p.getAttribute("data-lang");
-    p.classList.toggle("active", lang === STATE.lang);
+  const resume = `assets/cv/CV_Sebastian_Exposito_Ruiz_${state.lang.toUpperCase()}.pdf`;
+  document.querySelectorAll("[data-current-resume]").forEach((link) => { link.href = resume; });
+  document.querySelectorAll(".lang-toggle [data-lang]").forEach((pill) => {
+    pill.classList.toggle("is-active", pill.dataset.lang === state.lang);
   });
 }
 
-function chipTone(label = "") {
-  const l = label.toLowerCase();
+function renderFeaturedProjects() {
+  const container = document.getElementById("featured-projects");
+  if (!container) return;
 
-  if (l.includes("salesforce") || l.includes("apex")) return "t-salesforce";
-  if (l.includes("powerapps") || l.includes("sharepoint")) return "t-powerapps";
-  if (l.includes("access") || l.includes("sql")) return "t-data";
-  if (l.includes("excel")) return "t-excel";
-  if (l.includes("c#") || l.includes(".net") || l.includes("csharp")) return "t-dotnet";
-  if (l.includes("kotlin")) return "t-kotlin";
-  if (l.includes("python")) return "t-python";
-  if (l.includes("javascript")) return "t-js";
-  if (l === "java" || l.includes(" java")) return "t-java";
-  if (l.includes("vbscript")) return "t-vb";
-  if (l === "html") return "t-html";
-  if (l === "css") return "t-css";
-  if (l.includes("wordpress")) return "t-wp";
-  if (l === "git") return "t-git";
-  if (l.includes("github")) return "t-github";
-
-  // soft skills
-  if (l.includes("comunicación") || l.includes("communication")) return "t-soft-comm";
-  if (l.includes("curiosidad") || l.includes("curiosity")) return "t-soft-cur";
-  if (l.includes("adaptabilidad") || l.includes("adaptability")) return "t-soft-adapt";
-  if (l.includes("orden") || l.includes("organization")) return "t-soft-org";
-
-  return "";
-}
-
-document.getElementById("lang-toggle")?.addEventListener("click", () => {
-  loadDict(STATE.lang === "es" ? "en" : "es");
-});
-
-
-/* =========================================================
-   ABOUT
-   ========================================================= */
-function renderAbout() {
-  const grid = document.getElementById("aboutGrid");
-  const chips = document.getElementById("aboutChips");
-  const t = STATE.dict;
-
-  if (!grid || !chips || !t?.about) return;
-
-  grid.innerHTML = (t.about.cards || [])
-    .map(
-      (c) => `
-    <article class="card col-4">
-      <h3 class="card-title"><i class="${c.icon}"></i><span>${c.title}</span></h3>
-      <ul class="bullets">
-        ${(c.bullets || []).map((b) => `<li>${b}</li>`).join("")}
-      </ul>
-    </article>
-  `
-    )
-    .join("");
-
-  chips.innerHTML = (t.about.chips || [])
-    .map((ch) => `<span class="chip ${chipTone(ch.label)}"><i class="${ch.icon}"></i>${ch.label}</span>`)
-    .join("");
-}
-
-/* =========================================================
-   SKILLS
-   ========================================================= */
-function renderSkills() {
-  const wrap = document.getElementById("skillsGrid");
-  const t = STATE.dict;
-
-  if (!wrap || !t?.skills?.categories) return;
-
-  wrap.innerHTML = (t.skills.categories || [])
-    .map(
-      (cat) => `
-    <article class="card col-6">
-      <h3 class="card-title"><i class="${cat.icon}"></i><span>${cat.title}</span></h3>
-      <div class="chips">
-        ${(cat.items || [])
-          .map((it) => `<span class="chip ${chipTone(it.label)}"><i class="${it.icon}"></i>${it.label}</span>
-`)
-          .join("")}
-      </div>
-    </article>
-  `
-    )
-    .join("");
-}
-
-/* =========================================================
-   EXPERIENCE
-   ========================================================= */
-function renderXP() {
-  const tl = document.getElementById("experienceTimeline");
-  const t = STATE.dict;
-
-  if (!tl || !t?.xp?.timeline) return;
-
-  tl.innerHTML = (t.xp.timeline || [])
-    .map(
-      (item) => `
-    <div class="t-item">
-      <div class="t-dot"></div>
-      <div class="t-card">
-        <div style="font-weight:900; font-size:1.05rem;">${item.title}</div>
-        <div class="t-meta">${item.meta || ""}</div>
-
-        <ul class="bullets" style="margin-top:10px;">
-          ${(item.bullets || []).map((b) => `<li>${b}</li>`).join("")}
-        </ul>
-
-        <div class="t-tech">
-          ${(item.tech || []).map((ic) => `<i class="${ic}"></i>`).join("")}
-        </div>
-      </div>
-    </div>
-  `
-    )
-    .join("");
-}
-
-/* =========================================================
-   PROJECTS — Carrusel (Opción A)
-   ========================================================= */
-let PROJECT_INDEX = 0;
-
-function getProjectItems(proj = {}){
-  return [
-    {
-      title: proj.p1_title,
-      desc: proj.p1_desc,
-      why:  proj.p1_why,
-      problem: proj.p1_problem,
-      solution: proj.p1_solution,
-      result: proj.p1_result,
-      link: "https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD",
-      demoLink: "https://sebigithub.github.io/projects/tfg/",
-      iconClass: "fa-solid fa-diagram-project",
-      thumbClass: "thumb-powerapps",
-      tech: [
-        { label:"PowerApps", cls:"t-powerapps" },
-        { label:"SharePoint", cls:"t-powerapps" },
-        { label:"Access/SQL", cls:"t-data" },
-        { label:"Excel", cls:"t-excel" }
-      ]
-    },
-    {
-      title: proj.p2_title,
-      desc: proj.p2_desc,
-      why:  proj.p2_why,
-      problem: proj.p2_problem,
-      solution: proj.p2_solution,
-      result: proj.p2_result,
-      link: "https://github.com/SebiGitHub/AvaloniaCatalogoWinForms",
-      iconClass: "fa-solid fa-desktop",
-      thumbClass: "thumb-desktop",
-      tech: [
-        { label:"C# / .NET", cls:"t-dotnet" }
-      ]
-    },
-    {
-      title: proj.p3_title,
-      desc: proj.p3_desc,
-      why:  proj.p3_why,
-      problem: proj.p3_problem,
-      solution: proj.p3_solution,
-      result: proj.p3_result,
-      link: "https://github.com/SebiGitHub/Agenda",
-      iconClass: "fa-solid fa-calendar-days",
-      thumbClass: "thumb-android",
-      tech: [
-        { label:"Kotlin", cls:"t-kotlin" },
-        { label:"Firebase", cls:"t-data" }
-      ]
-    },
-    {
-      title: proj.p4_title,
-      desc: proj.p4_desc,
-      why:  proj.p4_why,
-      problem: proj.p4_problem,
-      solution: proj.p4_solution,
-      result: proj.p4_result,
-      link: "https://github.com/SebiGitHub/Realtime-Collaborative-Bingo-Web-App",
-      iconClass: "fa-solid fa-users",
-      thumbClass: "thumb-realtime",
-      tech: [
-        { label:"Realtime", cls:"t-soft-comm" }
-      ]
-    },
-    {
-      title: proj.p5_title,
-      desc: proj.p5_desc,
-      why:  proj.p5_why,
-      problem: proj.p5_problem,
-      solution: proj.p5_solution,
-      result: proj.p5_result,
-      link: "https://github.com/SebiGitHub/Selenium-end-to-end",
-      iconClass: "fa-solid fa-vial",
-      thumbClass: "thumb-testing",
-      tech: [
-        { label:"Selenium", cls:"t-soft-org" },
-        { label:"Java", cls:"t-java" },
-        { label:"CSV", cls:"t-data" }
-      ]
-    },
-    {
-      title: proj.p6_title,
-      desc: proj.p6_desc,
-      why:  proj.p6_why,
-      problem: proj.p6_problem,
-      solution: proj.p6_solution,
-      result: proj.p6_result,
-      link: "https://github.com/SebiGitHub/Corrutinas", // Kotlin Labs no es un repo único
-      iconClass: "fa-solid fa-flask",
-      thumbClass: "thumb-labs",
-      tech: [
-        { label:"Kotlin", cls:"t-kotlin" },
-        { label:"Coroutines", cls:"t-kotlin" },
-        { label:"Persistence", cls:"t-data" }
-      ],
-      cases: proj.p6_cases || []
-    },
-    {
-      title: proj.p7_title,
-      desc:  proj.p7_desc,
-      why:   proj.p7_why,
-      problem: proj.p7_problem,
-      solution: proj.p7_solution,
-      result: proj.p7_result,
-      link: "https://github.com/SebiGitHub/knowledge-ops-hub",
-      iconClass: "fa-solid fa-brain",
-      thumbClass: "thumb-rag",
-      tech: [
-        { label:"Spring Boot", cls:"t-java" },
-        { label:"Postgres + pgvector", cls:"t-data" },
-        { label:"Ollama", cls:"t-soft-cur" },
-        { label:"n8n", cls:"t-soft-org" },
-        { label:"Docker", cls:"t-github" },
-        { label:"RAG", cls:"t-soft-cur" }
-      ]
-    },
-    {
-      title: proj.p8_title,
-      desc: proj.p8_desc,
-      why:  proj.p8_why,
-      problem: proj.p8_problem,
-      solution: proj.p8_solution,
-      result: proj.p8_result,
-      link: "https://github.com/SebiGitHub/lifeos-system",
-      iconClass: "fa-solid fa-heart-pulse",
-      thumbClass: "thumb-lifeos",
-      tech: [
-        { label:"Notion",  cls:"t-notion" },
-        { label:"Make",   cls:"t-make" },
-        { label:"ntfy",   cls:"t-ntfy" },
-        { label:"Android",cls:"t-kotlin" },
-        { label:"CSV",    cls:"t-data" }
-      ]
-    }
-  ];
-}
-
-
-function clampIndex(i, len) {
-  if (len <= 0) return 0;
-  return (i + len) % len;
-}
-
-function getProjectsList(){
-  const proj = STATE.dict?.projects;
-  return proj ? getProjectItems(proj) : [];
-}
-
-function renderProjects() {
-  const stage = document.getElementById("project-stage");
-  if (!stage || !STATE.dict.projects) return;
-  const es = STATE.lang === "es";
-  const items = getProjectsList();
-  const order = [6, 0, 4, 1, 3, 2, 5, 7];
-  stage.innerHTML = order.map((index, position) => {
-    const p = items[index];
-    const label = position < 3 ? (es ? "Proyecto destacado" : "Featured project") : (es ? "Proyecto adicional" : "Additional project");
-    return `<article class="card project-card">
-      <p class="project-label">${label}</p>
-      <h3>${p.title}</h3><p>${p.desc}</p>
-      <div class="project-psr"><div><strong>${es ? "Solución" : "Solution"}:</strong> ${p.solution}</div>
-      <div><strong>${es ? "Estado y evidencia" : "Status & evidence"}:</strong> ${p.result}</div></div>
-      <div class="tech">${p.tech.map(t => `<span class="${t.cls}">${t.label}</span>`).join("")}</div>
-      <details><summary>${es ? "Qué aprendí" : "What I learned"}</summary><p>${p.why}</p></details>
-      <div class="project-actions">
-        ${p.demoLink ? `<a href="${p.demoLink}" class="btn" target="_blank" rel="noopener noreferrer">${es ? "Ver demo" : "View demo"}</a>` : ""}
-        <a href="${p.link}" class="btn btn--secondary" target="_blank" rel="noopener noreferrer">${es ? "Ver repositorio" : "View repository"}</a>
+  container.innerHTML = state.dictionary.featured.map((project) => {
+    const facts = project.facts.map(([label, text]) => `<li><b>${escapeHTML(label)}</b><span>${escapeHTML(text)}</span></li>`).join("");
+    const links = project.links.map(([label, href]) => `<a href="${escapeHTML(href)}" target="_blank" rel="noopener noreferrer">${escapeHTML(label)}</a>`).join("");
+    return `<article class="featured-project">
+      <div class="project-media"><img src="${escapeHTML(project.image)}" width="960" height="480" decoding="async" alt="${escapeHTML(project.image_alt)}"></div>
+      <div class="project-body">
+        <p class="project-index">${escapeHTML(project.index)}</p>
+        <h3>${escapeHTML(project.title)}</h3>
+        <p>${escapeHTML(project.summary)}</p>
+        <ul class="project-facts">${facts}</ul>
+        <div class="project-links">${links}</div>
       </div>
     </article>`;
   }).join("");
 }
 
-function setupProjectsCarousel() {
-  const prev = document.getElementById("proj-prev");
-  const next = document.getElementById("proj-next");
-  const stage = document.getElementById("project-stage");
-  if (!prev || !next || !stage) return;
+function renderArchive() {
+  const container = document.getElementById("project-archive");
+  if (!container) return;
 
-  const getItemsSafe = () => getProjectItems(STATE.dict?.projects);
-
-  prev.addEventListener("click", () => {
-    const items = getItemsSafe();
-    PROJECT_INDEX = clampIndex(PROJECT_INDEX - 1, items.length);
-    renderProjects();
-  });
-
-  next.addEventListener("click", () => {
-    const items = getItemsSafe();
-    PROJECT_INDEX = clampIndex(PROJECT_INDEX + 1, items.length);
-    renderProjects();
-  });
-
-  let x0 = null;
-
-  stage.addEventListener("touchstart", (e) => {
-    x0 = e.touches?.[0]?.clientX ?? null;
-  }, { passive: true });
-
-  stage.addEventListener("touchend", (e) => {
-    const x1 = e.changedTouches?.[0]?.clientX ?? null;
-    if (x0 == null || x1 == null) return;
-
-    const dx = x1 - x0;
-    if (Math.abs(dx) < 60) return;
-
-    const items = getItemsSafe();
-    PROJECT_INDEX = clampIndex(PROJECT_INDEX + (dx < 0 ? 1 : -1), items.length);
-    renderProjects();
-    x0 = null;
-  }, { passive: true });
+  container.innerHTML = state.dictionary.archive.items.map(([title, description, href]) => `
+    <a class="archive-item" href="${escapeHTML(href)}" target="_blank" rel="noopener noreferrer">
+      <span><h4>${escapeHTML(title)}</h4><p>${escapeHTML(description)}</p></span><span aria-hidden="true">↗</span>
+    </a>`).join("");
 }
 
-
-
-/* =========================================================
-   CONTACT FORM -> Gmail draft
-   ========================================================= */
-function setupContactForm() {
-  const form = document.getElementById("contact-form");
-  if (!form) return;
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const name = form.elements["name"]?.value?.trim() || "";
-    const email = form.elements["email"]?.value?.trim() || "";
-    const msg = form.elements["message"]?.value?.trim() || "";
-
-    const to = "sebitaexporu@gmail.com";
-    const subject = `Contacto desde tu portfolio${name ? ` — ${name}` : ""}`;
-    const body =
-      `Hola Sebastián,\n\n` +
-      `${msg}\n\n` +
-      (email ? `Mi email: ${email}\n` : "") +
-      (name ? `Nombre: ${name}\n` : "") +
-      `\n— Enviado desde tu portfolio`;
-
-    window.location.href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
+function renderProfile() {
+  const principles = document.getElementById("principles");
+  const capabilities = document.getElementById("capability-list");
+  if (principles) {
+    principles.innerHTML = state.dictionary.profile.principles.map(([title, description]) => `
+      <li><span><strong>${escapeHTML(title)}</strong><p>${escapeHTML(description)}</p></span></li>`).join("");
+  }
+  if (capabilities) {
+    capabilities.innerHTML = state.dictionary.capabilities.items.map(([label, description]) => `
+      <div class="capability-item"><strong>${escapeHTML(label)}</strong><span>${escapeHTML(description)}</span></div>`).join("");
+  }
 }
 
-/* =========================================================
-   MENÚ NAVEGACIÓN (Hamburguesa)
-   ========================================================= */
-function setupNavMenu(){
-  const toggle = document.getElementById("nav-toggle");
+function renderTimeline() {
+  const container = document.getElementById("timeline");
+  if (!container) return;
+  container.innerHTML = state.dictionary.trajectory.items.map(([title, description, date]) => `
+    <article class="timeline-item"><span class="timeline-dot" aria-hidden="true"></span><div><h3>${escapeHTML(title)}</h3><p>${escapeHTML(description)}</p></div><time class="timeline-date">${escapeHTML(date)}</time></article>`).join("");
+}
+
+function renderContent() {
+  setStaticCopy();
+  renderFeaturedProjects();
+  renderArchive();
+  renderProfile();
+  renderTimeline();
+}
+
+async function loadLanguage(language) {
+  const request = ++state.request;
+  try {
+    const response = await fetch(`assets/i18n/${language}.json`, { cache: "no-store" });
+    if (!response.ok) throw new Error(`Could not load ${language}`);
+    const dictionary = await response.json();
+    if (request !== state.request) return;
+    state.lang = language;
+    state.dictionary = dictionary;
+    try { localStorage.setItem("portfolio-language", language); } catch { /* Storage is optional. */ }
+    renderContent();
+    document.documentElement.classList.add("content-ready");
+  } catch (error) {
+    console.error("[portfolio] Translation loading failed", error);
+    document.documentElement.classList.add("content-ready");
+  }
+}
+
+function setupMenu() {
+  const button = document.getElementById("nav-toggle");
   const links = document.getElementById("nav-links");
   const overlay = document.getElementById("nav-overlay");
-  if(!toggle || !links || !overlay) return;
+  if (!button || !links || !overlay) return;
 
-  const open = ()=>{
-    links.classList.add("open");
-    overlay.hidden = false;
-    toggle.setAttribute("aria-expanded", "true");
-  };
-  const close = ()=>{
-    links.classList.remove("open");
+  const close = () => {
+    links.classList.remove("is-open");
     overlay.hidden = true;
-    toggle.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-expanded", "false");
   };
-
-  toggle.addEventListener("click", ()=>{
-    links.classList.contains("open") ? close() : open();
-  });
-
+  const open = () => {
+    links.classList.add("is-open");
+    overlay.hidden = false;
+    button.setAttribute("aria-expanded", "true");
+  };
+  button.addEventListener("click", () => links.classList.contains("is-open") ? close() : open());
   overlay.addEventListener("click", close);
-
-  // Cierra al clicar un link
-  links.querySelectorAll("a").forEach(a => a.addEventListener("click", close));
-
-  // Esc para cerrar
-  window.addEventListener("keydown", (e)=>{
-    if(e.key === "Escape" && links.classList.contains("open")) { close(); toggle.focus(); }
+  links.querySelectorAll("a").forEach((link) => link.addEventListener("click", close));
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && links.classList.contains("is-open")) {
+      close();
+      button.focus();
+    }
   });
 }
 
-function setupHeroSpotlight(){
-  const hero = document.getElementById("hero");
-  if(!hero) return;
-
-  const onMove = (e)=>{
-    const r = hero.getBoundingClientRect();
-    const x = ((e.clientX - r.left) / r.width) * 100;
-    const y = ((e.clientY - r.top) / r.height) * 100;
-    hero.style.setProperty("--hx", `${x}%`);
-    hero.style.setProperty("--hy", `${y}%`);
-  };
-
-  hero.addEventListener("mousemove", onMove);
-  hero.addEventListener("mouseleave", ()=>{
-    hero.style.setProperty("--hx", `50%`);
-    hero.style.setProperty("--hy", `40%`);
-  });
-}
-
-
-/* =========================================================
-   ANIMACIÓN SECCIONES
-   ========================================================= */
 function setupSectionObserver() {
-  const sections = document.querySelectorAll(".section");
-  if (!("IntersectionObserver" in window)) { sections.forEach(sec => sec.classList.add("visible")); return; }
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.18 }
-  );
-
-  sections.forEach((sec) => observer.observe(sec));
+  const elements = document.querySelectorAll(".section, .resume-banner, .contact");
+  if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    elements.forEach((element) => element.classList.add("is-visible"));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("is-visible");
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+  elements.forEach((element) => observer.observe(element));
 }
 
-/* Arranque */
-document.addEventListener("DOMContentLoaded", ()=>{
-  setupNavMenu();
+document.addEventListener("DOMContentLoaded", () => {
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
 
-
+  setupMenu();
   setupSectionObserver();
-
-  setupContactForm();
-  loadDict(STATE.lang);
+  document.getElementById("lang-toggle")?.addEventListener("click", () => {
+    loadLanguage(state.lang === "es" ? "en" : "es");
+  });
+  loadLanguage(state.lang);
 });

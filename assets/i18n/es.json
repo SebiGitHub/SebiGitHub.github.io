@@ -1,332 +1,125 @@
 {
-  "nav": {
-    "about": "Sobre mí",
-    "skills": "Skills",
-    "projects": "Proyectos",
-    "xp": "Experiencia y formación",
-    "cv": "CV",
-    "contact": "Contacto"
+  "meta": {
+    "title": "Sebastián Expósito Ruiz · Desarrollo Full-Stack y automatización",
+    "description": "Portfolio de Sebastián Expósito Ruiz. Desarrollo full-stack, Java, Spring Boot, automatización e IA aplicada. Sevilla y remoto."
   },
-  "search": {
-    "placeholder": "Buscar en la web…"
+  "a11y": { "skip": "Saltar al contenido" },
+  "nav": {
+    "work": "Trabajo",
+    "profile": "Perfil",
+    "trajectory": "Trayectoria",
+    "contact": "Contacto",
+    "cv": "CV"
   },
   "hero": {
-    "title": "Sebastián Expósito Ruiz · Desarrollador de software junior",
-    "subtitle": "Construyo aplicaciones y automatizaciones útiles: datos, lógica, documentación y mejora de procesos. Java · Spring Boot · Automatización · IA.",
-    "cta": "Ver proyectos",
-    "availability": "Sevilla · Presencial/híbrido o remoto · Disponibilidad inmediata",
-    "contact": "Contactar"
+    "eyebrow": "Disponible para oportunidades",
+    "role": "Desarrollador Full-Stack · Automatización e IA aplicada",
+    "summary": "Construyo herramientas que ordenan información, automatizan procesos y resuelven problemas reales.",
+    "primary": "Ver trabajo seleccionado",
+    "secondary": "Descargar CV",
+    "availability": "Sevilla · Presencial, híbrido o remoto · Incorporación inmediata",
+    "art_caption": "Entender · construir · automatizar · mejorar"
   },
-  "about": {
-    "title": "Sobre mí",
-    "lead": "Técnico Superior en DAM con experiencia práctica en soporte IT y desarrollo de soluciones internas. Busco una primera oportunidad junior en desarrollo, automatización o soporte de aplicaciones.",
-    "lead2": "Me interesan especialmente Java/Spring Boot, automatización e IA aplicada. Me gusta entregar soluciones útiles, claras y documentadas.",
-    "cards": [
-      {
-        "icon": "fa-solid fa-bolt",
-        "title": "Lo que hago",
-        "bullets": [
-          "Backend con Java/Spring Boot y PostgreSQL",
-          "Automatización, integración y consulta documental",
-          "Aplicaciones web, Android y escritorio"
-        ]
-      },
-      {
-        "icon": "fa-solid fa-sitemap",
-        "title": "Cómo pienso",
-        "bullets": [
-          "Primero el usuario, luego el código",
-          "Itero rápido: prototipo → feedback → pulido",
-          "Me gusta dejarlo documentado y mantenible"
-        ]
-      },
-      {
-        "icon": "fa-solid fa-rocket",
-        "title": "Ahora mismo",
-        "bullets": [
-          "Primera oportunidad junior en desarrollo o automatización",
-          "Sevilla o remoto · incorporación inmediata",
-          "Inglés B1 · vehículo propio"
-        ]
-      }
-    ],
-    "chips": [
-      {
-        "icon": "devicon-java-plain",
-        "label": "Java / Spring Boot"
-      },
-      {
-        "icon": "devicon-javascript-plain",
-        "label": "JavaScript"
-      },
-      {
-        "icon": "devicon-postgresql-plain",
-        "label": "PostgreSQL"
-      },
-      {
-        "icon": "devicon-kotlin-plain",
-        "label": "Kotlin"
-      },
-      {
-        "icon": "devicon-csharp-plain",
-        "label": "C# / .NET"
-      }
-    ]
+  "work": {
+    "eyebrow": "Trabajo seleccionado",
+    "title": "Proyectos que demuestran cómo trabajo.",
+    "lead": "Tres casos con alcance, decisiones técnicas y evidencia. Sin rellenar: cada pieza resuelve un problema diferente."
   },
-  "skills": {
-    "title": "Skills",
-    "lead": "Tecnologías aplicadas en proyectos reales y prácticas. Cada repositorio indica su alcance y mejoras pendientes.",
-    "categories": [
-      {
-        "icon": "fa-solid fa-code",
-        "title": "Backend",
-        "items": [
-          {
-            "icon": "devicon-java-plain",
-            "label": "Java / Spring Boot"
-          },
-          {
-            "icon": "devicon-python-plain",
-            "label": "Python"
-          },
-          {
-            "icon": "fa-solid fa-database",
-            "label": "SQL / PostgreSQL"
-          }
-        ]
-      },
-      {
-        "icon": "fa-solid fa-laptop-code",
-        "title": "Web e interfaces",
-        "items": [
-          {
-            "icon": "devicon-html5-plain",
-            "label": "HTML"
-          },
-          {
-            "icon": "devicon-css3-plain",
-            "label": "CSS"
-          },
-          {
-            "icon": "devicon-javascript-plain",
-            "label": "JavaScript"
-          }
-        ]
-      },
-      {
-        "icon": "fa-solid fa-mobile-screen",
-        "title": "Aplicaciones multiplataforma",
-        "items": [
-          {
-            "icon": "devicon-kotlin-plain",
-            "label": "Kotlin / Android"
-          },
-          {
-            "icon": "devicon-firebase-plain",
-            "label": "Firebase Realtime Database"
-          },
-          {
-            "icon": "devicon-csharp-plain",
-            "label": "C# / .NET / Avalonia"
-          }
-        ]
-      },
-      {
-        "icon": "fa-solid fa-gears",
-        "title": "Integración y herramientas",
-        "items": [
-          {
-            "icon": "devicon-git-plain",
-            "label": "Git"
-          },
-          {
-            "icon": "fa-solid fa-gears",
-            "label": "n8n / Make"
-          },
-          {
-            "icon": "fa-solid fa-brain",
-            "label": "Ollama / RAG"
-          },
-          {
-            "icon": "fa-solid fa-diagram-project",
-            "label": "Power Apps / SharePoint"
-          },
-          {
-            "icon": "devicon-salesforce-plain",
-            "label": "Apex · formación"
-          }
-        ]
-      }
-    ]
-  },
-  "projects": {
-    "title": "Proyectos",
-    "psr_labels": {
-      "problem": "Problema",
-      "solution": "Solución",
-      "result": "Resultado"
+  "featured": [
+    {
+      "index": "01 · Knowledge Ops Hub",
+      "title": "Base documental consultable con RAG local.",
+      "summary": "Pipeline local que transforma PDFs en respuestas con fuentes y automatiza la ingesta y los digests con n8n.",
+      "image": "assets/img/projects/knowledge-ops.webp",
+      "image_alt": "Respuesta de Knowledge Ops Hub con fuentes y páginas citadas",
+      "facts": [
+        ["Problema", "Encontrar respuestas trazables entre PDFs, guías y especificaciones."],
+        ["Construí", "API Spring Boot con JWT, PostgreSQL con pgvector, Ollama y flujos n8n."],
+        ["Evidencia", "El endpoint /ask devuelve respuesta, fuentes, páginas y fragmentos." ]
+      ],
+      "links": [["Ver repositorio", "https://github.com/SebiGitHub/knowledge-ops-hub"]]
     },
-    "case_labels": {
-      "problem": "Problema",
-      "solution": "Solución",
-      "result": "Resultado"
+    {
+      "index": "02 · Gestión de protocolos",
+      "title": "Acceso claro a la versión correcta del protocolo.",
+      "summary": "TFG que reconstruye con datos sintéticos el flujo de catálogo, filtrado por perfil y registro de lecturas diseñado con Power Apps y SharePoint.",
+      "image": "assets/img/projects/protocols.webp",
+      "image_alt": "Demo de gestión de protocolos con perfiles y catálogo",
+      "facts": [
+        ["Problema", "Evitar búsquedas manuales entre documentos y versiones dispersas."],
+        ["Construí", "Catálogo, filtrado por servicio y categoría, versiones y registro de lectura."],
+        ["Evidencia", "Demo funcional independiente, Excel sintético y documentación de montaje." ]
+      ],
+      "links": [["Abrir demo", "https://sebigithub.github.io/projects/tfg/"], ["Ver repositorio", "https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD"]]
     },
-    "p1_title": "WEB-DE-PROTOCOLOS-HSJD",
-    "p1_desc": "TFG de gestión de protocolos hospitalarios con Power Apps y SharePoint.",
-    "p1_why": "Proyecto académico centrado en procesos, modelado de datos, integración y control de acceso desde el origen.",
-    "p1_problem": "Los empleados necesitaban encontrar el protocolo correcto (y su versión vigente) sin perderse entre documentos y búsquedas manuales.",
-    "p1_solution": "Diseño de catálogo, filtrado por perfil/servicio, registro de lectura y versiones.",
-    "p1_result": "Demo web interactiva y Excel sintético disponibles. La instalación equivalente en Power Apps y SharePoint está documentada.",
-    "p2_title": "AvaloniaCatalogoWinForms",
-    "p2_desc": "Catálogo de barajas en C#/.NET y Avalonia con persistencia local en JSON.",
-    "p2_why": "Practiqué enlaces de datos, comandos y separación entre modelo, vista y lógica.",
-    "p2_problem": "Practicar la gestión de un catálogo de escritorio y sus datos.",
-    "p2_solution": "MVVM, navegación entre registros, altas y bajas.",
-    "p2_result": "Código y capturas disponibles. Edición, filtros y validación funcional completa pendientes.",
-    "p3_title": "Agenda App",
-    "p3_desc": "Agenda Android para registrar, consultar y eliminar contactos con imágenes.",
-    "p3_why": "Practiqué formularios, listas y operaciones asíncronas con una base de datos remota.",
-    "p3_problem": "Mantener un registro de contactos con teléfono, cumpleaños e imagen.",
-    "p3_solution": "Kotlin, RecyclerView, validaciones y Firebase Realtime Database.",
-    "p3_result": "Alta, consulta y eliminación implementadas. Autenticación, datos por usuario y edición pendientes.",
-    "p4_title": "Realtime Collaborative Bingo Web App",
-    "p4_desc": "Bingo colaborativo web con tablero compartido y tableros personales.",
-    "p4_why": "Antes era “BingoEnvidiosos”. Aquí practiqué sincronización en tiempo real, estados compartidos y UX multiusuario.",
-    "p4_problem": "Coordinar un tablero compartido entre varios usuarios en tiempo real (sin recargas y sin desincronización).",
-    "p4_solution": "HTML, CSS y JavaScript con estado compartido en Firebase Realtime Database.",
-    "p4_result": "Evidencia: proyecto multiusuario en tiempo real (repo con features y estructura).",
-    "p5_title": "Selenium end-to-end",
-    "p5_desc": "Automatización de búsquedas y extracción de información con Java y Selenium.",
-    "p5_why": "Aprendí a localizar elementos y gestionar navegación y esperas.",
-    "p5_problem": "Practicar navegación automatizada y recopilación de resultados web.",
-    "p5_solution": "Programa Java con WebDriver, esperas, capturas y exportación CSV.",
-    "p5_result": "Código disponible. JUnit, Page Objects, CI y Allure no están implementados en este repositorio.",
-    "p6_title": "Kotlin Labs",
-    "p6_desc": "Colección de mini-proyectos en Kotlin para dominar piezas clave: multimedia, concurrencia y persistencia.",
-    "p6_why": "Formato mini-casos: un problema real, una solución concreta y una señal clara de competencia técnica.",
-    "p6_problem": "Aprender conceptos clave de Kotlin/Android sin hacer “mega proyectos” lentos de iterar.",
-    "p6_solution": "Mini-proyectos enfocados: corrutinas (dispatchers/cancelación), multimedia (recursos/ciclo de vida) y persistencia (CRUD).",
-    "p6_result": "Evidencia: 3 repos con features + capturas/documentación por mini-caso.",
-    "p7_title": "Knowledge Ops Hub (RAG local + automatización)",
-    "p7_desc": "Pipeline 100% local para convertir PDFs en una base de conocimiento consultable con RAG (respuestas con citas) y automatizar ingesta y digests con n8n.",
-    "p7_why": "Integro autenticación JWT, persistencia y búsqueda semántica. Las respuestas pueden contener errores; las fuentes ayudan a revisarlas.",
-    "p7_problem": "Cuando acumulas PDFs (guías, apuntes, specs), encontrar respuestas fiables es lento y poco trazable.",
-    "p7_solution": "Stack local con n8n (workflows de ingesta/digest), Spring Boot API (JWT), Postgres + pgvector y Ollama para embeddings y RAG con `sources[]` por página/snippet.",
-    "p7_result": "Evidencia: endpoint `/ask` devuelve respuesta + fuentes/páginas; WF1 procesa PDFs desde `inbox/` y WF2 genera digests en `outbox/` (docs + colección Postman).",
-    "p8_title": "LifeOS System (Notion + Make + Detox)",
-    "p8_desc": "Sistema personal para hábitos + gamificación (XP/HP/rachas) + registro diario + detox digital, con Notion como base y automatización.",
-    "p8_why": "Proyecto grande donde conecto piezas reales (Notion + Make + ntfy + Android) y lo documento para que sea mantenible y robusto.",
-    "p8_problem": "Quería un sistema único para trackear hábitos y detox digital sin depender de apps de pago ni trabajo manual diario.",
-    "p8_solution": "Modelo en Notion + escenario diario en Make para rachas/XP/HP + notificaciones push con ntfy + app Android Detox para exportar CSV por app/categoría.",
-    "p8_result": "Repositorio con documentación de Notion, Make y la app Android. Costes y límites dependen del uso y de los servicios.",
-    "p6_cases": [
-      {
-        "title": "Concurrencia sin bloquear UI (Coroutines)",
-        "problem": "Simular carga/red y actualizar UI sin freeze",
-        "solution": "Coroutines + dispatcher IO/Main + cancelación",
-        "signal": "Entiendo concurrencia y ciclo de vida",
-        "link": "https://github.com/SebiGitHub/Corrutinas"
-      },
-      {
-        "title": "Multimedia",
-        "problem": "Gestionar reproducción/recursos sin romper la experiencia",
-        "solution": "Manejo de estados + control de recursos",
-        "signal": "Entiendo gestión multimedia en app",
-        "link": "https://github.com/SebiGitHub/Multimedia"
-      },
-      {
-        "title": "Persistencia (BBDDProductos)",
-        "problem": "Guardar/consultar productos y reflejar cambios en UI",
-        "solution": "Persistencia local + operaciones CRUD",
-        "signal": "Entiendo datos y persistencia en apps",
-        "link": "https://github.com/SebiGitHub/BBDDProductos"
-      }
+    {
+      "index": "03 · LifeOS System",
+      "title": "Un sistema personal de hábitos que se mantiene solo.",
+      "summary": "Sistema de organización, gamificación y detox digital que conecta Notion, Make, notificaciones y una app Android propia.",
+      "image": "assets/img/projects/lifeos.webp",
+      "image_alt": "Panel principal de LifeOS para hábitos y gamificación",
+      "facts": [
+        ["Problema", "Registrar hábitos y detox digital sin trabajo manual repetitivo ni aplicaciones de pago."],
+        ["Construí", "Modelo en Notion, automatización diaria en Make, ntfy y app Android Detox."],
+        ["Evidencia", "Lógica documentada para rachas, XP, HP, recuperación y exportación CSV." ]
+      ],
+      "links": [["Ver repositorio", "https://github.com/SebiGitHub/lifeos-system"]]
+    }
+  ],
+  "archive": {
+    "eyebrow": "Archivo",
+    "title": "Más proyectos y experimentos",
+    "items": [
+      ["Agenda Android", "Kotlin, Firebase, formularios y persistencia remota.", "https://github.com/SebiGitHub/Agenda"],
+      ["Bingo colaborativo", "Estado compartido en tiempo real con Firebase.", "https://github.com/SebiGitHub/Realtime-Collaborative-Bingo-Web-App"],
+      ["Catálogo Avalonia", "C#/.NET, MVVM y persistencia JSON local.", "https://github.com/SebiGitHub/AvaloniaCatalogoWinForms"],
+      ["Kotlin Labs", "Corrutinas, multimedia y persistencia en mini-casos.", "https://github.com/SebiGitHub/Corrutinas"],
+      ["Selenium end-to-end", "Navegación, extracción, capturas y CSV en Java.", "https://github.com/SebiGitHub/Selenium-end-to-end"]
     ]
   },
-  "xp": {
-    "title": "Experiencia y formación",
-    "lead": "Prácticas, proyectos académicos y formación complementaria.",
-    "timeline": [
-      {
-        "title": "Prácticas DAM — Hospital San Juan de Dios",
-        "meta": "Marzo–junio de 2025 · Prácticas IT",
-        "bullets": [
-          "Soporte a usuarios y resolución de incidencias de hardware y software",
-          "Gestión de inventario y documentación de procedimientos"
-        ],
-        "tech": [
-          "fa-solid fa-diagram-project",
-          "fa-solid fa-database",
-          "fa-solid fa-file-excel"
-        ]
-      },
-      {
-        "title": "TFG — WEB-DE-PROTOCOLOS-HSJD",
-        "meta": "2025 · Proyecto académico de DAM",
-        "bullets": [
-          "Diseño de una solución con Power Apps y SharePoint",
-          "Catálogo, lectura y control de versiones de protocolos",
-          "Demo pública disponible con datos ficticios y documentación técnica"
-        ],
-        "tech": [
-          "fa-solid fa-puzzle-piece",
-          "devicon-github-original",
-          "fa-solid fa-wand-magic-sparkles"
-        ]
-      },
-      {
-        "title": "Salesforce: Developing Apps in APEX 2025",
-        "meta": "2025 · Curso de 60 h · Cloud Coachers",
-        "bullets": [
-          "Formación en desarrollo con Apex"
-        ],
-        "tech": [
-          "devicon-salesforce-plain",
-          "fa-solid fa-vial",
-          "fa-solid fa-layer-group"
-        ]
-      },
-      {
-        "title": "Teleoperador — Konecta",
-        "meta": "2023 · Atención al cliente",
-        "bullets": [
-          "Gestión de incidencias y documentación en CRM",
-          "Comunicación con usuarios no técnicos",
-          "Trabajo con objetivos y presión"
-        ],
-        "tech": [
-          "fa-solid fa-headset",
-          "fa-solid fa-file-lines",
-          "fa-solid fa-people-arrows"
-        ]
-      },
-      {
-        "title": "Diseñador web voluntario — Asociación ADCA",
-        "meta": "2025 · WordPress",
-        "bullets": [
-          "Creación de un sitio informativo y organización de contenidos y navegación"
-        ],
-        "tech": [
-          "devicon-wordpress-plain"
-        ]
-      }
+  "profile": {
+    "eyebrow": "Perfil",
+    "title": "Hago que la tecnología sea más útil y manejable.",
+    "intro": "Técnico Superior en DAM con experiencia práctica en soporte IT, desarrollo de soluciones internas y documentación. Me interesa el punto donde una aplicación deja de ser solo código y empieza a ahorrar trabajo a alguien.",
+    "principles": [
+      ["Empiezo por la utilidad", "Primero entiendo el proceso, los datos y a la persona que usará la solución."],
+      ["Conecto piezas reales", "Backend, automatización, datos y una interfaz clara cuando el problema lo necesita."],
+      ["Lo dejo documentado", "Diseño pensando en que se pueda revisar, mantener y mejorar después."]
     ]
   },
-  "cv": {
-    "title": "Mi CV",
-    "body": "Descarga mi CV actualizado en PDF.",
-    "btn_es": "Descargar CV (ES)",
-    "btn_en": "Descargar CV (EN)"
+  "capabilities": {
+    "eyebrow": "Tecnologías aplicadas",
+    "title": "Stack con contexto, no una lista de niveles.",
+    "items": [
+      ["Backend y datos", "Java, Spring Boot, SQL, PostgreSQL, pgvector y JWT."],
+      ["Automatización", "n8n, Make, flujos HTTP, integración documental y notificaciones."],
+      ["Aplicaciones", "JavaScript, Kotlin/Android, Firebase, C#/.NET y Avalonia."],
+      ["Herramientas", "Git, Docker, Power Apps, SharePoint, Ollama y RAG local."]
+    ]
+  },
+  "trajectory": {
+    "eyebrow": "Trayectoria",
+    "title": "Aprender, aplicar y dejarlo mejor documentado.",
+    "items": [
+      ["Diseñador web freelance · Asociación ADCA", "Web informativa en WordPress para organizar contenidos y mejorar la navegación.", "2026"],
+      ["Prácticas IT · Hospital San Juan de Dios", "Resolución de incidencias, inventario tecnológico y documentación de procedimientos.", "2025"],
+      ["DAM Bilingüe · IES Majuelo", "Técnico Superior en Desarrollo de Aplicaciones Multiplataforma.", "2023–2025"],
+      ["Salesforce · Developing Apps in Apex", "Formación de 60 horas orientada al desarrollo con Apex.", "2025"]
+    ]
+  },
+  "resume": {
+    "eyebrow": "Currículum",
+    "title": "La versión detallada, siempre a un clic.",
+    "es": "CV en español",
+    "en": "CV in English"
   },
   "contact": {
-    "subtitle": "¿Necesitas automatizar un proceso interno o crear una aplicación? Escríbeme.",
-    "linkedin_value": "Ver perfil",
-    "github_value": "Ver repositorios",
-    "form_name": "Nombre",
-    "form_email": "Email",
-    "form_message": "Mensaje",
-    "form_button": "Preparar correo",
-    "form_note": "Se abrirá tu aplicación de correo. Revisa y envía el mensaje desde allí.",
-    "title": "Contacto"
-  }
+    "eyebrow": "Contacto",
+    "title": "¿Hablamos de lo que podemos construir?",
+    "lead": "Estoy abierto a oportunidades de desarrollo, automatización y soporte de aplicaciones.",
+    "email_label": "Email",
+    "linkedin": "Ver perfil",
+    "github": "Explorar repositorios"
+  },
+  "footer": { "back": "Volver arriba ↑" }
 }

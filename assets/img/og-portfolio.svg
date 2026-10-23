@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#F5F5EF"/>
+  <path d="M890 45c192 34 324 146 268 328-50 160-240 252-431 206-192-47-251-212-159-374 75-132 173-183 322-160Z" fill="#D7F0E2"/>
+  <path d="M940 89c117 58 180 155 113 270-63 108-199 161-314 112-113-49-140-163-72-264 62-92 163-177 273-128Z" fill="#EAE4FA"/>
+  <g fill="none" stroke="#187054" stroke-width="5" stroke-dasharray="13 14" opacity=".75">
+    <path d="M755 320c68-142 144-124 168-20 21 89 118 98 177-18"/>
+    <path d="M755 320c88 125 216 145 345-38" stroke="#7460B6" stroke-width="3"/>
+  </g>
+  <g stroke="#fff" stroke-width="11">
+    <circle cx="755" cy="320" r="48" fill="#8DDFC0"/>
+    <circle cx="923" cy="300" r="67" fill="#187054"/>
+    <circle cx="1100" cy="282" r="48" fill="#F0C75E"/>
+    <circle cx="924" cy="440" r="35" fill="#7460B6"/>
+  </g>
+  <g fill="#fff"><path d="M886 296c19-38 61-36 76 0 14 36-30 65-54 93-24-28-52-57-22-93Zm-67 101c39-16 68 16 49 49-20 33-67 16-101 4 32-12 16-35 52-53Zm194 0c36 18 20 41 52 53-34 12-81 29-101-4-19-33 10-65 49-49Zm-102 82c15-33 56-33 71 0 15 32-18 61-35 86-17-25-51-54-36-86Z"/></g>
+  <text x="76" y="106" fill="#187054" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" letter-spacing="4">PORTFOLIO · 2026</text>
+  <text x="76" y="245" fill="#10251F" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="700">Sebastián</text>
+  <text x="76" y="330" fill="#10251F" font-family="Arial, Helvetica, sans-serif" font-size="78" font-weight="700">Expósito Ruiz.</text>
+  <text x="80" y="406" fill="#263D36" font-family="Arial, Helvetica, sans-serif" font-size="30">Desarrollo Full-Stack · Automatización e IA aplicada</text>
+  <text x="80" y="505" fill="#61736D" font-family="Arial, Helvetica, sans-serif" font-size="25">Herramientas útiles para ordenar información y resolver problemas reales.</text>
+</svg>
