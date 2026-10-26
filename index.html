@@ -24,7 +24,27 @@
   <meta name="twitter:title" content="Sebastián Expósito Ruiz · Desarrollo Full-Stack y automatización">
   <meta name="twitter:description" content="Herramientas útiles para ordenar información, automatizar procesos y resolver problemas reales.">
   <meta name="twitter:image" content="https://sebigithub.github.io/assets/img/og-portfolio.png">
-  <link rel="stylesheet" href="assets/css/styles.css?v=20261023-2">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sebastián Expósito Ruiz",
+      "url": "https://sebigithub.github.io/",
+      "jobTitle": "Desarrollador Full-Stack",
+      "email": "mailto:sebitaexporu@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Sevilla",
+        "addressCountry": "ES"
+      },
+      "sameAs": [
+        "https://github.com/SebiGitHub",
+        "https://www.linkedin.com/in/sebastian-exposito-ruiz/"
+      ],
+      "knowsAbout": ["Java", "Spring Boot", "SQL", "Automatización", "Desarrollo Full-Stack"]
+    }
+  </script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=20261026-1">
 </head>
 
 <body>
@@ -70,14 +90,14 @@
 
       <aside class="hero-process" aria-labelledby="process-title">
         <p class="eyebrow" id="process-title" data-i18n="hero.process.label">Cómo trabajo</p>
-        <div class="process-canvas" id="hero-process" aria-describedby="process-detail">
-          <button class="process-step is-active" type="button" data-process-index="0" aria-pressed="true"><span class="process-dot"></span><span>Entender</span></button>
-          <button class="process-step" type="button" data-process-index="1" aria-pressed="false"><span class="process-dot"></span><span>Diseñar</span></button>
-          <button class="process-step" type="button" data-process-index="2" aria-pressed="false"><span class="process-dot"></span><span>Construir</span></button>
-          <button class="process-step" type="button" data-process-index="3" aria-pressed="false"><span class="process-dot"></span><span>Mejorar</span></button>
+        <div class="process-canvas" id="hero-process" role="tablist" aria-label="Pasos de trabajo">
+          <button class="process-step is-active" id="process-tab-0" type="button" data-process-index="0" role="tab" aria-selected="true" aria-controls="process-detail"><span class="process-dot"></span><span>Entender</span></button>
+          <button class="process-step" id="process-tab-1" type="button" data-process-index="1" role="tab" aria-selected="false" aria-controls="process-detail" tabindex="-1"><span class="process-dot"></span><span>Diseñar</span></button>
+          <button class="process-step" id="process-tab-2" type="button" data-process-index="2" role="tab" aria-selected="false" aria-controls="process-detail" tabindex="-1"><span class="process-dot"></span><span>Construir</span></button>
+          <button class="process-step" id="process-tab-3" type="button" data-process-index="3" role="tab" aria-selected="false" aria-controls="process-detail" tabindex="-1"><span class="process-dot"></span><span>Mejorar</span></button>
           <div class="process-core" aria-hidden="true"><img src="assets/img/brand-mark.svg" width="86" height="86" alt=""></div>
         </div>
-        <p class="process-detail" id="process-detail">Antes de escribir código, aclaro el proceso, los datos y la necesidad real.</p>
+        <p class="process-detail" id="process-detail" role="tabpanel" tabindex="0" aria-labelledby="process-tab-0">Antes de escribir código, aclaro el proceso, los datos y la necesidad real.</p>
         <p class="process-hint" data-i18n="hero.process.hint">Pasa el cursor o pulsa un paso para explorarlo.</p>
       </aside>
     </section>
@@ -136,6 +156,6 @@
   </main>
 
   <footer class="footer shell"><img src="assets/img/brand-mark.svg" width="24" height="24" alt="" aria-hidden="true"><span>© <span id="year"></span> Sebastián Expósito Ruiz</span><a href="#top" data-i18n="footer.back">Volver arriba ↑</a></footer>
-  <script src="assets/js/app.js?v=20261023-2"></script>
+  <script src="assets/js/app.js?v=20261026-1"></script>
 </body>
 </html>

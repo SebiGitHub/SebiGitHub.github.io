@@ -39,15 +39,34 @@ function setStaticCopy() {
   });
 }
 
+function setupTabs(container, selector, select) {
+  const tabs = Array.from(container.querySelectorAll(selector));
+  tabs.forEach((tab, index) => {
+    tab.addEventListener("keydown", (event) => {
+      const last = tabs.length - 1;
+      let next = null;
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") next = index === last ? 0 : index + 1;
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") next = index === 0 ? last : index - 1;
+      if (event.key === "Home") next = 0;
+      if (event.key === "End") next = last;
+      if (next === null) return;
+      event.preventDefault();
+      select(next);
+      tabs[next].focus();
+    });
+  });
+}
+
 function renderProjectMedia(project) {
   const items = Array.isArray(project.media?.items) && project.media.items.length
     ? project.media.items
     : [["Preview", project.image, project.image_alt]];
   const label = project.media?.label || project.title;
-  const images = items.map(([name, source, alt], index) => `<img class="${index === 0 ? "is-active" : ""}" src="${escapeHTML(source)}" width="1600" height="1000" decoding="async" alt="${escapeHTML(alt)}">`).join("");
-  const controls = items.map(([name], index) => `<button class="project-media-control" type="button" data-media-index="${index}" aria-selected="${index === 0}" aria-label="${escapeHTML(name)}">${escapeHTML(name)}</button>`).join("");
+  const id = `project-media-${project.id}`;
+  const images = items.map(([name, source, alt], index) => `<img class="${index === 0 ? "is-active" : ""}" src="${escapeHTML(source)}" width="1600" height="1000" loading="lazy" decoding="async" alt="${escapeHTML(alt)}">`).join("");
+  const controls = items.map(([name], index) => `<button class="project-media-control" id="${id}-tab-${index}" type="button" data-media-index="${index}" role="tab" aria-selected="${index === 0}" aria-controls="${id}-panel" tabindex="${index === 0 ? "0" : "-1"}">${escapeHTML(name)}</button>`).join("");
   return `<figure class="project-media" data-project-media>
-    <div class="project-media-stage">${images}</div>
+    <div class="project-media-stage" id="${id}-panel" role="tabpanel" tabindex="0" aria-labelledby="${id}-tab-0">${images}</div>
     ${items.length > 1 ? `<div class="project-media-controls" role="tablist" aria-label="${escapeHTML(label)}">${controls}</div>` : ""}
     <figcaption class="project-media-caption" aria-live="polite">${escapeHTML(items[0][2])}</figcaption>
   </figure>`;
@@ -60,9 +79,14 @@ function setupProjectMedia() {
     const select = (index) => {
       images.forEach((image, imageIndex) => image.classList.toggle("is-active", imageIndex === index));
       media.querySelectorAll("[data-media-index]").forEach((control) => {
-        control.setAttribute("aria-selected", String(Number(control.dataset.mediaIndex) === index));
+        const isActive = Number(control.dataset.mediaIndex) === index;
+        control.setAttribute("aria-selected", String(isActive));
+        control.tabIndex = isActive ? 0 : -1;
       });
       if (caption && images[index]) caption.textContent = images[index].alt;
+      const panel = media.querySelector('[role="tabpanel"]');
+      const activeControl = media.querySelector(`[data-media-index="${index}"]`);
+      if (panel && activeControl) panel.setAttribute("aria-labelledby", activeControl.id);
     };
     media.querySelectorAll("[data-media-index]").forEach((control) => {
       const selectCurrent = () => select(Number(control.dataset.mediaIndex));
@@ -70,6 +94,7 @@ function setupProjectMedia() {
       control.addEventListener("focus", selectCurrent);
       control.addEventListener("pointerenter", selectCurrent);
     });
+    setupTabs(media, "[data-media-index]", select);
   });
 }
 
@@ -101,8 +126,13 @@ function renderHeroProcess() {
   const process = state.dictionary.hero?.process;
   if (!container || !detail || !process?.steps?.length) return;
 
-  container.innerHTML = `${process.steps.map(([title], index) => `<button class="process-step ${index === 0 ? "is-active" : ""}" type="button" data-process-index="${index}" aria-pressed="${index === 0}"><span class="process-dot"></span><span>${escapeHTML(title)}</span></button>`).join("")}<div class="process-core" aria-hidden="true"><img src="assets/img/brand-mark.svg" width="86" height="86" alt=""></div>`;
+  container.setAttribute("role", "tablist");
+  container.setAttribute("aria-label", process.label);
+  container.innerHTML = `${process.steps.map(([title], index) => `<button class="process-step ${index === 0 ? "is-active" : ""}" id="process-tab-${index}" type="button" data-process-index="${index}" role="tab" aria-selected="${index === 0}" aria-controls="process-detail" tabindex="${index === 0 ? "0" : "-1"}"><span class="process-dot"></span><span>${escapeHTML(title)}</span></button>`).join("")}<div class="process-core" aria-hidden="true"><img src="assets/img/brand-mark.svg" width="86" height="86" alt=""></div>`;
   detail.textContent = process.steps[0][1];
+  detail.setAttribute("role", "tabpanel");
+  detail.setAttribute("tabindex", "0");
+  detail.setAttribute("aria-labelledby", "process-tab-0");
   if (hint) hint.textContent = process.hint;
   const select = (index) => {
     const [, description] = process.steps[index] || [];
@@ -110,9 +140,11 @@ function renderHeroProcess() {
     container.querySelectorAll("[data-process-index]").forEach((step) => {
       const isActive = Number(step.dataset.processIndex) === index;
       step.classList.toggle("is-active", isActive);
-      step.setAttribute("aria-pressed", String(isActive));
+      step.setAttribute("aria-selected", String(isActive));
+      step.tabIndex = isActive ? 0 : -1;
     });
     detail.textContent = description;
+    detail.setAttribute("aria-labelledby", `process-tab-${index}`);
   };
   container.querySelectorAll("[data-process-index]").forEach((step) => {
     const selectCurrent = () => select(Number(step.dataset.processIndex));
@@ -120,6 +152,7 @@ function renderHeroProcess() {
     step.addEventListener("focus", selectCurrent);
     step.addEventListener("pointerenter", selectCurrent);
   });
+  setupTabs(container, "[data-process-index]", select);
 }
 
 function renderArchive() {
@@ -185,23 +218,26 @@ function setupMenu() {
   const overlay = document.getElementById("nav-overlay");
   if (!button || !links || !overlay) return;
 
-  const close = () => {
+  const close = ({ restoreFocus = false } = {}) => {
     links.classList.remove("is-open");
     overlay.hidden = true;
     button.setAttribute("aria-expanded", "false");
+    button.setAttribute("aria-label", "Abrir menú");
+    if (restoreFocus) button.focus();
   };
   const open = () => {
     links.classList.add("is-open");
     overlay.hidden = false;
     button.setAttribute("aria-expanded", "true");
+    button.setAttribute("aria-label", "Cerrar menú");
+    links.querySelector("a, button")?.focus();
   };
-  button.addEventListener("click", () => links.classList.contains("is-open") ? close() : open());
-  overlay.addEventListener("click", close);
+  button.addEventListener("click", () => links.classList.contains("is-open") ? close({ restoreFocus: true }) : open());
+  overlay.addEventListener("click", () => close({ restoreFocus: true }));
   links.querySelectorAll("a").forEach((link) => link.addEventListener("click", close));
   window.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && links.classList.contains("is-open")) {
-      close();
-      button.focus();
+      close({ restoreFocus: true });
     }
   });
 }

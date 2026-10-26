@@ -36,6 +36,7 @@
   },
   "featured": [
     {
+      "id": "knowledge-ops",
       "index": "01 · Knowledge Ops Hub",
       "title": "Base documental consultable con RAG local.",
       "summary": "Pipeline local que transforma PDFs en respuestas con fuentes y automatiza la ingesta y los digests con n8n.",
@@ -56,6 +57,7 @@
       "links": [["Ver repositorio", "https://github.com/SebiGitHub/knowledge-ops-hub"]]
     },
     {
+      "id": "protocolos",
       "index": "02 · Gestión de protocolos",
       "title": "Acceso claro a la versión correcta del protocolo.",
       "summary": "TFG que reconstruye con datos sintéticos el flujo de catálogo, filtrado por perfil y registro de lecturas diseñado con Power Apps y SharePoint.",
@@ -69,6 +71,7 @@
       "links": [["Abrir demo", "https://sebigithub.github.io/projects/tfg/"], ["Ver repositorio", "https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD"]]
     },
     {
+      "id": "lifeos",
       "index": "03 · LifeOS System",
       "title": "Un sistema personal de hábitos en evolución.",
       "summary": "Sistema de organización, gamificación y detox digital que conecta Notion, Make, notificaciones y una app Android propia.",

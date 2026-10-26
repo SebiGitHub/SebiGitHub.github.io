@@ -12,20 +12,33 @@ for (const width of [360, 768, 1440]) {
     await expect(page.locator("#featured-projects article")).toHaveCount(3);
     await expect(page.locator("#project-archive .archive-item")).toHaveCount(5);
     await expect(page.locator("#hero-process [data-process-index]")).toHaveCount(4);
+    await expect(page.locator('#hero-process [role="tab"][aria-selected="true"]')).toHaveCount(1);
     await page.locator('#hero-process [data-process-index="2"]').click();
     await expect(page.locator("#process-detail")).toContainText("Combino");
+    await expect(page.locator("#process-detail")).toHaveAttribute("aria-labelledby", "process-tab-2");
+    await page.locator('#hero-process [data-process-index="2"]').press("ArrowRight");
+    await expect(page.locator('#hero-process [data-process-index="3"]')).toHaveAttribute("aria-selected", "true");
     await expect(page.locator("#featured-projects [data-project-media]").first().locator("[data-media-index]")).toHaveCount(2);
     await page.locator("#featured-projects [data-project-media]").first().locator('[data-media-index="1"]').click();
     await expect(page.locator("#featured-projects [data-project-media]").first().locator("img.is-active")).toHaveAttribute("src", /knowledge-ops-answer/);
+    await expect(page.locator("#featured-projects [data-project-media]").first().locator('[role="tabpanel"]')).toHaveAttribute("aria-labelledby", "project-media-knowledge-ops-tab-1");
     await expect(page.locator("body")).not.toContainText(/junior/i);
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBeTruthy();
 
-    if (width <= 860) await page.locator("#nav-toggle").click();
+    if (width <= 860) {
+      await page.locator("#nav-toggle").click();
+      await expect(page.locator("#nav-toggle")).toHaveAttribute("aria-label", "Cerrar menú");
+      await expect(page.locator("#nav-links a").first()).toBeFocused();
+    }
     await page.locator("#lang-toggle").click();
     await expect(page.locator("html")).toHaveAttribute("lang", "en");
     await expect(page.locator("#contact h2")).toContainText("Shall we talk");
     await expect(page.locator("#featured-projects article")).toHaveCount(3);
-    if (width <= 860) await page.keyboard.press("Escape");
+    if (width <= 860) {
+      await page.keyboard.press("Escape");
+      await expect(page.locator("#nav-toggle")).toBeFocused();
+      await expect(page.locator("#nav-toggle")).toHaveAttribute("aria-label", "Abrir menú");
+    }
 
     await page.locator("#featured-projects article").last().scrollIntoViewIfNeeded();
     await expect.poll(() => page.locator("#featured-projects img").evaluateAll((images) => images.every((image) => image.complete && image.naturalWidth > 0))).toBeTruthy();
@@ -52,8 +65,10 @@ test("internal links, key metadata and custom 404 resolve", async ({ page, reque
   await expect(page.locator("#main-content")).toBeFocused();
   await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /og-portfolio\.png/);
   await expect(page.locator('link[rel="icon"]')).toHaveAttribute("href", /brand-mark\.svg/);
+  const personSchema = await page.locator('script[type="application/ld+json"]').textContent();
+  expect(JSON.parse(personSchema)).toMatchObject({ "@type": "Person", name: "Sebastián Expósito Ruiz" });
 
-  for (const href of ["/assets/img/og-portfolio.png", "/assets/img/brand-mark.svg", "/assets/img/projects/knowledge-ops-login.webp", "/assets/img/projects/knowledge-ops-answer.webp", "/assets/img/projects/protocols-demo.webp", "/assets/img/projects/lifeos-home.webp", "/assets/img/projects/lifeos-automation.webp", "/404.html", "/projects/tfg/"]) {
+  for (const href of ["/assets/img/og-portfolio.png", "/assets/img/brand-mark.svg", "/assets/img/projects/knowledge-ops-login.webp", "/assets/img/projects/knowledge-ops-answer.webp", "/assets/img/projects/protocols-demo.webp", "/assets/img/projects/lifeos-home.webp", "/assets/img/projects/lifeos-automation.webp", "/robots.txt", "/sitemap.xml", "/404.html", "/projects/tfg/"]) {
     expect((await request.get(href)).ok()).toBeTruthy();
   }
 });

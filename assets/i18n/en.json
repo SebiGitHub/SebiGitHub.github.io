@@ -36,6 +36,7 @@
   },
   "featured": [
     {
+      "id": "knowledge-ops",
       "index": "01 · Knowledge Ops Hub",
       "title": "A local RAG-powered knowledge base for documents.",
       "summary": "A local pipeline that turns PDFs into cited answers and automates ingestion and digests with n8n.",
@@ -56,6 +57,7 @@
       "links": [["View repository", "https://github.com/SebiGitHub/knowledge-ops-hub"]]
     },
     {
+      "id": "protocols",
       "index": "02 · Protocol management",
       "title": "Clear access to the correct protocol version.",
       "summary": "Final DAM project that recreates, with synthetic data, a catalogue, role-filtering and reading-log flow designed with Power Apps and SharePoint.",
@@ -69,6 +71,7 @@
       "links": [["Open demo", "https://sebigithub.github.io/projects/tfg/"], ["View repository", "https://github.com/SebiGitHub/WEB-DE-PROTOCOLOS-HSJD"]]
     },
     {
+      "id": "lifeos",
       "index": "03 · LifeOS System",
       "title": "A personal habit system in progress.",
       "summary": "A productivity, gamification and digital detox system connecting Notion, Make, notifications and a custom Android app.",
