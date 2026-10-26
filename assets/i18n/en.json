@@ -39,7 +39,7 @@
       "id": "knowledge-ops",
       "index": "01 · Knowledge Ops Hub",
       "title": "A local RAG-powered knowledge base for documents.",
-      "summary": "A local pipeline that turns PDFs into cited answers and automates ingestion and digests with n8n.",
+      "summary": "An operational local pipeline that turns PDFs into cited answers and automates ingestion and digests with n8n.",
       "image": "assets/img/projects/knowledge-ops-answer.webp",
       "image_alt": "Knowledge Ops Hub response with retrieved sources",
       "media": {
@@ -52,7 +52,7 @@
       "facts": [
         ["Problem", "Finding traceable answers among PDFs, guides and specifications."],
         ["Built", "A Spring Boot API with JWT, PostgreSQL plus pgvector, Ollama and n8n workflows."],
-        ["Evidence", "The /ask endpoint returns an answer, sources, pages and snippets."]
+        ["Evidence", "Working local demo: web interface, PDF uploads and queries with sources and pages."]
       ],
       "links": [["View repository", "https://github.com/SebiGitHub/knowledge-ops-hub"]]
     },
@@ -73,8 +73,8 @@
     {
       "id": "lifeos",
       "index": "03 · LifeOS System",
-      "title": "A personal habit system in progress.",
-      "summary": "A productivity, gamification and digital detox system connecting Notion, Make, notifications and a custom Android app.",
+      "title": "An active personal habit system, still evolving.",
+      "summary": "An active personal organisation, gamification and digital detox system connecting Notion, Make, notifications and a custom Android app.",
       "image": "assets/img/projects/lifeos-home.webp",
       "image_alt": "LifeOS home dashboard for habits and gamification",
       "media": {
@@ -87,7 +87,7 @@
       "facts": [
         ["Problem", "Tracking habits and digital detox without repetitive manual work or paid apps."],
         ["Built", "A Notion model, daily Make automation, ntfy and an Android Detox app."],
-        ["Status", "A personal case in progress with documented logic for streaks, XP, HP, recovery and CSV exports."]
+        ["Operational", "A working daily-use system with documented streaks, XP, HP, recovery and CSV export."]
       ],
       "links": [["View repository", "https://github.com/SebiGitHub/lifeos-system"]]
     }

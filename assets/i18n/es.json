@@ -39,7 +39,7 @@
       "id": "knowledge-ops",
       "index": "01 · Knowledge Ops Hub",
       "title": "Base documental consultable con RAG local.",
-      "summary": "Pipeline local que transforma PDFs en respuestas con fuentes y automatiza la ingesta y los digests con n8n.",
+      "summary": "Pipeline local operativo que transforma PDFs en respuestas con fuentes y automatiza la ingesta y los digests con n8n.",
       "image": "assets/img/projects/knowledge-ops-answer.webp",
       "image_alt": "Respuesta de Knowledge Ops Hub con fuentes recuperadas",
       "media": {
@@ -52,7 +52,7 @@
       "facts": [
         ["Problema", "Encontrar respuestas trazables entre PDFs, guías y especificaciones."],
         ["Construí", "API Spring Boot con JWT, PostgreSQL con pgvector, Ollama y flujos n8n."],
-        ["Evidencia", "El endpoint /ask devuelve respuesta, fuentes, páginas y fragmentos." ]
+        ["Evidencia", "Demo local operativa: interfaz web, carga de PDFs y consultas con fuentes y páginas." ]
       ],
       "links": [["Ver repositorio", "https://github.com/SebiGitHub/knowledge-ops-hub"]]
     },
@@ -73,8 +73,8 @@
     {
       "id": "lifeos",
       "index": "03 · LifeOS System",
-      "title": "Un sistema personal de hábitos en evolución.",
-      "summary": "Sistema de organización, gamificación y detox digital que conecta Notion, Make, notificaciones y una app Android propia.",
+      "title": "Un sistema personal de hábitos, activo y en evolución.",
+      "summary": "Sistema personal activo de organización, gamificación y detox digital que conecta Notion, Make, notificaciones y una app Android propia.",
       "image": "assets/img/projects/lifeos-home.webp",
       "image_alt": "Panel principal de LifeOS para hábitos y gamificación",
       "media": {
@@ -87,7 +87,7 @@
       "facts": [
         ["Problema", "Registrar hábitos y detox digital sin trabajo manual repetitivo ni aplicaciones de pago."],
         ["Construí", "Modelo en Notion, automatización diaria en Make, ntfy y app Android Detox."],
-        ["Estado", "Caso personal en evolución: lógica documentada para rachas, XP, HP, recuperación y exportación CSV." ]
+        ["Operativo", "Sistema funcional de uso diario con rachas, XP, HP, recuperación y exportación CSV documentados." ]
       ],
       "links": [["Ver repositorio", "https://github.com/SebiGitHub/lifeos-system"]]
     }
